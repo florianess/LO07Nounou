@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Nounou Formulaire</title>
 </head>
 <body>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <!-- Compiled and minified JavaScript -->
-
   <div class="container">
     <h1 class="center"> Formulaire d'incription </h1>
-    <form class="col s12">
+    <form class="col s12" method="get" action="">
       <div class="row">
         <div class="input-field col s6">
-          <input id="nom" type="text" class="validate" name ="Nom">
+          <input id="nom" type="text" class="validate" name ="nom">
           <label for="nom">Nom</label>
         </div>
         <div class="input-field col s6">
-          <input id="prenom" type="text" class="validate" name ="Prénom">
+          <input id="prenom" type="text" class="validate" name ="prénom">
           <label for="prenom">Prénom</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="email" type="email" class="validate" name ="Email">
+          <input id="email" type="email" class="validate" name ="email">
           <label for="email">Email</label>
         </div>
         <div class="input-field col s6">
-          <input id="portable" type="text" class="validate" name ="Portable">
+          <input id="portable" type="text" class="validate" name ="portable">
           <label for="portable">Portable</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="age" type="number" class="validate" name ="Age">
+          <input id="age" type="number" class="validate" name ="age">
           <label for="age">Age</label>
         </div>
         <div class="input-field col s6">
-          <input id="ville" type="text" class="validate" name ="Ville">
+          <input id="ville" type="text" class="validate" name ="ville">
           <label for="ville">Ville</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <select id='langue' multiple name ="Langues">
+          <select id='langue' multiple name ="langues[]">
             <option value="" disabled selected>Choix des langues</option>
             <option value="1">Anglais</option>
             <option value="2">Espagnol</option>
@@ -56,7 +55,7 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <select id='exp' name = "Expérience">
+          <select id='exp' name = "experience">
             <option value="" disabled selected>Expérience</option>
             <option value="1">Débutant.e</option>
             <option value="2">Occasionnel.le</option>
@@ -65,18 +64,30 @@
           <label>Niveau d'expérience</label>
         </div>
         <div class="input-field col s6">
-          <input id="presentation" type="text" class="validate" name ="Présentation">
+          <input id="presentation" type="text" class="validate" name ="presentation">
           <label for="presentation">Présentation</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s6">
-          <label for="photo">Photo</label>
-          <input id="photo" type="file" class="validate" name ="Photo">
+        <div class="file-field input-field col s6">
+          <div class="btn">
+            <span>Photo</span>
+            <input type="file" name="photo">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
         </div>
         <div class="input-field col s6">
-          <input id="avis" type="text" class="validate" name ="Avis">
+          <input id="avis" type="text" class="validate" name ="avis">
           <label for="avis">Avis</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <button class="btn-large waves-effect waves-light" type="submit">Submit
+            <i class="material-icons right">send</i>
+          </button>
         </div>
       </div>
     </form>
