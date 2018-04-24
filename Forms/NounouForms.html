@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nounou Formulaire</title>
+</head>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+
+  <div class="container">
+    <h1 class="center"> Formulaire d'incription </h1>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="nom" type="text" class="validate">
+          <label for="nom">Nom</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="prenom" type="text" class="validate">
+          <label for="prenom">Prénom</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="portable" type="text" class="validate">
+          <label for="portable">Portable</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="age" type="number" class="validate">
+          <label for="age">Age</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="ville" type="text" class="validate">
+          <label for="ville">Ville</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select id='langue' multiple>
+            <option value="" disabled selected>Choix des langues</option>
+            <option value="1">Anglais</option>
+            <option value="2">Espagnol</option>
+            <option value="3">Allemand</option>
+          </select>
+          <label>Langues parlées</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <select id='exp'>
+            <option value="" disabled selected>Expérience</option>
+            <option value="1">Débutant.e</option>
+            <option value="2">Occasionnel.le</option>
+            <option value="3">Expérimenté.e</option>
+          </select>
+          <label>Niveau d'expérience</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="presentation" type="text" class="validate">
+          <label for="presentation">Présentation</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="photo">Photo</label>
+          <input id="photo" type="file" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <input id="avis" type="text" class="validate">
+          <label for="avis">Avis</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/FormNounou.js"></script>
+</body>
+</html>
