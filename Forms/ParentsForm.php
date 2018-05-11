@@ -33,7 +33,7 @@ $text = <<<END
 END;
 
 
-
+debutPagehtml();
 echo "<h2  class='center'> Vos infos : </h2> <ul>";
 foreach ($_POST as $key => $value) {
   echo "<li>" . $key . " : ";
@@ -60,9 +60,9 @@ echo $text;
 
 }
 
-function debutForm(){
-echo("
-  <!DOCTYPE html>
+
+function debutPagehtml(){
+  echo("<!DOCTYPE html>
   <html lang='fr' dir='ltr'>
     <head>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'>
@@ -75,10 +75,15 @@ echo("
     </head>
     <body>
     <div class='container'>
-      <h1 class='center'> Informations sur vos enfants</h1>
-    </br>
-  </br>
-      <form class='col s12' method='post' action=''>");
+      ");
+}
+
+
+function debutForm(){
+echo("<h1 class='center'> Informations sur vos enfants</h1>
+</br>
+</br>
+<form class='col s12' method='post' action=''>");
 }
 
 function finForm(){
