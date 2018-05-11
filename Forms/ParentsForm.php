@@ -115,7 +115,7 @@ $text = <<<END
 
 END;
 
-if(isset($_POST["Nombre_d'enfants"]) && $_POST["Nombre_d'enfants"]>0 && isset($_POST["Nom"]) && isset($_POST["Prénom"]) && isset($_POST["Portable"]) && isset($_POST["Ville"] && isset($_POST["Email"]))){
+if(isset($_POST["Nombre_d'enfants"]) && $_POST["Nombre_d'enfants"]>0 && isset($_POST["Nom"]) && isset($_POST["Prénom"]) && isset($_POST["Portable"]) && isset($_POST["Ville"]) && isset($_POST["Email"])){
 debutPagehtml();
 echo "<h2  class='center'> Vos infos : </h2> <ul>";
 foreach ($_POST as $key => $value) {
