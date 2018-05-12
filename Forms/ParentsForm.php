@@ -106,6 +106,17 @@ $text = <<<END
     </div>
     <div class="row">
       <div class="input-field col s6">
+        <input id="genreM" type="radio" class="validate" name ="genre" value="M">
+         <label for="genreM">M</label>
+         </div>
+           <div class="input-field col s6">
+        <input id="genreF" type="radio" class="validate" name ="genre" value="F">
+         <label for="genreF">F</label>
+
+      </div>
+      </div>
+    <div class="row">
+      <div class="input-field col s6">
         </br>
       <textarea id="infos" name="infos" class="validate">
       </textarea>
