@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Disponibilités</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="center"> Enregistrez vos disponibilités</h1>
+  </br>
+</br>
+    <form class="col s12" method="post" action="">
+
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="jourTravaillés" type="radio" class="validate" value ="jourstravaillés" name="disponible">
+          <label for="joursTravaillés">Tous les jours travaillés (Lu, Ma, Me, Je, Ve)</label>
+        </div>
+          <div class="input-field col s4">
+            <input id="tousLesJours" type="radio" class="validate" value ="tousLesJours" name="disponible">
+            <label for="tousLesJours">Tous les jours (Lu, Ma, Me, Je, Ve, Sa, Di)</label>
+              </div>
+                <div class="input-field col s4">
+            <input id="certainsJours" type="radio" class="validate" value ="certainsJour" name="disponible">
+            <label for="certainsJour">Ponctuellement certains jours de la semaine</label>
+          </div>
+        </div>
+<br/>
+<br/>
+      <div class="row">
+        <div class="col s12 center">
+          <button class="btn-large waves-effect waves-light" type="submit">Suivant
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/FormNounou.js"></script>
+</body>
+</html>
