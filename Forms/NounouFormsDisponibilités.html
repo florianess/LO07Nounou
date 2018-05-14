@@ -14,23 +14,34 @@
   </br>
 </br>
     <form class="col s12" method="post" action="">
-
       <div class="row">
         <div class="input-field col s4">
-          <input id="jourTravaillés" type="radio" class="validate" value ="jourstravaillés" name="disponible">
-          <label for="joursTravaillés">Tous les jours travaillés (Lu, Ma, Me, Je, Ve)</label>
+          <p>
+            <label>
+              <input name="disponible" type="radio" />
+              <span>Tous les jours travaillés (Lu, Ma, Me, Je, Ve)</span>
+            </label>
+          </p>
         </div>
-          <div class="input-field col s4">
-            <input id="tousLesJours" type="radio" class="validate" value ="tousLesJours" name="disponible">
-            <label for="tousLesJours">Tous les jours (Lu, Ma, Me, Je, Ve, Sa, Di)</label>
-              </div>
-                <div class="input-field col s4">
-            <input id="certainsJours" type="radio" class="validate" value ="certainsJour" name="disponible">
-            <label for="certainsJour">Ponctuellement certains jours de la semaine</label>
-          </div>
+        <div class="input-field col s4">
+          <p>
+            <label>
+              <input name="disponible" type="radio" />
+              <span>Tous les jours (Lu, Ma, Me, Je, Ve, Sa, Di)</span>
+            </label>
+          </p>
         </div>
-<br/>
-<br/>
+        <div class="input-field col s4">
+          <p>
+            <label>
+              <input name="disponible" type="radio" />
+              <span>Ponctuellement certains jours de la semaine</span>
+            </label>
+          </p>
+        </div>
+      </div>
+      <br/>
+      <br/>
       <div class="row">
         <div class="col s12 center">
           <button class="btn-large waves-effect waves-light" type="submit">Suivant
