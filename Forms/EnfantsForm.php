@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require_once('ParentsForm.html');
+=======
+
+>>>>>>> 92e23c9d89d3b5ac360b085a0ad5a4b0b8d53f78
 $formEnfants = <<<END
 
 <div class="row">
@@ -73,6 +77,9 @@ if(formValide() && $_POST["Nombre_d'enfants"]>0){
     echo('<hr/><br/>  </br>');
   }
   finFormEnfants();
+} else {
+  readfile("./ParentsForm.html");
+
 }
 
 function debutPagehtml(){
