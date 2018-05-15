@@ -1,4 +1,5 @@
 <?php
+
 $formEnfants = <<<END
 
 <div class="row">
@@ -50,7 +51,7 @@ function formValide(){
   return true;
 }
 
-if(formValide() && $_POST["Nombre d'enfants"]>0){
+if(formValide() && $_POST["Nombre_d'enfants"]>0){
   debutPagehtml();
   echo "<h2  class='center'> Vos infos : </h2> <ul>";
   foreach ($_POST as $key => $value) {
@@ -71,6 +72,9 @@ if(formValide() && $_POST["Nombre d'enfants"]>0){
     echo('<hr/><br/>  </br>');
   }
   finFormEnfants();
+} else {
+  readfile("./ParentsForm.html");
+
 }
 
 function debutPagehtml(){
