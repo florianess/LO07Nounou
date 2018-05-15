@@ -1,4 +1,5 @@
 <?php
+require_once('ParentsForm.html');
 $formEnfants = <<<END
 
 <div class="row">
@@ -23,11 +24,11 @@ $formEnfants = <<<END
     <div class="row">
       <div class="input-field col s6">
         <input id="genreM" type="radio" class="validate" name ="genre" value="M">
-         <label for="genreM">M</label>
+         <span>M</span>
          </div>
            <div class="input-field col s6">
         <input id="genreF" type="radio" class="validate" name ="genre" value="F">
-         <label for="genreF">F</label>
+         <span>F</span>
 
       </div>
       </div>
@@ -43,14 +44,15 @@ END;
 
 function formValide(){
   foreach ($_POST as $key => $value) {
-    if ($value == '') {
-      return false;
+    if ( $key!="Photo" &&  $key!="Infos_générales") { //facultatif dans le formulaire
+      if($value == ''){
+      return false;}
     }
   }
   return true;
 }
 
-if(formValide() && $_POST["Nombre d'enfants"]>0){
+if(formValide() && $_POST["Nombre_d'enfants"]>0){
   debutPagehtml();
   echo "<h2  class='center'> Vos infos : </h2> <ul>";
   foreach ($_POST as $key => $value) {
