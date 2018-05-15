@@ -22,16 +22,22 @@ $formEnfants = <<<END
     </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s1">
+        <label>
         <input id="genreM" type="radio" class="validate" name ="genre" value="M">
          <span>M</span>
+           </label>
          </div>
-           <div class="input-field col s6">
+           <div class="input-field col s1">
+             <label>
         <input id="genreF" type="radio" class="validate" name ="genre" value="F">
          <span>F</span>
+           </label>
 
       </div>
       </div>
+      <br/>
+      </br>
     <div class="row">
       <div class="input-field col s6">
         </br>
