@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-require_once('ParentsForm.html');
-=======
 
->>>>>>> 92e23c9d89d3b5ac360b085a0ad5a4b0b8d53f78
 $formEnfants = <<<END
 
 <div class="row">
@@ -101,10 +97,10 @@ function debutPagehtml(){
 
 
 function debutFormEnfants(){
-echo("<h1 class='center'> Informations sur vos enfants</h1>
-</br>
-</br>
-<form class='col s12' method='post' action=''>");
+  echo("<h1 class='center'> Informations sur vos enfants</h1>
+  </br>
+  </br>
+  <form class='col s12' method='post' action=''>");
 }
 
 function finFormEnfants(){
