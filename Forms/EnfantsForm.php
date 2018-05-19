@@ -4,33 +4,33 @@ $formEnfants = <<<END
 
 <div class="row">
   <div class="input-field col s6">
-    <input id="nom" type="text" class="validate" name ="nom">
+    <input id="nom" type="text" class="validate" name ="nom[]">
     <label for="nom">Nom</label>
     </div>
     </div>
     <div class="row">
 
     <div class="input-field col s6">
-      <input id="prenom" type="text" class="validate" name ="prénom">
+      <input id="prenom" type="text" class="validate" name ="prénom[]">
       <label for="prenom">Prénom</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6">
-      <input id="age" type="number" class="validate" name ="age">
+      <input id="age" type="number" class="validate" name ="age[]">
       <label for="age">Age</label>
     </div>
     </div>
     <div class="row">
       <div class="input-field col s1">
         <label>
-        <input id="genreM" type="radio" class="validate" name ="genre" value="M">
+        <input id="genreM" type="radio" class="validate" name ="genre[]" value="M">
          <span>M</span>
            </label>
          </div>
            <div class="input-field col s1">
              <label>
-        <input id="genreF" type="radio" class="validate" name ="genre" value="F">
+        <input id="genreF" type="radio" class="validate" name ="genre[]" value="F">
          <span>F</span>
            </label>
 
@@ -41,7 +41,7 @@ $formEnfants = <<<END
     <div class="row">
       <div class="input-field col s6">
         </br>
-      <textarea id="infos" name="infos" class="validate">
+      <textarea id="infos" name="infos[]"  class="materialize-textarea">
       </textarea>
         <label for="infos">Informations particulières </label></br>
       </div>
