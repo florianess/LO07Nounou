@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Accueil</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo grey-text text-darken-3">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><button data-target="login" class="btn modal-trigger">Connexion</button></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="login" class="modal">
+    <div class="modal-content">
+      <h4>Connexion</h4>
+      <form class="" action="login.php" method="post">
+        <input id="email" type="text">
+        <label for="email">Email</label>
+        <input id="password" type="password" class="validate">
+        <label for="password">Mot de passe</label>
+        <br>
+        <br>
+        <button class="btn waves-effect waves-light" type="submit">Se connecter</button>
+      </form>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Nounou Finder</h1>
+        <div class="row center">
+          <h5 class="header col s12 light white-text">Le site web qui révolutionne votre recherche de nounou</h5>
+        </div>
+        <div class="row center">
+          <a href="Forms/NounouForm.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">S'incrire</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="img/background1.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Inscription éclair</h5>
+
+            <p class="light">Aussitôt inscrit pas besoin d'attendre 2 semaines pour commander une nounou.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Du social avant tout</h5>
+
+            <p class="light">Le moyen de rencontrer des nounous et parents mais pas que!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <br>
+          <br>
+          <h2 class="header teal-text text-lighten-2">Le Blablacar des nounous</h2>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="img/img1.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
