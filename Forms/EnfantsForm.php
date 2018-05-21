@@ -80,8 +80,7 @@ if(formValide() && $_POST["Nombre_d'enfants"]>0){
   }
   finFormEnfants();
 } else {
-  readfile("./ParentsForm.html");
-
+  header('Location: ParentsForm.html');
 }
 
 function debutPagehtml(){
