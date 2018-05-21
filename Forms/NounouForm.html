@@ -13,16 +13,15 @@
     <h1 class="center"> Formulaire d'incription : Nounou</h1>
     </br>
     </br>
-    <form class="col s12" method="post" action="">
+    <form class="col s12" enctype="multipart/form-data" method="post" action="../db/nounouCreate.php">
       <div class="row">
-        <div class="file-field input-field col s12">
-          <div class="btn">
-            <span>Votre photo de profil</span>
-            <input type="file" name="photo">
-          </div>
-          <div class="file-path-wrapper">
-            <input class="file-path validate" type="text">
-          </div>
+        <div class="input-field col s6">
+          <input id="email" type="email" class="validate" name="email">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="password" type="password" class="validate" name="password">
+          <label for="password">Mot de passe</label>
         </div>
       </div>
       <div class="row">
@@ -31,14 +30,19 @@
           <label for="nom">Nom</label>
         </div>
         <div class="input-field col s6">
-          <input id="prenom" type="text" class="validate" name ="prénom">
+          <input id="prenom" type="text" class="validate" name ="prenom">
           <label for="prenom">Prénom</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s6">
-          <input id="email" type="email" class="validate" name ="email">
-          <label for="email">Email</label>
+        <div class="file-field input-field col s6">
+          <div class="btn">
+            <span>Votre photo de profil</span>
+            <input type="file" name="photo">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" name="filepath">
+          </div>
         </div>
         <div class="input-field col s6">
           <input id="portable" type="tel" class="validate" name ="portable">
@@ -56,7 +60,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <select id='langue' multiple name ="langues[]">
             <option value="" disabled selected>Choix des langues</option>
             <option value="1">Anglais</option>
@@ -65,14 +69,12 @@
           </select>
           <label>Langues parlées</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <select id='exp' name = "experience">
             <option value="" disabled selected>Expérience</option>
-            <option value="1">Débutant.e</option>
-            <option value="2">Occasionnel.le</option>
-            <option value="3">Expérimenté.e</option>
+            <option value="debutant">Débutant.e</option>
+            <option value="occasionnel">Occasionnel.le</option>
+            <option value="experimente">Expérimenté.e</option>
           </select>
           <label>Niveau d'expérience</label>
         </div>
