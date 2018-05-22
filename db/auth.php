@@ -8,9 +8,11 @@ $result = $conn->query($sql);
 if ($result->num_rows == 1) {
   $rows = $result->fetch_assoc();
   if (password_verify($_POST['password'], $rows['password'])) {
+    session_start();
+    $_SESSION['user'] = $rows;
     switch ($rows['type_user']) {
       case 'admin':
-        header('Location: ..\accueil\admin.html');
+        header('Location: ..\accueil\admin.php');
         break;
       case 'nounou':
         header('Location: ..\accueil\nounou.html');
@@ -19,7 +21,7 @@ if ($result->num_rows == 1) {
         header('Location: ..\accueil\parent.html');
         break;
       default:
-        header('Location: ..\index.html');
+        header('Location: ..\accueil\admin.php');
         break;
     }
   } else {
