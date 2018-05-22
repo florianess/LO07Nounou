@@ -15,14 +15,14 @@ if ($result->num_rows == 0){
   $result = $conn->query($sql0);
   $rows = $result->fetch_assoc();
   $result->free();
-  $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_id, langue_id) VALUES ('" . $rows['id'] . "','";
-  foreach ($_POST['langues'] as $value) {
+  $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_id, langue_id) VALUES ('" . $rows['id'] . "')";
+  foreach ($_POST['langues'] as $value)
     $sql3 = $debutSql . $value . "')";
     if (!$conn->query($sql3)) {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
-  }
-  header('Location: ../index.html');
+  echo("ca marche");
+  //header('Location: ../index.html');
 } else {
   echo 'email deja utilisé';
 }
