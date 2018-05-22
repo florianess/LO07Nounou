@@ -2,7 +2,9 @@
 require_once "connection.php";
 
 $sql = "SELECT * FROM utilisateur WHERE email = '".$_POST["email"]."'";
+
 $result = $conn->query($sql);
+
 if ($result->num_rows == 1) {
   $rows = $result->fetch_assoc();
   if (password_verify($_POST['password'], $rows['password'])) {
@@ -17,7 +19,7 @@ if ($result->num_rows == 1) {
         header('Location: ..\accueil\parent.html');
         break;
       default:
-        header('Location: ../index.html');
+        header('Location: ..\index.html');
         break;
     }
   } else {

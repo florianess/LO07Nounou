@@ -3,3 +3,5 @@ Lier le formulaire d'inscription avec la DB
 Mettre en place les diffèrents Dashboard (admin, nounou, parent)
 
 Sécuriser l'accèes aux pages d'accueil (redirection vers index si non connecté)
+
+Ajouter des messages d'erreur (mauvais mdp, compte pas encore validé, compte créer etc)
