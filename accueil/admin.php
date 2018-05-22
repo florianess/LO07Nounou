@@ -14,14 +14,12 @@
 
 <?php
 
-require_once '../modules/candidats.php';
-
 session_start();
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['type_user'] != 'admin') {
   echo "<h1 class='red-text'>Accees refusé</h1>";
 } else {
-  echo $text;
+  require_once '../modules/candidats.php';
 }
 
 ?>
