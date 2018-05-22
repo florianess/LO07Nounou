@@ -15,9 +15,9 @@ if ($result->num_rows == 0){
   $result = $conn->query($sql0);
   $rows = $result->fetch_assoc();
   $result->free();
-  $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_id, langue_id) VALUES ('" . $rows['id'] . "')";
+  $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_id, langue_id) VALUES" ;
   foreach ($_POST['langues'] as $value)
-    $sql3 = $debutSql . $value . "')";
+    $sql3 = $debutSql ."(".$rows['id'].",".$value.")";
     if (!$conn->query($sql3)) {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
