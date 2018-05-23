@@ -15,6 +15,7 @@ if ($test->num_rows == 0){
     foreach ($_POST['langues'] as $value) {
       $sql3 = $debutSql . $value . "')";
       if ($conn->query($sql3)) {
+        $conn->close();
         header('Location: ../?status=create');
       } else {
         echo "Error: " . $sql3 . "<br>" . $conn->error . "<br>";
@@ -26,6 +27,4 @@ if ($test->num_rows == 0){
 } else {
   echo 'email deja utilisé';
 }
-
-$conn->close();
- ?>
+?>

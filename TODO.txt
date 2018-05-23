@@ -1,7 +1,5 @@
 TO DO
 
- * Lier le formulaire d'inscription parents avec la DB
-
  * Mettre en place les diffèrents Dashboard (admin, nounou, parent)
 
  * Sécuriser l'accèes aux pages d'accueil (redirection vers index si non connecté)
@@ -12,7 +10,9 @@ TO DO
 
 DOING
 
-
+  * Lier le formulaire d'inscription parents avec la DB
+      - Améliorer le formulaire enfant
+      - manque le Genre dans la BDD
 
 --------------------------------------------------------------------------
 
