@@ -6,8 +6,6 @@ TO DO
 
  * Sécuriser l'accèes aux pages d'accueil (redirection vers index si non connecté)
 
- * Ajouter des messages d'erreur (mauvais mdp, compte pas encore validé, compte créer etc)
-
  * Ajouter test formulaire pour éviter incohérence
 
 --------------------------------------------------------------------------
@@ -25,6 +23,8 @@ DONE
   * Inscription nounou
 
   * Dashboard admin: module candidats
+
+  * Message compte en attente, erreur et crée
 
 --------------------------------------------------------------------------
 

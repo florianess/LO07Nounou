@@ -15,7 +15,7 @@ if ($test->num_rows == 0){
     foreach ($_POST['langues'] as $value) {
       $sql3 = $debutSql . $value . "')";
       if ($conn->query($sql3)) {
-        header('Location: ../index.html');
+        header('Location: ../?status=create');
       } else {
         echo "Error: " . $sql3 . "<br>" . $conn->error . "<br>";
       }

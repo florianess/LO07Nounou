@@ -20,13 +20,16 @@ if ($result->num_rows == 1) {
       case 'parent':
         header('Location: ..\accueil\parent.html');
         break;
+      case 'await':
+        header('Location: ..\?status=await');
+        break;
       default:
-        header('Location: ..\accueil\admin.php');
+        header('Location: ..');
         break;
     }
-  } else {
-    header('Location: ../index.html');
   }
+} else {
+  header('Location: ..\?status=error');
 }
 
 $conn->close();
