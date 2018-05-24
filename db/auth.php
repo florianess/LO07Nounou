@@ -12,7 +12,7 @@ if ($result->num_rows == 1) {
     $_SESSION['user'] = $rows;
     switch ($rows['type_user']) {
       case 'admin':
-        header('Location: ..\accueil\admin.php');
+        header('Location: ..\accueil\accueiladmin.php');
         break;
       case 'nounou':
         header('Location: ..\accueil\nounou.html');
