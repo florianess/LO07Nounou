@@ -6,6 +6,8 @@ TO DO
 
  * Ajouter test formulaire pour éviter incohérence
 
+ * Améliorer CSS (virer id pour classe, grey text pour nav bar)
+
 --------------------------------------------------------------------------
 
 DOING
@@ -22,7 +24,8 @@ DONE
 
   * Inscription nounou
 
-  * Dashboard admin: module candidats
+  * Dashboard admin
+    -liste: candidat, bloque, nounou
 
   * Message compte en attente, erreur et crée
 
