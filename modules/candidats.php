@@ -47,8 +47,8 @@ if (isset($_GET['type'])) {
         echo "<td>".$value."</td>";
       }
     echo "<td>" ?>
-    <a style='cursor:pointer;' href='admin.php?type=add&email=<?php echo $row[3] ?>'><i class='small material-icons green-text'>check</i></a>
-    <a style='cursor:pointer;' href='admin.php?type=remove&email=<?php echo $row[3] ?>'><i class='small material-icons red-text'>close</i></a>
+    <a style='cursor:pointer;' href='listes.php?type=add&email=<?php echo $row[3] ?>'><i class='small material-icons green-text'>check</i></a>
+    <a style='cursor:pointer;' href='listes.php?type=remove&email=<?php echo $row[3] ?>'><i class='small material-icons red-text'>close</i></a>
     </td>
   <?php
     echo "</tr>";

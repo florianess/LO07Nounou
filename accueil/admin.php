@@ -7,24 +7,50 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+
   <title>Administration</title>
 </head>
 <body id="admin">
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="../index.html" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
+
+    </div>
+  </nav>
   <div class="container">
-    <h1> Administration de Nounou Finder </h1>
+    <h1> <b>Administration de NounouFinder</b> </h1>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+      <div class="col l6 s12" id="categorieadmin">
+        <h5 id="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
+        <br/>
 
-<?php
+        <ul id="listefonctionadmin">
+          <li><a class="grey-text text-darken-1" href="../infosStratAdmin/NombreNounou.php">Statistiques : le nombre de nounous</a></li>
+          <br/>
 
-session_start();
+          <li><a class="grey-text text-darken-1" href="#">Chiffre d’affaire du site</a></li>
+          <br/>
 
-if (!isset($_SESSION['user']) || $_SESSION['user']['type_user'] != 'admin') {
-  echo "<h1 class='red-text'>Accees refusé</h1>";
-} else {
-  require_once '../modules/candidats.php';
-}
+          <li><a class="grey-text text-darken-1" href="#">Dossiers des nounous</a></li>
+          <br/>
 
-?>
+          <li><a class="grey-text text-darken-1" href="#">Liste décroissante des revenus par nounou</a></li>
+          <br/>
+
+        </ul>
+
+
+
+      </div>
+      <div class="col l6 s12" id="categorieadmin">
+        <h5 id="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
+        <br/>
+        <a id="listefonctionadmin" class="grey-text text-darken-1" href="listes.php">Listes</a>
+    </div>
+
   </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-</body>
-</html>
