@@ -30,10 +30,7 @@
         <br/>
 
         <ul id="listefonctionadmin">
-          <li><a class="grey-text text-darken-1" href="../infosStratAdmin/NombreNounou.php">Statistiques : le nombre de nounous</a></li>
-          <br/>
-
-          <li><a class="grey-text text-darken-1" href="#">Chiffre d’affaire du site</a></li>
+          <li><a class="grey-text text-darken-1" href="../infosStratAdmin/statistiquesSite.php">Statistiques du site</a></li>
           <br/>
 
           <li><a class="grey-text text-darken-1" href="#">Dossiers des nounous</a></li>
