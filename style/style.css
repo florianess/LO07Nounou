@@ -34,6 +34,8 @@ font-size: 20px;
 text-decoration: underline;
 }
 
-.catStat{
+.catStat, .nombreInscrits{
   color: #CB4335  ;
 }
+
+.nombreInscrits{

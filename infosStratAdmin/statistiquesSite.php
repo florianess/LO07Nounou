@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Administration</title>
 </head>
-<body id="admin">
+<body class="administration">
   <div class="container">
     <h1> Administration de Nounou Finder </h1>
 <br/><hr/><br/>
@@ -27,37 +27,37 @@ session_start();
 if (!isset($_SESSION['user']) || $_SESSION['user']['type_user'] != 'admin') {
   echo "<h1 class='red-text'>Accees refusé</h1>";
 } else {
-  echo"<h2 class='catStat'> Statistiques : Le nombre d'inscrits </h2>";
-
-echo("<h3>Le nombre de Nounous </h3>");
-echo'<i>';
-  echo'<ul>';
-  echo'<li>';
-  echo  ("<h4>$nounous->num_rows nouveau(x) candidat(s) 'Nounou' à valider</h4>");
-  echo'</li>';
-  echo'<li>';
-  echo  ("<h4>$nounousInscrites->num_rows nounou(s) inscrit(e)(s)</h4>");
-  echo'</li>';
-  echo'</ul>';
-  echo'</i>';
+  echo"<h4 class='catStat'> Statistiques : Le nombre d'inscrits </h4>";
   echo'<br/>';
 
-  echo("<h3>Le nombre de Familles </h3>");
-  echo'<i>';
+
+echo("<h6 class ='nombreInscrits' >Le nombre de Nounous :</h6>");
+
+  echo'<ul>';
+  echo'<li>';
+  echo  ("<h7><b>$nounous->num_rows</b> nouveau(x) candidat(s) 'Nounou' à valider</h7>");
+  echo'</li>';
+  echo'<li>';
+  echo  ("<h7><b>$nounousInscrites->num_rows</b> Nounou(s) inscrit(e)(s)</h7>");
+  echo'</li>';
+  echo'</ul>';
+  echo("<h6 class ='nombreInscrits'>Le nombre de Familles :</h6>");
     echo'<ul>';
     echo'<li>';
-    echo  ("<h4>$parentsInscrits->num_rows Parent(s) inscrit(s)</h4>");
+    echo  ("<h7><b>$parentsInscrits->num_rows</b> Parent(s) inscrit(s)</h7>");
     echo'</li>';
     echo'<li>';
-    echo  ("<h4>$enfantsInscrits->num_rows enfant(s) incrit(s) </h4>");
+    echo  ("<h7><b>$enfantsInscrits->num_rows</b> Enfant(s) incrit(s) </h7>");
     echo'</li>';
     echo'</ul>';
-    echo'</i>';
-    echo'<br/>';
     echo'<br/>';
 
-    echo"<h2 class='catStat'> Statistiques : Le chiffre d'affaire </h2>";
-    echo  ("<h4>$garde->num_rows gardes effectuées dans l'année </h4>");
+    echo('<hr/>');
+
+    echo"<h4 class='catStat'> Statistiques : Le chiffre d'affaire </h4>";
+    echo'<br/>';
+
+    echo  ("<h7><b>$garde->num_rows</b> gardes effectuées dans l'année </h7>");
 
 
 
