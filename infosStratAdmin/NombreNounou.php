@@ -14,17 +14,20 @@
     <h1> Administration de Nounou Finder </h1>
 
 <?php
-
+require_once '../db/newNounous.php';
 session_start();
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['type_user'] != 'admin') {
   echo "<h1 class='red-text'>Accees refusé</h1>";
 } else {
-  require_once '../modules/candidats.php';
-}
+  echo'<br/>';
+  echo'<ul>';
+  echo'<li>';
+  echo  ("<h4>$nounous->num_rows nouveaux candidats 'Nounous' à valider</h4>");
+  echo'</li>';
+  echo'</ul>';
 
+}
 ?>
-  </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </body>
 </html>
