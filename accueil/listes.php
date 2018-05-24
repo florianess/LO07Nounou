@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Administration</title>
 </head>
-<body id="admin">
+<body class="administration">
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
       <a id="logo-container" href="../index.html" class="brand-logo  grey-text text-darken-1">NounouFinder</a>

@@ -11,7 +11,7 @@
 
   <title>Administration</title>
 </head>
-<body id="admin">
+<body class="administration">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="../index.html" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
@@ -25,11 +25,11 @@
     <br/>
     <br/>
     <div class="row">
-      <div class="col l6 s12" id="categorieadmin">
-        <h5 id="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
+      <div class="col l6 s12 categorieadmin" >
+        <h5 class="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
         <br/>
 
-        <ul id="listefonctionadmin">
+        <ul class="listefonction">
           <li><a class="grey-text text-darken-1" href="../infosStratAdmin/statistiquesSite.php">Statistiques du site</a></li>
           <br/>
 
@@ -44,10 +44,10 @@
 
 
       </div>
-      <div class="col l6 s12" id="categorieadmin">
-        <h5 id="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
+      <div class="col l6 s12 categorieadmin" >
+        <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
         <br/>
-        <a id="listefonctionadmin" class="grey-text text-darken-1" href="listes.php">Listes</a>
+        <a  class="grey-text text-darken-1 listefonction" href="listes.php">Listes</a>
     </div>
 
   </div>

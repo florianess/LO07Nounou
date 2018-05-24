@@ -14,22 +14,22 @@ font-size: 70;}
 
 }
 
-#admin{
+.administration {
 
 background-color: #E8F8F5 ;
 }
 
-#categorieadmin{
+.categorieadmin {
 
   text-align: center;
 }
 
-#categorie{
+.categorie{
   color: #154360;
   font-size: 30px
 
 }
-#listefonctionadmin{
+.listefonction {
 font-size: 20px;
 text-decoration: underline;
 }
