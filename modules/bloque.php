@@ -14,7 +14,7 @@ if (isset($_GET['type'])) {
 <div class='divider'></div>
 <div class='section'>
 <h3>Liste des nounous bloquées</h3>
-<p><?php echo $nounousBlock->num_rows; ?> nounou(s) bloquées </p>
+<p><?php echo $nounousBlock->num_rows; ?> Nounou(s) bloquée(s) </p>
 
 <?php if ($nounousBlock->num_rows > 0){ ?>
 
@@ -29,7 +29,7 @@ if (isset($_GET['type'])) {
         <th>Age</th>
         <th>Experience</th>
         <th>Presentation</th>
-        <th>Bloquer</th>
+        <th>Débloquer</th>
     </tr>
   </thead>
   <tbody>

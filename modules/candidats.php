@@ -21,7 +21,7 @@ if (isset($_GET['type'])) {
 <div class='divider'></div>
 <div class='section'>
 <h3>Nouveau(x) Candidat(s)</h3>
-<p><?php echo $nounous->num_rows; ?> nounou(s) à valider </p>
+<p><?php echo $nounous->num_rows; ?> Nounou(s) à valider </p>
 
 <?php if ($nounous->num_rows > 0){ ?>
 

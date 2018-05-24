@@ -14,7 +14,7 @@ if (isset($_GET['type'])) {
 <div class='divider'></div>
 <div class='section'>
 <h3>Liste des nounous inscrites</h3>
-<p><?php echo $nounousInscrites->num_rows; ?> nounou(s) incrites </p>
+<p><?php echo $nounousInscrites->num_rows; ?> Nounou(s) incrite(s) </p>
 
 <?php if ($nounousInscrites->num_rows > 0){ ?>
 
