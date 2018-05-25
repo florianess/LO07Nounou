@@ -20,12 +20,11 @@ $filters = array(
                     "options"=>array("regexp"=> $regText)),
   "presentation" => array("filter"=>FILTER_VALIDATE_REGEXP,
                    "options"=>array("regexp"=> $regText)),
-
+  "password" => FILTER_DEFAULT
 );
 
 $myinputs = filter_input_array(INPUT_POST, $filters);
 $values = array_values($myinputs);
-
 
 if(in_array(false, $values)) {
   echo "ERREUR FORM";
@@ -37,9 +36,9 @@ if(in_array(false, $values)) {
   if ($test->num_rows == 0){
     $sql = "INSERT INTO utilisateur
     (nom, prenom, ville, email, portable,photo, age, experience, presentation, type_user, password)
-    VALUES ('".$_POST['nom']."','".$_POST['prenom']."','".$_POST['ville']."','".$_POST['email']."','".$_POST['portable']."','".$_FILES['photo']['tmp_name']."','".$_POST['age']."','".$_POST['experience']."','".$_POST['presentation']."','await','".password_hash($_POST["password"], PASSWORD_DEFAULT)."')";
+    VALUES ('$value[0]','$value[1]','$value[2]','$value[3]','$value[4]','".$_FILES['photo']['tmp_name']."','$value[5]','$value[6]','$value[7]','await','".password_hash($value[8], PASSWORD_DEFAULT)."')";
     if ($conn->query($sql)) {
-      $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('" . $_POST['email'] . "','";
+      $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$value[3]','";
       foreach ($_POST['langues'] as $value) {
         $sql3 = $debutSql . $value . "')";
         if ($conn->query($sql3)) {
@@ -56,5 +55,5 @@ if(in_array(false, $values)) {
     echo 'email deja utilisé';
   }
 }
-
+*/
 ?>
