@@ -27,7 +27,7 @@ $myinputs = filter_input_array(INPUT_POST, $filters);
 $values = array_values($myinputs);
 
 if(in_array(false, $values)) {
-  echo "ERREUR FORM";
+  header('Location: ../forms/NounouForm.html?error');
 } else {
   $sql0 = "SELECT * FROM utilisateur WHERE email = '".$_POST["email"]."'";
 
@@ -36,9 +36,9 @@ if(in_array(false, $values)) {
   if ($test->num_rows == 0){
     $sql = "INSERT INTO utilisateur
     (nom, prenom, ville, email, portable,photo, age, experience, presentation, type_user, password)
-    VALUES ('$value[0]','$value[1]','$value[2]','$value[3]','$value[4]','".$_FILES['photo']['tmp_name']."','$value[5]','$value[6]','$value[7]','await','".password_hash($value[8], PASSWORD_DEFAULT)."')";
+    VALUES ('$values[0]','$values[1]','$values[2]','$values[3]','$values[4]','".$_FILES['photo']['tmp_name']."','$values[5]','$values[6]','$values[7]','await','".password_hash($values[8], PASSWORD_DEFAULT)."')";
     if ($conn->query($sql)) {
-      $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$value[3]','";
+      $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$values[3]','";
       foreach ($_POST['langues'] as $value) {
         $sql3 = $debutSql . $value . "')";
         if ($conn->query($sql3)) {
@@ -55,5 +55,4 @@ if(in_array(false, $values)) {
     echo 'email deja utilisé';
   }
 }
-*/
 ?>
