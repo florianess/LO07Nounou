@@ -4,17 +4,13 @@ TO DO
 
  * Sécuriser l'accèes aux pages d'accueil (redirection vers index si non connecté)
 
- * Ajouter test formulaire pour éviter incohérence
-
- * Améliorer CSS (virer id pour classe, grey text pour nav bar)
+ * Ajouter le genre dans la BDD
 
 --------------------------------------------------------------------------
 
 DOING
 
-  * Lier le formulaire d'inscription parents avec la DB
-      - Améliorer le formulaire enfant
-      - manque le Genre dans la BDD
+  * Dashboard Admin
 
 --------------------------------------------------------------------------
 
@@ -28,6 +24,10 @@ DONE
     -liste: candidat, bloque, nounou
 
   * Message compte en attente, erreur et crée
+
+   * Améliorer CSS (virer id pour classe, grey text pour nav bar)
+
+   * Ajouter test formulaire pour éviter incohérence (nounou)
 
 --------------------------------------------------------------------------
 

@@ -2,7 +2,7 @@
 
 require_once 'connection.php';
 
-$regText = "/^([a-zA-Z]|\s)*$/";
+$regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù])*$/";
 
 $filters = array(
   "nom" => array("filter"=>FILTER_VALIDATE_REGEXP,
