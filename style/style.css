@@ -38,4 +38,11 @@ text-decoration: underline;
   color: #CB4335  ;
 }
 
-.nombreInscrits{
+#table{
+ width:100%;
+ _width:700px;
+ _padding-right:100%;
+ min-width : 700px;
+  height:15px;
+ border-spacing: 0px;
+}

@@ -19,8 +19,9 @@ require_once '../db/newNounous.php';
 require_once '../db/nounouInscrite.php';
 require_once '../db/parentInscrit.php';
 require_once '../db/enfantInscrit.php';
-require_once '../db/garde.php';
 require_once '../db/gardeDansLAnnee.php';
+
+
 
 session_start();
 
@@ -29,22 +30,17 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['type_user'] != 'admin') {
 } else {
 
 
+
+function chiffreAffaire($année){
+
+  $gardeannee =gardeAnnée($année);
   $CA =0;
   foreach ($gardeannee as $value) {
+  $CA+=$value["tarif"];}
 
-  $CA+=$value["tarif"];
-  }
-  $CA2017 =0;
-  foreach ($gardeanneeDerniere as $value2) {
+  return $CA;
 
-  $CA2017+=$value2["tarif"];
-  }
-  $CA2016 =0;
-  foreach ($gardeannee2016 as $value3) {
-
-  $CA2016+=$value3["tarif"];
-  }
-
+}
 
   echo"<h4 class='catStat'> Statistiques : Le nombre d'inscrits </h4>";
   echo'<br/>';
@@ -75,35 +71,36 @@ echo("<h6 class ='nombreInscrits' >Le nombre de Nounous :</h6>");
 
     echo"<h4 class='catStat'> Statistiques : Le chiffre d'affaire </h4>";
     echo'<br/>';
+?>
 
-//echo('<table>');
+  <table id='table'>
+  <thead>
+    <tr>
+        <th>Année</th>
+        <th>Nombre de gardes effectuées</th>
+        <th>Chiffre d'affaire</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+for ($annee=2010; $annee <2019 ; $annee++) {
 
-    echo  ("<h7><b>$gardeannee2016->num_rows</b> gardes effectuées en 2016 </h7> -- <h7>Chiffre d'affaire en 2016  : <b>$CA2016</b>€ </h7>");
-    echo'<br/>';
-    echo  ("<h7><b>$gardeanneeDerniere->num_rows</b> gardes effectuées en 2017 </h7> -- <h7>Chiffre d'affaire en 2017  : <b>$CA2017</b>€ </h7>");
-    echo'<br/>';
+  echo('<tr>');
 
-    echo  ("<h7><b>$gardeannee->num_rows</b> gardes effectuées cette année</h7> -- <h7>Chiffre d'affaire cette année : <b>$CA</b>€ </h7>");
-    echo'<br/>';
-//echo('<\table>');
+      echo  ("<td>$annee</td> <td><b>".gardeAnnée($annee)->num_rows."</b></td> <td> <b>".chiffreAffaire($annee)."</b>€</td>");
+  echo('<tr>');
+}
+  echo'</table>';
+
 
 
 
   echo'<br/>';
 
   echo'<br/>';
-
-
-
-
-
-
-
 
 
 }
-
-
 
 ?>
 
