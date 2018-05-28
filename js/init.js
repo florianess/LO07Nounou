@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'create':
           M.Modal.getInstance(document.getElementById('create')).open();
           break;
+        case 'errorpw':
+          M.Modal.getInstance(document.getElementById('errorpw')).open();
+          break;
       }
     }
   });

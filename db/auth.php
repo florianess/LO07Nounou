@@ -27,6 +27,8 @@ if ($result->num_rows == 1) {
         header('Location: ..');
         break;
     }
+  } else {
+    header('Location: ..\?status=errorpw');
   }
 } else {
   header('Location: ..\?status=error');
