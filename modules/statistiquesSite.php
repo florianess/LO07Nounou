@@ -20,7 +20,7 @@ require_once '../db/nounouInscrite.php';
 require_once '../db/parentInscrit.php';
 require_once '../db/enfantInscrit.php';
 require_once '../db/garde.php';
-
+require_once '../db/gardeDansLAnnee.php';
 
 session_start();
 
@@ -57,7 +57,34 @@ echo("<h6 class ='nombreInscrits' >Le nombre de Nounous :</h6>");
     echo"<h4 class='catStat'> Statistiques : Le chiffre d'affaire </h4>";
     echo'<br/>';
 
-    echo  ("<h7><b>$garde->num_rows</b> gardes effectuées dans l'année </h7>");
+    echo  ("<h7><b>$gardeannee->num_rows</b> gardes effectuées cette année</h7>");
+    echo'<br/>';
+
+    echo  ("<h7><b>$gardeanneeDerniere->num_rows</b> gardes effectuées en 2017 </h7>");
+    echo'<br/>';
+
+    $CA =0;
+    foreach ($gardeannee as $value) {
+
+    $CA+=$value["tarif"];
+    }
+    $CA2017 =0;
+    foreach ($gardeanneeDerniere as $value2) {
+
+    $CA2017+=$value2["tarif"];
+    }
+
+  echo("<h7><b>$CA</b> euros de Chiffre d'affaire cette année </h7>");
+  echo'<br/>';
+
+  echo("<h7><b>$CA2017</b> euros de Chiffre d'affaire en 2017</h7>");
+  echo'<br/>';
+  echo'<br/>';
+  echo'<br/>';
+
+
+
+
 
 
 
