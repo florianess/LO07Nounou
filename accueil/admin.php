@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
     </div>
   </nav>
   <div class="container">
-    <h1> <b>Administration de NounouFinder</b> </h1>
+    <h1> <b>Administration de NounouFinder</b> <?php echo $_SESSION['user']['type_user']; ?></h1>
     <br/>
     <br/>
     <br/>
@@ -49,5 +53,10 @@
         <br/>
         <a  class="grey-text text-darken-1 listefonction" href="listes.php">Listes</a>
     </div>
-
   </div>
+</div>
+</body>
+</html>
+<?php } else {
+  echo "Accèes refusé";
+} ?>
