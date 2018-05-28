@@ -30,7 +30,7 @@
         <br/>
 
         <ul class="listefonction">
-          <li><a class="grey-text text-darken-1" href="../infosStratAdmin/statistiquesSite.php">Statistiques du site</a></li>
+          <li><a class="grey-text text-darken-1" href="../modules/statistiquesSite.php">Statistiques du site</a></li>
           <br/>
 
           <li><a class="grey-text text-darken-1" href="#">Dossiers des nounous</a></li>
