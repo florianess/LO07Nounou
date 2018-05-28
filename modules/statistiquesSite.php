@@ -27,6 +27,25 @@ session_start();
 if (!isset($_SESSION['user']) || $_SESSION['user']['type_user'] != 'admin') {
   echo "<h1 class='red-text'>Accees refusé</h1>";
 } else {
+
+
+  $CA =0;
+  foreach ($gardeannee as $value) {
+
+  $CA+=$value["tarif"];
+  }
+  $CA2017 =0;
+  foreach ($gardeanneeDerniere as $value2) {
+
+  $CA2017+=$value2["tarif"];
+  }
+  $CA2016 =0;
+  foreach ($gardeannee2016 as $value3) {
+
+  $CA2016+=$value3["tarif"];
+  }
+
+
   echo"<h4 class='catStat'> Statistiques : Le nombre d'inscrits </h4>";
   echo'<br/>';
 
@@ -57,30 +76,23 @@ echo("<h6 class ='nombreInscrits' >Le nombre de Nounous :</h6>");
     echo"<h4 class='catStat'> Statistiques : Le chiffre d'affaire </h4>";
     echo'<br/>';
 
-    echo  ("<h7><b>$gardeannee->num_rows</b> gardes effectuées cette année</h7>");
+//echo('<table>');
+
+    echo  ("<h7><b>$gardeannee2016->num_rows</b> gardes effectuées en 2016 </h7> -- <h7>Chiffre d'affaire en 2016  : <b>$CA2016</b>€ </h7>");
+    echo'<br/>';
+    echo  ("<h7><b>$gardeanneeDerniere->num_rows</b> gardes effectuées en 2017 </h7> -- <h7>Chiffre d'affaire en 2017  : <b>$CA2017</b>€ </h7>");
     echo'<br/>';
 
-    echo  ("<h7><b>$gardeanneeDerniere->num_rows</b> gardes effectuées en 2017 </h7>");
+    echo  ("<h7><b>$gardeannee->num_rows</b> gardes effectuées cette année</h7> -- <h7>Chiffre d'affaire cette année : <b>$CA</b>€ </h7>");
     echo'<br/>';
+//echo('<\table>');
 
-    $CA =0;
-    foreach ($gardeannee as $value) {
 
-    $CA+=$value["tarif"];
-    }
-    $CA2017 =0;
-    foreach ($gardeanneeDerniere as $value2) {
 
-    $CA2017+=$value2["tarif"];
-    }
-
-  echo("<h7><b>$CA</b> euros de Chiffre d'affaire cette année </h7>");
   echo'<br/>';
 
-  echo("<h7><b>$CA2017</b> euros de Chiffre d'affaire en 2017</h7>");
   echo'<br/>';
-  echo'<br/>';
-  echo'<br/>';
+
 
 
 
