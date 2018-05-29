@@ -43,10 +43,10 @@ if (isset($_GET['type'])) {
         echo "<td>".$value."</td>";
       }
     echo "<td>" ?>
-    <a style='cursor:pointer;' href='listes.php?type=unlock&email=<?php echo $row[3] ?>'><i class='small material-icons'>lock_open</i></a>
+    <a style='cursor:pointer;' href='listes.php?type=unlock&email=<?php echo $row[3] ?>'><i class='small material-icons green-text'>lock_open</i></a>
     </td>
     <td>
-      <a style='cursor:pointer;' href='..\modules\dossierNounouListe.php?email=<?php echo $row[3] ?>'><i class='small material-icons blue-text'>link</i></a>
+      <a style='cursor:pointer;' href='..\modules\dossierNounouListe.php?email=<?php echo $row[3] ?>'><i class='small material-icons '>link</i></a>
     </td>
   <?php
     echo "</tr>";
