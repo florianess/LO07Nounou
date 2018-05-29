@@ -14,27 +14,50 @@
     <div class="container nav-wrapper">
       <a id="logo-container" href="../accueil/admin.php" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
       <a class="brand-logo center  grey-text text-darken-1">Dossier Nounou</a>
+      <ul class="right hide-on-med-and-down">
+        <li>  <a href="../index.html" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
+      </ul>
     </div>
   </nav>
   <div class="container">
     <br>
-<?php require_once '../db/connection.php';;
+<?php require_once '../db/connection.php';
 $sql = "SELECT nom,prenom,ville,email,portable,age,experience,presentation FROM utilisateur WHERE email='".$_GET['email']."'";
 
 $nounou = $conn->query($sql);
 $row = $nounou->fetch_row();
+$sql2 = "SELECT debut, fin FROM garde WHERE  nounou_email='".$_GET['email']."'";
+$garde = $conn->query($sql2);
 echo("<h5> Prénom : $row[1]</h5>");
 echo("<h5> Nom : $row[0]</5>");
+echo("<h5> E-mail : ".$row[3]."</h5>");
+echo("<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>");
 
-echo("<h5> E-mail : ".$row[3]."</h5><br/>");
 
 ?>
 
-<br/>
+
 <table id='table'>
+  <thead>
+
   <tr>
       <th>Garde</th>
       <th>Famille</th>
       <th>Evaluation du parent</th>
       <th>Revenu</th>
   </tr>
+</thead>
+<tbody>
+  <?php
+      while ($row2 = $garde->fetch_row()) {
+          echo "<tr>";
+              echo "<td>"."<b>Du </b> $row2[0]<b> au </b> $row2[1]" ."</td>";
+              echo "</tr>";
+            
+}
+
+
+
+
+
+   ?>

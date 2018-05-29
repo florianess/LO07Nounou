@@ -20,6 +20,9 @@
     <div class="container nav-wrapper">
       <a id="logo-container" class="brand-logo grey-text text-darken-1">NounouFinder</a>
       <a class="brand-logo center  grey-text text-darken-1">Administration</a>
+      <ul class="right hide-on-med-and-down">
+        <li>  <a href="../index.html" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
+      </ul>
     </div>
   </nav>
   <div class="container">
