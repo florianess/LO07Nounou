@@ -49,7 +49,10 @@ function chiffreAffaire($annee){
   echo "<h7><b>$nounous->num_rows</b> nouveau(x) candidat(s) 'Nounou' à valider</h7>";
   echo '</li>';
   echo '<li>';
-  echo "<h7><b>$nounousInscrites->num_rows</b> Nounou(s) inscrit(e)(s)</h7>";
+  echo "<h7><b>$nounousInscrites->num_rows</b> Nounou(s) inscrit(e)(s) et active</h7>";
+  echo '</li>';
+  echo '<li>';
+  echo "<h7><b>$nounousBloquées->num_rows</b> Nounou(s) bloquées</h7>";
   echo '</li>';
   echo '</ul>';
   echo "<h6 class ='nombreInscrits'>Le nombre de Familles :</h6>";

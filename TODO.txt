@@ -127,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
 DROP TABLE IF EXISTS `garde`;
 CREATE TABLE IF NOT EXISTS `garde` (
   `garde_id` int(11) NOT NULL,
-  `debut` timestamp NOT NULL,
-  `fin` timestamp NOT NULL,
+  `debut` datetime NOT NULL,
+  `fin` datetime NOT NULL,
   `nounou_email` varchar(125) NOT NULL,
   `tarif` float NOT NULL,
   PRIMARY KEY (`garde_id`),
