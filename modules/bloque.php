@@ -30,6 +30,9 @@ if (isset($_GET['type'])) {
         <th>Experience</th>
         <th>Presentation</th>
         <th>Débloquer</th>
+        <th>Dossier complet</th>
+
+
     </tr>
   </thead>
   <tbody>
@@ -41,6 +44,9 @@ if (isset($_GET['type'])) {
       }
     echo "<td>" ?>
     <a style='cursor:pointer;' href='listes.php?type=unlock&email=<?php echo $row[3] ?>'><i class='small material-icons'>lock_open</i></a>
+    </td>
+    <td>
+      <a style='cursor:pointer;' href='..\modules\dossierNounouListe.php?email=<?php echo $row[3] ?>'><i class='small material-icons blue-text'>link</i></a>
     </td>
   <?php
     echo "</tr>";

@@ -97,7 +97,7 @@ function formEnfants($i) {
       <div class='row'>
         <div class='input-field col s6'>
           </br>
-        <textarea id='infos' name='info[]'  class='materialize-textarea'>
+        <textarea id='infos' name='info[]'  class='materialize-textarea' data-length='1200'>
         </textarea>
           <label for='infos'>Informations particulières </label></br>
         </div>
@@ -117,6 +117,8 @@ function formEnfants($i) {
   <input type="hidden" name="email_parent" value=<?php echo $_POST['email'] ?>>
   </form>
   </div>
+  <script type="text/javascript" src="../js/Form.js"></script>
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>
 </body>
 </html>

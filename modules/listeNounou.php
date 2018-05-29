@@ -30,6 +30,8 @@ if (isset($_GET['type'])) {
         <th>Experience</th>
         <th>Presentation</th>
         <th>Bloquer</th>
+        <th>Dossier complet</th>
+
     </tr>
   </thead>
   <tbody>
@@ -42,6 +44,10 @@ if (isset($_GET['type'])) {
     echo "<td>" ?>
     <a style='cursor:pointer;' href='listes.php?type=block&email=<?php echo $row[3] ?>'><i class='small material-icons red-text'>block</i></a>
     </td>
+  <td>
+    <a style='cursor:pointer;' href='..\modules\dossierNounouListe.php?email=<?php echo $row[3] ?>'><i class='small material-icons blue-text'>link</i></a>
+  </td>
+
   <?php
     echo "</tr>";
     }
