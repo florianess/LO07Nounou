@@ -41,11 +41,11 @@ if (isset($_GET['type'])) {
       foreach ($row as $value) {
         echo "<td>".$value."</td>";
       }
-    echo "<td>" ?>
+    echo "<td class='center'>" ?>
     <a style='cursor:pointer;' href='listes.php?type=block&email=<?php echo $row[3] ?>'><i class='small material-icons red-text'>block</i></a>
     </td>
-  <td>
-    <a style='cursor:pointer;' href='..\modules\dossierNounouListe.php?email=<?php echo $row[3] ?>'><i class='small material-icons blue-text'>link</i></a>
+  <td class='center'>
+    <a style='cursor:pointer;' href='..\modules\dossier.php?email=<?php echo $row[3] ?>'><i class='small material-icons blue-text'>link</i></a>
   </td>
 
   <?php

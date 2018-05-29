@@ -10,9 +10,13 @@
   <title>Administration</title>
 </head>
 <body class="administration">
+  <nav class="white nav-extended">
+    <div class="container nav-wrapper">
+      <a id="logo-container" href="../accueil/admin.php" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
+      <a class="brand-logo center  grey-text text-darken-1">Statistiques</a>
+    </div>
+  </nav>
   <div class="container">
-    <h1> Administration de Nounou Finder </h1>
-<br/><hr/><br/>
 
 <?php
 require_once '../db/newNounous.php';

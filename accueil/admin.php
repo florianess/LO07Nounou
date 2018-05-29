@@ -16,25 +16,21 @@
   <title>Administration</title>
 </head>
 <body class="administration">
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="../index.html" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
-
+  <nav class="white">
+    <div class="container nav-wrapper">
+      <a id="logo-container" class="brand-logo grey-text text-darken-1">NounouFinder</a>
+      <a class="brand-logo center  grey-text text-darken-1">Administration</a>
     </div>
   </nav>
   <div class="container">
-    <h1> <b>Administration de NounouFinder</b> <?php echo $_SESSION['user']['type_user']; ?></h1>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <br><br>
     <div class="row">
       <div class="col l6 s12 categorieadmin" >
         <h5 class="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
         <br/>
 
         <ul class="listefonction">
-          <li><a class="grey-text text-darken-1" href="../modules/statistiquesSite.php">Statistiques du site</a></li>
+          <li><a class="grey-text text-darken-1" href="../modules/stats.php">Statistiques du site</a></li>
           <br/>
 
           <li><a class="grey-text text-darken-1" href="#">Liste décroissante des revenus par nounou</a></li>
