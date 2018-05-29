@@ -37,9 +37,6 @@
           <li><a class="grey-text text-darken-1" href="../modules/statistiquesSite.php">Statistiques du site</a></li>
           <br/>
 
-          <li><a class="grey-text text-darken-1" href="#">Dossiers des nounous</a></li>
-          <br/>
-
           <li><a class="grey-text text-darken-1" href="#">Liste décroissante des revenus par nounou</a></li>
           <br/>
 
