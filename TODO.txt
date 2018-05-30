@@ -130,10 +130,12 @@ CREATE TABLE IF NOT EXISTS `garde` (
   `debut` datetime NOT NULL,
   `fin` datetime NOT NULL,
   `nounou_email` varchar(125) NOT NULL,
+  `email_parent` varchar(125) NOT NULL,
   `tarif` float NOT NULL,
   PRIMARY KEY (`garde_id`),
   UNIQUE KEY `garde_id_UNIQUE` (`garde_id`),
-  KEY `garde_nounou_email_idx` (`nounou_email`)
+  KEY `garde_nounou_email_idx` (`nounou_email`),
+  KEY `email_parent` (`email_parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -243,14 +245,16 @@ ALTER TABLE `enfant`
 --
 ALTER TABLE `evaluation`
   ADD CONSTRAINT `nounou_email` FOREIGN KEY (`nounou_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `parent_email` FOREIGN KEY (`parent_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `parent_email` FOREIGN KEY (`parent_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  ADD CONSTRAINT `garde_id` FOREIGN KEY (`garde_id`) REFERENCES `garde` (`garde_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 
 --
 -- Contraintes pour la table `garde`
 --
 ALTER TABLE `garde`
   ADD CONSTRAINT `garde_nounou_email` FOREIGN KEY (`nounou_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  
 --
 -- Contraintes pour la table `garde_has_enfant`
 --

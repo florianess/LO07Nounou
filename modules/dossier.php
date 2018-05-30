@@ -26,7 +26,7 @@ $sql = "SELECT nom,prenom,ville,email,portable,age,experience,presentation FROM 
 
 $nounou = $conn->query($sql);
 $row = $nounou->fetch_row();
-$sql2 = "SELECT garde_id, debut, fin, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
+$sql2 = "SELECT garde_id, debut, fin, email_parent, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
 $garde = $conn->query($sql2);
 echo("<h5> Prénom : $row[1]</h5>");
 echo("<h5> Nom : $row[0]</5>");
@@ -48,20 +48,22 @@ echo("<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>");
   </tr>
 </thead>
 <tbody>
+  
   <?php
       while ($row2 = $garde->fetch_row()) {
+
+
+        $sql3 = "SELECT description, note FROM evaluation WHERE garde_id='$row2[0]'";
+
+        $evaluatoon= $conn->query($sql3);
+        $row3 = $evaluatoon->fetch_row();
           echo "<tr>";
               echo "<td>"."<b>Du </b> $row2[1]<b> au </b> $row2[2]" ."</td>";
 
-              $sql3 = "SELECT * FROM garde_has_enfant WHERE  garde_id='$row2[0]'";
-              $gardeenfant= $conn->query($sql3);
-              $row3 = $gardeenfant->fetch_row();
-              $sql4 = "SELECT email_parent FROM enfant WHERE  enfant_id='$row3[1]'";
-              $parent= $conn->query($sql4);
-              $row4 = $parent->fetch_row();
-              echo "<td>$row4[0]</td>";
-              echo "<td>  </td>";
+
               echo "<td>$row2[3]</td>";
+              echo "<td>Description : $row3[0]<br/> Note : $row3[1] </td>";
+              echo "<td>$row2[4]</td>";
               echo "</tr>";
 
 }
