@@ -58,7 +58,7 @@ const textregu = `
   </label>
   <br><br>
   <label>
-    <input name="day" type="radio" value="diff"/>
+    <input name="day" type="radio" value="diff" onchange="diff()"/>
     <span>Horaires par journée</span>
   </label>
   <br><br><hr><br>`;
@@ -159,6 +159,25 @@ function some() {
 function fix() {
   if (step2) {
     step2.remove();
+  }
+  var htmlObject = document.createElement('div');
+  htmlObject.innerHTML = heures;
+  htmlObject.className = 'row';
+  document.getElementById("form").appendChild(htmlObject);
+  step2 = htmlObject;
+  M.AutoInit();
+  var heure = document.querySelectorAll('.timepicker');
+  var heureI = M.Timepicker.init(heure, {twelveHour: false});
+}
+
+function flex() {
+  if (step2) {
+    step2.remove();
+  }
+  if (document.getElementById('work').checked) {
+
+  } else if (document.getElementById('all').checked) {
+    
   }
   var htmlObject = document.createElement('div');
   htmlObject.innerHTML = heures;
