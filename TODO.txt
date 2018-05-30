@@ -118,6 +118,17 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
   KEY `parent_email_idx` (`parent_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
+--
+-- Déchargement des données de la table `evaluation`
+--
+
+INSERT INTO `evaluation` (`evalutation_id`, `garde_id`, `nounou_email`, `description`, `note`, `parent_email`) VALUES
+(1, 2, 'Marie.dupont@gmail.com', 'TRES BONNE GARDE', 10, 'parent@gmail.com'),
+(2, 1, 'parent@gmail.com', 'MOYEN, non ponctuel', 5, 'parent@gmail.com');
+
+
 -- --------------------------------------------------------
 
 --
@@ -137,6 +148,16 @@ CREATE TABLE IF NOT EXISTS `garde` (
   KEY `garde_nounou_email_idx` (`nounou_email`),
   KEY `email_parent` (`email_parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Déchargement des données de la table `garde`
+--
+
+INSERT INTO `garde` (`garde_id`, `debut`, `fin`, `nounou_email`, `email_parent`, `tarif`) VALUES
+(1, '2018-05-01 00:00:00', '2018-05-02 14:00:00', 'paul.martin@gmail.com', 'parent@gmail.com', 10),
+(2, '2017-06-01 00:00:00', '2017-06-03 00:00:00', 'Marie.dupont@gmail.com', 'parent@gmail.com', 40);
+
 
 -- --------------------------------------------------------
 
@@ -205,9 +226,11 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 -- Déchargement des données de la table `utilisateur`
 --
-
 INSERT INTO `utilisateur` (`nom`, `prenom`, `ville`, `email`, `portable`, `photo`, `age`, `experience`, `presentation`, `type_user`, `password`) VALUES
-(NULL, NULL, NULL, 'admin', NULL, NULL, NULL, NULL, NULL, 'admin', '$2y$10$wVK682RRldlDdcu1ylKJeuii35h.Na2SlztqQ5saHSCfZgdUAClaa');
+(NULL, NULL, NULL, 'admin', NULL, NULL, NULL, NULL, NULL, 'admin', '$2y$10$wVK682RRldlDdcu1ylKJeuii35h.Na2SlztqQ5saHSCfZgdUAClaa')
+('Dupont', 'Marie', 'ORSAY', 'Marie.dupont@gmail.com', 659878178, '', 18, 'experimente', 'Je suis aussi une super nounou', 'nounou', '$2y$10$XP.0T38.R2tEQpUIlInKs.dGSFKz6JCPgX0w6vxGzPHcGLxbWBHqi'),
+('martin', 'paul', 'ORSAY', 'paul.martin@gmail.com', 659878193, '', 25, 'occasionnel', 'Je suis une super nounou', 'nounou', '$2y$10$pxtj6wo.UVCvzjefEMsKnOMuxRSwB2yj6kl3dkUs6YMXd69BbTgH6'),
+('Henry', 'Jean', 'TROYES', 'parent@gmail.com', 767564534, '', NULL, NULL, '        RAS', 'parent', '$2y$10$jPUg247r0cmsxUADVgZgUuN/7oLBSy10SvqG515zaZlWks.YlOBZO');
 
 -- --------------------------------------------------------
 
@@ -254,7 +277,8 @@ ALTER TABLE `evaluation`
 --
 ALTER TABLE `garde`
   ADD CONSTRAINT `garde_nounou_email` FOREIGN KEY (`nounou_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-  
+  ADD CONSTRAINT `garde_email_parent` FOREIGN KEY (`email_parent`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 --
 -- Contraintes pour la table `garde_has_enfant`
 --
