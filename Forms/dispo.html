@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Disponibilités</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="center"> Enregistrez vos disponibilités</h1>
+    <br>
+    <br>
+    <form id="form" class="center" method="post" action="">
+      <label>
+        <input id="all" name="dispo" type="radio" value="work" onchange="regu()"/>
+        <span>Tous les jours travaillés (Lu, Ma, Me, Je, Ve)</span>
+      </label>
+      <br><br>
+      <label>
+        <input name="dispo" type="radio" value="all" onchange="regu()"/>
+        <span>Tous les jours (Lu, Ma, Me, Je, Ve, Sa, Di)</span>
+      </label>
+      <br><br>
+      <label>
+        <input name="dispo" type="radio" value="ponct" onchange="ponct()"/>
+        <span>Ponctuellement certains jours de la semaine</span>
+      </label>
+      <br><br>
+      <label>
+        <input name="dispo" type="radio" value="some" onchange="some()"/>
+        <span>Certains jours spécifiques</span>
+      </label>
+      <br><br><hr><br>
+    </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/dispoInit.js"></script>
+</body>
+</html>
