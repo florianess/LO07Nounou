@@ -59,10 +59,10 @@ END;
 
 $page2 = <<<END
 <form class="center" method="post" action="">
-  <div class="row">
+  <div id="add" class="row">
     <div class="input-field col s4">
       <label>Date :</label>
-      <input type="text" class="timepicker" name="date[]">
+      <input type="text" class="datepicker" name="date[]">
     </div>
     <div class="input-field col s4">
       <label>De :</label>
@@ -74,7 +74,7 @@ $page2 = <<<END
     </div>
   </div>
   <br><br>
-  <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+  <a class="btn-floating btn-large waves-effect waves-light" onclick="add()"><i class="material-icons">add</i></a>
   <br><br>
   <div class="row">
     <div class="input-field col s6">
