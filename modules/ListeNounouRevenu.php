@@ -24,6 +24,7 @@ require_once '../db/connection.php';
         <th>Portable</th>
         <th>Age</th>
         <th>Experience</th>
+        <th>Type de nounou</th>
         <th>Revenu (€)</th>
 
     </tr>
@@ -32,7 +33,7 @@ require_once '../db/connection.php';
 
   <?php
 
-  $sqlNounou = "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience, SUM(g.tarif) revenu
+  $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience,u.type_user, SUM(g.tarif) revenu
 FROM garde g
 INNER JOIN utilisateur u ON g.nounou_email = u.email
 GROUP BY g.nounou_email
@@ -40,16 +41,69 @@ ORDER BY revenu DESC";
 
 
 
-  $nounou= $conn->query($sqlNounou);
-  while ( $rowNounou = $nounou->fetch_row())
+  $nounouRevenu= $conn->query($sqlNounouRevenu);
+  while ( $rowNounouRevenu = $nounouRevenu->fetch_row())
  {
     echo "<tr>";
-      foreach ($rowNounou as $value) {
-        echo "<td>".$value."</td>";
-      }
+    for ($i=0; $i <7 ; $i++) {
+      echo "<td>".$rowNounouRevenu[$i]."</td>";
+    }
+    if($rowNounouRevenu[7]=='block'){
+      echo "<td> Bloquée</td>";
+
+    }else {
+      echo "<td> Non bloquée</td>";
+    }
+      echo "<td>".$rowNounouRevenu[8]."</td>";
 
     echo "</tr>";
     }
+
+
+
+
+
+  // certaines nounou n'ont pas de revenus
+  $sqlNounou= "SELECT nom, prenom,ville, email, portable,age,experience, type_user FROM utilisateur WHERE type_user='block' OR type_user='nounou'";
+  $nounou=$conn->query($sqlNounou);
+  $nounouRevenu= $conn->query($sqlNounouRevenu);
+  while ( $rowNounou = $nounou->fetch_row())
+ {    $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience, u.type_user, SUM(g.tarif) revenu
+   FROM garde g
+   INNER JOIN utilisateur u ON g.nounou_email = u.email
+   GROUP BY g.nounou_email
+   ORDER BY revenu DESC";
+   $nounouRevenu= $conn->query($sqlNounouRevenu);
+  $revenu=false;
+   while ( $rowNounouRevenu = $nounouRevenu->fetch_row())
+  {
+
+         if($rowNounou[3]==$rowNounouRevenu[3]){
+           $revenu=true;
+         }
+       }
+
+     if(!$revenu){
+
+       echo "<tr>";
+       for ($i=0; $i <7 ; $i++) {
+         echo "<td>".$rowNounou[$i]."</td>";
+       }
+       if($rowNounou[7]=='block'){
+         echo "<td> Bloquée</td>";
+
+       }else {
+         echo "<td> Non bloquée</td>";
+       }
+         echo "<td>0</td>";
+
+    echo "</tr>";
+    }
+
+
+
+}
+
   echo "</tbody></table>";
 }
 echo "</div>";
