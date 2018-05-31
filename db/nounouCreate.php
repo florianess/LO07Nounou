@@ -41,13 +41,11 @@ if(in_array(false, $values)) {
       $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$values[3]','";
       foreach ($_POST['langues'] as $value) {
         $sql3 = $debutSql . $value . "')";
-        if ($conn->query($sql3)) {
-          $conn->close();
-          header('Location: ../?status=create');
-        } else {
+        if (!$conn->query($sql3)) {
           echo "Error: " . $sql3 . "<br>" . $conn->error . "<br>";
         }
       }
+    header('Location: ../?status=create');
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
     }

@@ -40,7 +40,7 @@ const frDate = {
 const texthoraire = `
   <div class="input-field col s4">
     <label>Date :</label>
-    <input type="text" class="datepicker" name="date[]">
+    <input type="text" class="datepicker" name="jours[]">
   </div>
   <div class="input-field col s4">
     <label>De :</label>
@@ -53,12 +53,12 @@ const texthoraire = `
 
 const textregu = `
   <label>
-    <input name="day" type="radio" value="same" onchange="fix()"/>
+    <input name="type" type="radio" value="same" onchange="fix()"/>
     <span>Horaire fixe</span>
   </label>
   <br><br>
   <label>
-    <input name="day" type="radio" value="diff" onchange="flex()"/>
+    <input name="type" type="radio" value="diff" onchange="flex()"/>
     <span>Horaires par journée</span>
   </label>
   <br><br><hr><br>`;
@@ -99,7 +99,7 @@ function displayJours(jours) {
     <div class="row">
       <div class="input-field col s2">
         <p class="right"> ${jour} </p>
-        <input type="hidden" name="jour[]" value=${jour}>
+        <input type="hidden" name="jours[]" value=${jour}>
       </div>
       <div class="input-field col s5">
         <label>De :</label>
@@ -124,11 +124,10 @@ function add() {
   htmlObject.innerHTML = texthoraire;
   const btn = document.getElementById("add");
   document.getElementById('test').insertBefore(htmlObject, btn);
-  M.AutoInit();
   var date = document.querySelectorAll('.datepicker');
-  var dateI = M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
+  M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
   var heure = document.querySelectorAll('.timepicker');
-  var heureI = M.Timepicker.init(heure, {twelveHour: false});
+  M.Timepicker.init(heure, {twelveHour: false});
 }
 
 function regu() {
@@ -172,11 +171,10 @@ function some() {
   htmlObject.id = 'test';
   document.getElementById("form").appendChild(htmlObject);
   step1 = htmlObject;
-  M.AutoInit();
   var date = document.querySelectorAll('.datepicker');
-  var dateI = M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
+  M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
   var heure = document.querySelectorAll('.timepicker');
-  var heureI = M.Timepicker.init(heure, {twelveHour: false});
+  M.Timepicker.init(heure, {twelveHour: false});
 }
 
 function fix() {
@@ -198,7 +196,7 @@ function flex() {
     step2.remove();
   }
   var htmlObject = document.createElement('div');
-  let jours = [];
+  let s = [];
   const listeJours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
   if (document.getElementById('work').checked) {
     jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'];

@@ -8,5 +8,7 @@ $sqlDispo = "SELECT * FROM dispo WHERE nounou_email = '".$_SESSION['user']['emai
 $res = $conn->query($sqlDispo);
 if($res->num_rows == 0) {
   header('Location: ..\forms\dispo.html');
+} else {
+  echo "CC";
 }
 ?>
