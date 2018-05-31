@@ -7,8 +7,8 @@ if (isset($_GET['type'])) {
   if ($_GET['type'] == 'block') {
     $sql = "UPDATE utilisateur SET type_user='block' WHERE email='".$_GET['email']."'";
     $conn->query($sql);
+    header('Location: ..\accueil\listes.php?nounous');
   }
-  header('Location: ..\accueil\listes.php');
 } ?>
 
 <div class='divider'></div>

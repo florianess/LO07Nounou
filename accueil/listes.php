@@ -14,6 +14,7 @@
 <?php
 
 session_start();
+ob_start();
 
 if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 
@@ -27,9 +28,9 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
     </ul>
   </div>
   <div class="container nav-content">
-    <ul class="tabs tabs-transparent">
+    <ul id="tabs" class="tabs tabs-transparent">
       <li class="tab"><a class="grey-text text-darken-1" href="#candidats">Candidats</a></li>
-      <li class="tab"><a class="active grey-text text-darken-1" href="#nounous">Nounous</a></li>
+      <li class="tab"><a class="grey-text text-darken-1 active" href="#nounous">Nounous</a></li>
       <li class="tab"><a class="grey-text text-darken-1" href="#bloques">Bloquées</a></li>
       <li class="tab"><a class="grey-text text-darken-1" href="#revenu">Revenu Nounou décroissant </a></li>
     </ul>
@@ -51,9 +52,10 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 } else {
   echo "<h1 class='red-text'>Accees refusé</h1>";
 }
+ob_end_flush();
 ?>
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="../js/autoInit.js"></script>
+<script src="../js/initListes.js"></script>
 </body>
 </html>

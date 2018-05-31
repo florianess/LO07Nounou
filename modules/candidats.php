@@ -8,14 +8,15 @@ if (isset($_GET['type'])) {
     case 'add':
       $sql = "UPDATE utilisateur SET type_user='nounou' WHERE email='".$_GET['email']."'";
       $conn->query($sql);
+      header('Location: ..\accueil\listes.php?candidats');
       break;
     case 'remove':
       $sql = "DELETE FROM utilisateur_has_langue WHERE utilisateur_email='".$_GET['email']."';";
       $sql .= "DELETE FROM utilisateur WHERE email='".$_GET['email']."'";
       $conn->multi_query($sql);
+      header('Location: ..\accueil\listes.php?candidats');
       break;
   }
-  header('Location: ..\accueil\admin.php');
 } ?>
 
 <div class='divider'></div>
