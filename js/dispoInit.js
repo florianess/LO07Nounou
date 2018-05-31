@@ -58,12 +58,12 @@ const textregu = `
   </label>
   <br><br>
   <label>
-    <input name="day" type="radio" value="diff" onchange="diff()"/>
+    <input name="day" type="radio" value="diff" onchange="flex()"/>
     <span>Horaires par journée</span>
   </label>
   <br><br><hr><br>`;
 
-const textponct = `<select multiple name="jours[]">
+const textponct = `<select id="ponct" multiple name="jours[]">
   <option value="" disabled selected>Choix des jours</option>
   <option value="1">Lundi</option>
   <option value="2">Mardi</option>
@@ -77,7 +77,7 @@ const textponct = `<select multiple name="jours[]">
 
 const send = `<button class="btn-large waves-effect waves-light" type="submit">Envoyer
   <i class="material-icons right">send</i>
-</button>`;
+</button><br><br>`;
 
 const textsome = texthoraire + `<br><br>
 <a id="add" class="btn-floating btn-large waves-effect waves-light" onclick="add()"><i class="material-icons">add</i></a>
@@ -91,6 +91,29 @@ const heures = `<div class="input-field col s6">
   <label>A :</label>
   <input type="text" class="timepicker" name="fin[]">
 </div>` + send;
+
+function displayJours(jours) {
+  let text = '';
+  jours.forEach((jour) => {
+    text += `
+    <div class="row">
+      <div class="input-field col s2">
+        <p class="right"> ${jour} </p>
+        <input type="hidden" name="jour[]" value=${jour}>
+      </div>
+      <div class="input-field col s5">
+        <label>De :</label>
+        <input type="text" class="timepicker" name="debut[]">
+      </div>
+      <div class="input-field col s5">
+        <label>A :</label>
+        <input type="text" class="timepicker" name="fin[]">
+      </div>
+    </div>`;
+  })
+  text += send;
+  return text;
+}
 
 let step1;
 let step2;
@@ -174,14 +197,19 @@ function flex() {
   if (step2) {
     step2.remove();
   }
-  if (document.getElementById('work').checked) {
-
-  } else if (document.getElementById('all').checked) {
-    
-  }
   var htmlObject = document.createElement('div');
-  htmlObject.innerHTML = heures;
-  htmlObject.className = 'row';
+  let jours = [];
+  const listeJours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  if (document.getElementById('work').checked) {
+    jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'];
+  } else if (document.getElementById('all').checked) {
+    jours = listeJours;
+  } else {
+    let selectHtml = document.getElementById('ponct');
+    let valJours = Array.from(selectHtml.querySelectorAll("option:checked"),e=>e.value);
+    jours = valJours.map(val => listeJours[parseInt(val)-1]);
+  }
+  htmlObject.innerHTML = displayJours(jours);
   document.getElementById("form").appendChild(htmlObject);
   step2 = htmlObject;
   M.AutoInit();

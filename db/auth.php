@@ -15,7 +15,7 @@ if ($result->num_rows == 1) {
         header('Location: ..\accueil\admin.php');
         break;
       case 'nounou':
-        header('Location: ..\accueil\nounou.html');
+        header('Location: ..\accueil\nounou.php');
         break;
       case 'parent':
         header('Location: ..\accueil\parent.html');
