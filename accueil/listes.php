@@ -22,7 +22,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
   <div class="container nav-wrapper">
     <a id="logo-container" href="../accueil/admin.php" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
     <a class="brand-logo center  grey-text text-darken-1">Listes</a>
-    <ul class="right hide-on-med-and-down">
+    <ul class="right">
       <li>  <a href="../index.html" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
     </ul>
   </div>
@@ -31,6 +31,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
       <li class="tab"><a class="grey-text text-darken-1" href="#candidats">Candidats</a></li>
       <li class="tab"><a class="active grey-text text-darken-1" href="#nounous">Nounous</a></li>
       <li class="tab"><a class="grey-text text-darken-1" href="#bloques">Bloquées</a></li>
+      <li class="tab"><a class="grey-text text-darken-1" href="#revenu">Revenu Nounou décroissant </a></li>
     </ul>
   </div>
 </nav>
@@ -43,7 +44,10 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
   require_once '../modules/listeNounou.php';
   echo '</div><div id="bloques">';
   require_once '../modules/bloque.php';
+  echo "</div><div id=revenu>";
+  require_once '../modules/ListeNounouRevenu.php';
   echo "</div>";
+
 } else {
   echo "<h1 class='red-text'>Accees refusé</h1>";
 }
