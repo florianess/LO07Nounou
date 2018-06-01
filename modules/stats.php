@@ -18,7 +18,14 @@
         <li>  <a href="../index.html" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
       </ul>
     </div>
+    <div class="container nav-content">
+      <ul id="tabs" class="tabs tabs-transparent">
+        <li class="tab"><a class="grey-text text-darken-1 active" href="#nbInscrits">Nombre d'inscrits</a></li>
+        <li class="tab"><a class="grey-text text-darken-1 " href="#CA">Chiffre d'affaire</a></li>
+      </ul>
+    </div>
   </nav>
+
   <div class="container">
 
 <?php
@@ -33,50 +40,54 @@ require_once '../db/enfantInscrit.php';
 session_start();
 
 if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
-
-  echo"<h4 class='catStat'> Statistiques : Le nombre d'inscrits </h4>";
+echo("<div id='nbInscrits'>");
   echo'<br/>';
 
 
-  echo("<h6 class ='nombreInscrits' >Le nombre de Nounous :</h6>");
+  echo("<h4 class ='nombreInscrits' >Le nombre de Nounous :</h4>");
   $nbNounousTotale =$nounousInscrites->num_rows + $nounousBloquées->num_rows;
   echo '<ul>';
   echo '<li>';
-  echo "<h7><b>$nounous->num_rows</b> nouveau(x) candidat(s) 'Nounou' à valider</h7>";
+  echo "<h5><b>$nounous->num_rows</b> Nouveau(x) candidat(s) 'Nounou' à valider</h5>";
   echo '</li>';
   echo '<li>';
-  echo "<h7><b> $nbNounousTotale </b> Nounou(s) inscrit(e)(s) au total dont :</h7>";
+  echo "<h5><b> $nbNounousTotale </b> Nounou(s) inscrit(e)(s) au total dont :</h5>";
   echo '</li>';
   echo '<li>';
-  echo "<h9><i>- <b> $nounousBloquées->num_rows</b> Nounou(s) bloquées</i></h9>";
+  echo "<h6><i>- <b> $nounousBloquées->num_rows</b> Nounou(s) bloquées</i></h6>";
   echo '</li>';
   echo '<li>';
-  echo "<h9>    <i>- <b> $nounousInscrites->num_rows</b> Nounou(s) en activité</i></h9>";
-  echo '</li>';
-  echo '</ul>';
-  echo "<h6 class ='nombreInscrits'>Le nombre de Familles :</h6>";
-  echo '<ul>';
-  echo '<li>';
-  echo "<h7><b>$parentsInscrits->num_rows</b> Parent(s) inscrit(s)</h7>";
-  echo '</li>';
-  echo '<li>';
-  echo "<h7><b>$enfantsInscrits->num_rows</b> Enfant(s) incrit(s) </h7>";
+  echo "<h6>    <i>- <b> $nounousInscrites->num_rows</b> Nounou(s) en activité</i></h6>";
   echo '</li>';
   echo '</ul>';
   echo '<br/>';
-  echo '<hr/>';
-  echo "<h4 class='catStat'> Statistiques : Le chiffre d'affaire </h4>";
+  echo "<h4 class ='nombreInscrits'>Le nombre de Familles :</h4>";
+  echo '<ul>';
+  echo '<li>';
+  echo "<h5><b>$parentsInscrits->num_rows</b> Parent(s) inscrit(s)</h5>";
+  echo '</li>';
+  echo '<li>';
+  echo "<h5><b>$enfantsInscrits->num_rows</b> Enfant(s) incrit(s) </h5>";
+  echo '</li>';
+  echo '</ul>';
+  echo '<br/>';
+  echo "</div>";
+
+
+  echo "<div id='CA'";
   echo '<br/>';
 
 ?>
+
 <div class="container nav-content">
-  <ul id="tabs" class="tabs">
-    <li class="tab"><a class="grey-text text-darken-1" href="#mois">Mois</a></li>
-   <li class="tab"><a class="grey-text text-darken-1 " href="#trimestre">Trimestre</a></li>
-    <li class="tab"><a class="grey-text text-darken-1 active " href="#annee">Année</a></li>
+  <ul id="tabs" class="tabs tabs-transparent">
+      <li class="tab"><a class="grey-text text-darken-1  " href="#annee">Année</a></li>
+      <li class="tab"><a class="grey-text text-darken-1 " href="#trimestre">Trimestre</a></li>
+      <li class="tab"><a class="grey-text text-darken-1" href="#mois">Mois</a></li>
+
   </ul>
 </div>
-</nav>
+
 <div class="container">
 <?php
   echo '<div id="mois">';
@@ -93,6 +104,9 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 ob_end_flush();
 ?>
 </div>
+</div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="../js/initListes.js"></script>
 </body>

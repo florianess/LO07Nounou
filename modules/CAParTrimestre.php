@@ -7,8 +7,13 @@
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Administration</title>
+</head>
+<body class="administration">
+  <div class="container">
 
-
+  <br/>
+  <h3> Chiffre d'Affaire par trimestre</h3>
+  <br/>
   <table >
   <thead>
     <tr>
@@ -48,5 +53,6 @@ for ($i=1; $i<5 ; $i++) {
 echo'</table>';
 echo'<br/>';
 echo'<br/>';
+echo "</div>";
 
 ?>

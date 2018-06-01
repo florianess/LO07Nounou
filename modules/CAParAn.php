@@ -7,9 +7,14 @@
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Administration</title>
+</head>
+<body class="administration">
+  <div class="container">
 
   <div class='divider'></div>
   <div class='section'>
+    <h3> Chiffre d'Affaire par année</h3>
+    <br/>
   <table >
   <thead>
     <tr>
@@ -43,6 +48,7 @@ for ($annee=2016; $annee <2019 ; $annee++) {
 echo'</table>';
 echo'<br/>';
 echo'<br/>';
+echo'</div>';
 echo'</div>';
 
 ?>

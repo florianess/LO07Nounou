@@ -7,15 +7,17 @@
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Administration</title>
+</head>
+<body class="administration">
+
   <div class="container nav-content">
-    <ul id="tabs" class="tabs">
+    <ul id="tabs" class="tabs tabs-transparent ">
       <li class="tab"><a class="grey-text text-darken-1" href="#2016">2016</a></li>
      <li class="tab"><a class="grey-text text-darken-1 " href="#2017">2017</a></li>
       <li class="tab"><a class="grey-text text-darken-1 active  " href="#2018">2018</a></li>
     </ul>
   </div>
   </nav>
-  <div class="container">
   <?php
 
 
@@ -37,8 +39,8 @@ function tableMois($annee){
   echo("
       <div class='divider'></div>
       <div class='section'>
-
-      <h3> Année : $annee</h3>
+      <h3> Chiffre d'Affaire par mois <br/> <br/>Année : $annee</h3>
+      <br/>
     <table >
     <thead>
       <tr>
