@@ -35,10 +35,6 @@
         <ul class="listefonction">
           <li><a class="grey-text text-darken-1" href="../modules/stats.php">Statistiques du site</a></li>
           <br/>
-
-          <li><a class="grey-text text-darken-1" href="#">Liste décroissante des revenus par nounou</a></li>
-          <br/>
-
         </ul>
 
 
@@ -47,7 +43,7 @@
       <div class="col l6 s12 categorieadmin" >
         <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
         <br/>
-        <a  class="grey-text text-darken-1 listefonction" href="listes.php">Listes</a>
+        <a  class="grey-text text-darken-1 listefonction" href="listes.php">Listes de Nounous</a>
     </div>
   </div>
 </div>
