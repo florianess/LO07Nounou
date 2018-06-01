@@ -26,7 +26,7 @@ require_once '../db/newNounous.php';
 require_once '../db/nounouInscrite.php';
 require_once '../db/parentInscrit.php';
 require_once '../db/enfantInscrit.php';
-require_once '../db/gardeDansLAnnee.php';
+
 
 
 
@@ -34,23 +34,12 @@ session_start();
 
 if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 
-function chiffreAffaire($annee){
-
-  $gardeannee =gardeAnnée($annee);
-  $CA =0;
-  foreach ($gardeannee as $value) {
-  $CA+=$value["tarif"];}
-
-  return $CA;
-
-}
-
   echo"<h4 class='catStat'> Statistiques : Le nombre d'inscrits </h4>";
   echo'<br/>';
 
 
   echo("<h6 class ='nombreInscrits' >Le nombre de Nounous :</h6>");
-$nbNounousTotale =$nounousInscrites->num_rows + $nounousBloquées->num_rows;
+  $nbNounousTotale =$nounousInscrites->num_rows + $nounousBloquées->num_rows;
   echo '<ul>';
   echo '<li>';
   echo "<h7><b>$nounous->num_rows</b> nouveau(x) candidat(s) 'Nounou' à valider</h7>";
@@ -59,7 +48,7 @@ $nbNounousTotale =$nounousInscrites->num_rows + $nounousBloquées->num_rows;
   echo "<h7><b> $nbNounousTotale </b> Nounou(s) inscrit(e)(s) au total dont :</h7>";
   echo '</li>';
   echo '<li>';
-  echo "<h9><i>    - <b> $nounousBloquées->num_rows</b> Nounou(s) bloquées</i></h9>";
+  echo "<h9><i>- <b> $nounousBloquées->num_rows</b> Nounou(s) bloquées</i></h9>";
   echo '</li>';
   echo '<li>';
   echo "<h9>    <i>- <b> $nounousInscrites->num_rows</b> Nounou(s) en activité</i></h9>";
@@ -78,32 +67,33 @@ $nbNounousTotale =$nounousInscrites->num_rows + $nounousBloquées->num_rows;
   echo '<hr/>';
   echo "<h4 class='catStat'> Statistiques : Le chiffre d'affaire </h4>";
   echo '<br/>';
+
 ?>
-
-  <table id='table'>
-  <thead>
-    <tr>
-        <th>Année</th>
-        <th>Nombre de gardes effectuées</th>
-        <th>Chiffre d'affaire</th>
-    </tr>
-  </thead>
-  <tbody>
-
+<div class="container nav-content">
+  <ul id="tabs" class="tabs">
+    <li class="tab"><a class="grey-text text-darken-1" href="#mois">Mois</a></li>
+  <!--  <li class="tab"><a class="grey-text text-darken-1 active" href="#trimestre">Trimestre</a></li> !-->
+    <li class="tab"><a class="active grey-text text-darken-1" href="#année">Année</a></li>
+  </ul>
+</div>
+</nav>
+<div class="container">
 <?php
-for ($annee=2010; $annee <2019 ; $annee++) {
+  echo '<div id="mois">';
+  require_once '../modules/CAParMois.php';
+  echo '</div><div id="trimestre">';
+ require_once '../modules/CAParTrimestre.php';
+  echo '</div><div id="année">';
+  require_once '../modules/CAParAn.php';
+  echo "</div>";
 
-  echo '<tr>';
-  echo "<td>$annee</td> <td><b>".gardeAnnée($annee)->num_rows."</b></td> <td> <b>".chiffreAffaire($annee)."</b>€</td>";
-  echo '<tr>';
-}
-echo'</table>';
-echo'<br/>';
-echo'<br/>';
 } else {
- echo "<h1 class='red-text'>Accees refusé</h1>";
+  echo "<h1 class='red-text'>Accees refusé</h1>";
 }
+ob_end_flush();
 ?>
-
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="../js/initListes.js"></script>
 </body>
 </html>
