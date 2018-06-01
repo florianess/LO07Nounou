@@ -72,8 +72,8 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 <div class="container nav-content">
   <ul id="tabs" class="tabs">
     <li class="tab"><a class="grey-text text-darken-1" href="#mois">Mois</a></li>
-  <!--  <li class="tab"><a class="grey-text text-darken-1 active" href="#trimestre">Trimestre</a></li> !-->
-    <li class="tab"><a class="active grey-text text-darken-1" href="#année">Année</a></li>
+   <li class="tab"><a class="grey-text text-darken-1 " href="#trimestre">Trimestre</a></li>
+    <li class="tab"><a class="grey-text text-darken-1 active " href="#annee">Année</a></li>
   </ul>
 </div>
 </nav>
@@ -83,7 +83,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
   require_once '../modules/CAParMois.php';
   echo '</div><div id="trimestre">';
  require_once '../modules/CAParTrimestre.php';
-  echo '</div><div id="année">';
+  echo '</div><div id="annee">';
   require_once '../modules/CAParAn.php';
   echo "</div>";
 

@@ -7,49 +7,73 @@
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <title>Administration</title>
+  <div class="container nav-content">
+    <ul id="tabs" class="tabs">
+      <li class="tab"><a class="grey-text text-darken-1" href="#2016">2016</a></li>
+     <li class="tab"><a class="grey-text text-darken-1 " href="#2017">2017</a></li>
+      <li class="tab"><a class="grey-text text-darken-1 active  " href="#2018">2018</a></li>
+    </ul>
+  </div>
+  </nav>
+  <div class="container">
+  <?php
 
 
-    <div class='divider'></div>
-    <div class='section'>
-  <table >
-  <thead>
-    <tr>
-        <th>Mois</th>
-        <th>Nombre de gardes effectuées</th>
-        <th>Chiffre d'affaire</th>
-    </tr>
-  </thead>
-  <tbody>
+  function chiffreAffaireMois($annee,$mois,$key){
 
-<?php
-require_once '../db/gardeMois.php';
+    $gardemois =gardeMois($annee,$mois,$key);
+    $CA =0;
+    foreach ($gardemois as $value) {
+    $CA+=$value["tarif"];
+  }
 
-function chiffreAffaireMois($annee,$mois,$key){
+    return $CA;
+  }
 
-  $gardemois =gardeMois($annee,$mois,$key);
-  $CA =0;
-  foreach ($gardemois as $value) {
-  $CA+=$value["tarif"];
+
+function tableMois($annee){
+
+
+  echo("
+      <div class='divider'></div>
+      <div class='section'>
+
+      <h3> Année : $annee</h3>
+    <table >
+    <thead>
+      <tr>
+          <th>Mois</th>
+          <th>Nombre de gardes effectuées</th>
+          <th>Chiffre d'affaire</th>
+      </tr>
+    </thead>
+    <tbody>
+
+");
+  require_once '../db/gardeMois.php';
+
+  $mois= array('Janvier', 'Février','Mars','Avril','Mai', 'Juin','Juillet','Aout','Septembre','Octobre','Novembre','Décembre');
+
+  for ($i=0; $i<12 ; $i++) {
+    echo '<tr>';
+         echo "<td> $mois[$i] $annee</td> <td><b>".gardeMois($annee,$mois,$i)->num_rows."</b></td> <td> <b>".chiffreAffaireMois($annee,$mois,$i)."</b>€</td>";
+         echo '<tr>';
+  }
+
+  echo'</table>';
+  echo'<br/>';
+  echo'<br/>';echo'</div>';
 }
 
-  return $CA;
-}
+
+    echo '<div id="2016">';
+    tableMois(2016);
+    echo '</div><div id="2017">';
+    tableMois(2017);
+    echo '</div><div id="2018">';
+    tableMois(2018);
+    echo "</div>";
+      echo "</div>";
 
 
-$mois= array('Janvier', 'Février','Mars','Avril','Mai', 'Juin','Juillet','Aout','Septembre','Octobre','Novembre','Décembre');
-
-for ($annee=2016; $annee <2019 ; $annee++) {
-for ($i=0; $i<12 ; $i++) {
-  echo '<tr>';
-       echo "<td> $mois[$i] $annee</td> <td><b>".gardeMois($annee,$mois,$i)->num_rows."</b></td> <td> <b>".chiffreAffaireMois($annee,$mois,$i)."</b>€</td>";
-       echo '<tr>';
-}
-}
-
-
-
-echo'</table>';
-echo'<br/>';
-echo'<br/>';echo'</div>';
-
-?>
+  ?>
