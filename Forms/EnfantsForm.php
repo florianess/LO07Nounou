@@ -10,6 +10,12 @@
     <title>Formulaire enfants</title>
   </head>
   <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="../index.html" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
+      </div>
+    </nav>
+
   <div class='container'>
 
 <?php
