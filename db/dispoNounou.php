@@ -49,5 +49,18 @@ if ($res) {
   }
 }
 
+$sql2 = "SELECT * FROM garde WHERE nounou_email = '$email'";
+$res2 = $conn->query($sql2);
+if ($res2) {
+  while ($row = $res2->fetch_assoc()) {
+    $e = array();
+    $e['id'] = $row['garde_id'];
+    $e['title'] = 'Garde de ' . $row['email_parent'];
+    $e['start'] = $row['debut'];
+    $e['end'] = $row['fin'];
+    $e['backgroundColor'] = 'red';  
+    array_push($events,$e);
+  }
+}
 echo json_encode($events);
  ?>

@@ -6,12 +6,15 @@ TO DO
 
  * Ajouter le genre dans la BDD
 
+ * Auto footer (fonction js)
+
 --------------------------------------------------------------------------
 
 DOING
 
   * Dashboard Admin
 
+  * Dashboard Nounou
 --------------------------------------------------------------------------
 
 DONE
