@@ -7,7 +7,14 @@ $(function() {
       center: 'title',
       right: 'agendaWeek,agendaDay'
     },
-    allDaySlot: false
+    events: {
+        url: '../db/dispoNounou.php',
+        type: 'POST', // Send post data
+        error: function() {
+            alert('There was an error while fetching events.');
+        }
+    },
+    allDaySlot: false,
+    themeSystem: 'bootstrap4'
   })
-
 });
