@@ -37,6 +37,12 @@ const frDate = {
       weekdaysAbbrev: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
     }
 
+const timepickerOptions = {
+  twelveHour: false,
+  defaultTime: '12:00',
+  onSelect: function() {this.done()}
+}
+
 const texthoraire = `
   <div class="input-field col s4">
     <label>Date :</label>
@@ -127,7 +133,7 @@ function add() {
   var date = document.querySelectorAll('.datepicker');
   M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
   var heure = document.querySelectorAll('.timepicker');
-  M.Timepicker.init(heure, {twelveHour: false});
+  M.Timepicker.init(heure, timepickerOptions);
 }
 
 function regu() {
@@ -157,7 +163,9 @@ function ponct() {
   step1 = htmlObject;
   M.AutoInit();
 }
-
+function test(e) {
+  console.log();;
+}
 function some() {
   if (step1) {
     step1.remove();
@@ -174,7 +182,7 @@ function some() {
   var date = document.querySelectorAll('.datepicker');
   M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
   var heure = document.querySelectorAll('.timepicker');
-  M.Timepicker.init(heure, {twelveHour: false});
+  M.Timepicker.init(heure, timepickerOptions);
 }
 
 function fix() {
@@ -188,7 +196,7 @@ function fix() {
   step2 = htmlObject;
   M.AutoInit();
   var heure = document.querySelectorAll('.timepicker');
-  var heureI = M.Timepicker.init(heure, {twelveHour: false});
+  M.Timepicker.init(heure, timepickerOptions);
 }
 
 function flex() {
@@ -212,13 +220,9 @@ function flex() {
   step2 = htmlObject;
   M.AutoInit();
   var heure = document.querySelectorAll('.timepicker');
-  var heureI = M.Timepicker.init(heure, {twelveHour: false});
+  M.Timepicker.init(heure, timepickerOptions);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
-  var date = document.querySelectorAll('.datepicker');
-  var dateI = M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
-  var heure = document.querySelectorAll('.timepicker');
-  var heureI = M.Timepicker.init(heure, {twelveHour: false});
 });
