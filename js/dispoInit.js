@@ -225,4 +225,8 @@ function flex() {
 
 document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
+  var request = window.location.search.match(/[a-z]+/g);
+  if (request && request[0] === 'error') {
+    M.Modal.getInstance(document.getElementById('error')).open();
+  }
 });

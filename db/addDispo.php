@@ -2,24 +2,39 @@
 require_once '../db/connection.php';
 session_start();
 $email = $_SESSION['user']['email'];
-if (isset($_POST['type']) && $_POST['type'] == 'same') {
-  $debut = $_POST['debut'][0];
-  $fin = $_POST['fin'][0];
-  switch ($_POST['dispo']) {
-    case 'work':
-      $jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'];
-      break;
-    case 'all':
-      $jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
-      break;
-    case 'ponct':
-      $jours = $_POST['jours'];
-      break;
+
+if (compare($_POST['debut'],$_POST['fin'])) {
+  if (isset($_POST['type']) && $_POST['type'] == 'same') {
+    $debut = $_POST['debut'][0];
+    $fin = $_POST['fin'][0];
+    switch ($_POST['dispo']) {
+      case 'work':
+        $jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'];
+        break;
+      case 'all':
+        $jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+        break;
+      case 'ponct':
+        $jours = $_POST['jours'];
+        break;
+    }
+    insertFix($jours,$debut,$fin,$email);
+  } else {
+    insert($_POST['jours'],$_POST['debut'],$_POST['fin'],$email);
   }
-  insertFix($jours,$debut,$fin,$email);
 } else {
-  insert($_POST['jours'],$_POST['debut'],$_POST['fin'],$email);
-};
+  header('Location: ..\forms\dispo.html?error');
+}
+
+
+function compare($debut,$fin) {
+  for ($i=0; $i < count($debut); $i++) {
+    if ($debut[$i] >= $fin[$i]) {
+      return FALSE;
+    }
+  }
+  return TRUE;
+}
 
 function insert($jours,$debut,$fin,$email)
 {
