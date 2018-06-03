@@ -1,7 +1,9 @@
 <?php
+ob_start();
 require_once '../db/connection.php';
 session_start();
 $email = $_SESSION['user']['email'];
+var_dump($_POST['jours']);
 
 if (compare($_POST['debut'],$_POST['fin'])) {
   if (isset($_POST['type']) && $_POST['type'] == 'same') {
@@ -9,10 +11,10 @@ if (compare($_POST['debut'],$_POST['fin'])) {
     $fin = $_POST['fin'][0];
     switch ($_POST['dispo']) {
       case 'work':
-        $jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'];
+        $jours = [1,2,3,4,5];
         break;
       case 'all':
-        $jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+        $jours = [1,2,3,4,5,6,0];
         break;
       case 'ponct':
         $jours = $_POST['jours'];
@@ -23,7 +25,7 @@ if (compare($_POST['debut'],$_POST['fin'])) {
     insert($_POST['jours'],$_POST['debut'],$_POST['fin'],$email);
   }
 } else {
-  header('Location: ..\forms\dispo.html?error');
+  //header('Location: ..\forms\dispo.html?error');
 }
 
 
@@ -69,4 +71,5 @@ function insertFix($jours,$debut,$fin,$email)
     header('Location: ../accueil/nounou.php');
   }
 }
+ob_end_flush();
 ?>

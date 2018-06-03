@@ -77,7 +77,7 @@ const textponct = `<select id="ponct" multiple name="jours[]">
   <option value="4">Jeudi</option>
   <option value="5">Vendredi</option>
   <option value="6">Samedi</option>
-  <option value="7">Dimanche</option>
+  <option value="0">Dimanche</option>
 </select>
 <label>Journées</label><hr><br>`+textregu;
 
@@ -105,7 +105,6 @@ function displayJours(jours) {
     <div class="row">
       <div class="input-field col s2">
         <p class="right"> ${jour} </p>
-        <input type="hidden" name="jours[]" value=${jour}>
       </div>
       <div class="input-field col s5">
         <label>De :</label>
@@ -180,7 +179,7 @@ function some() {
   document.getElementById("form").appendChild(htmlObject);
   step1 = htmlObject;
   var date = document.querySelectorAll('.datepicker');
-  M.Datepicker.init(date, {format: 'dddd dd mmmm yyyy',i18n: frDate});
+  M.Datepicker.init(date, {format: 'dd/mm/yyyy',i18n: frDate});
   var heure = document.querySelectorAll('.timepicker');
   M.Timepicker.init(heure, timepickerOptions);
 }

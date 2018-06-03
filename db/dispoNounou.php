@@ -17,33 +17,15 @@ $events = array();
 if ($res) {
   while ($row = $res->fetch_assoc()) {
     $e = array();
-    switch ($row['jour']) {
-      case 'Lundi':
-        $e['dow'] = [1];
-        break;
-      case 'Mardi':
-        $e['dow'] = [2];
-        break;
-      case 'Mercredi':
-        $e['dow'] = [3];
-        break;
-      case 'Jeudi':
-        $e['dow'] = [4];
-        break;
-      case 'Vendredi':
-        $e['dow'] = [5];
-        break;
-      case 'Samedi':
-        $e['dow'] = [6];
-        break;
-      case 'Dimanche':
-        $e['dow'] = [7];
-        break;
-      default:
-        break;
+    if (strlen($row['jour']) == 1) {
+      $e['dow'] = [$row['jour']];
+      $e['start'] = $row['debut'];
+      $e['end'] = $row['fin'];
+    } else {
+      $date = DateTime::createFromFormat('d/m/Y', $row['jour']);
+      $e['start'] = $date->format('Y-m-d').' '.$row['debut'];
+      $e['end'] = $date->format('Y-m-d').' '.$row['fin'];
     }
-    $e['start'] = $row['debut'];
-    $e['end'] = $row['fin'];
     $e['rendering'] = 'background';
     array_push($events,$e);
   }
@@ -58,7 +40,7 @@ if ($res2) {
     $e['title'] = 'Garde de ' . $row['email_parent'];
     $e['start'] = $row['debut'];
     $e['end'] = $row['fin'];
-    $e['backgroundColor'] = 'red';  
+    $e['backgroundColor'] = 'red';
     array_push($events,$e);
   }
 }
