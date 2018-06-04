@@ -15,7 +15,7 @@
       <a id="logo-container" href="../accueil/admin.php" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
       <a class="brand-logo center  grey-text text-darken-1">Dossier Nounou</a>
       <ul class="right hide-on-med-and-down">
-        <li>  <a href="../index.html" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
+        <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
       </ul>
     </div>
   </nav>
@@ -48,7 +48,7 @@ echo("<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>");
   </tr>
 </thead>
 <tbody>
-  
+
   <?php
       while ($row2 = $garde->fetch_row()) {
 
