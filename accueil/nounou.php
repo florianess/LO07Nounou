@@ -28,7 +28,7 @@ if($res->num_rows == 0) {
     <h1 class='center'>Ton agenda</h1>
     <br><br><hr><br>
     <div id='calendar'></div>
-  <div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
@@ -36,7 +36,9 @@ if($res->num_rows == 0) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/fr.js"></script>
   <script src="../js/initNounou.js"></script>
+
 </body>
+</br></br>
 <footer class="whpage-footer">
   <div class="container">
     <div class="row">
