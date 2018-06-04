@@ -18,7 +18,10 @@ $(function() {
         }
     },
     allDaySlot: false,
-    themeSystem: 'bootstrap4'
+    themeSystem: 'bootstrap4',
+    eventRender: function(event, element) {
+            element.find('.fc-title').append("<br/>" + event.info +"<br/>" + event.email +"<br/>" + event.portable); 
+        }
   })
 });
 
