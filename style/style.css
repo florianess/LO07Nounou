@@ -6,7 +6,7 @@ font-size: 70;}
   margin-left: 255px;
 }
  .Bouton{
-   padding-left: 85%
+   padding-left: 85%;
  }
 
 #blablacar{
@@ -14,9 +14,18 @@ font-size: 70;}
 
 }
 
+#accueil{
+margin-left:  37%;
+
+}
+
 .administration {
 
 background-color: #E8F8F5 ;
+}
+.parent {
+
+background-color:#FFF0F5;
 }
 
 .categorieadmin {
