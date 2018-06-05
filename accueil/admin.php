@@ -50,5 +50,5 @@
 </body>
 </html>
 <?php } else {
-  echo "Accèes refusé";
+  echo "Accès refusé";
 } ?>

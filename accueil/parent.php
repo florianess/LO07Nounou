@@ -27,7 +27,7 @@
     <div class="pink lighten-4 nav-content">
       <ul id="tabs" class="tabs tabs-transparent">
         <li class="tab"><a class="grey-text text-darken-1 active" href="#recherche">Recherche</a></li>
-        <li class="tab"><a class="grey-text text-darken-1 " href="#">Mes demandes de gardes</a></li>
+        <li class="tab"><a class="grey-text text-darken-1 " href="#listegardes">Mes demandes de gardes</a></li>
         <li class="tab"><a class="grey-text text-darken-1 " href="#">Mes gardes à évaluer</a></li>
 
       </ul>
@@ -37,9 +37,11 @@
 <?php
   echo '<div id="recherche">';
   require_once '../modules/recherche.php';
-  echo '</div>';
+  echo '</div><div id="listegardes">';
+  require_once '../modules/listegardes.php';
 ?>
 </div>
+
 <footer class="white page-footer">
   <div class="container white">
     <div class="row">
