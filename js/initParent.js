@@ -46,7 +46,7 @@ const timepickerOptions = {
 document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
   var date = document.querySelectorAll('.datepicker');
-  M.Datepicker.init(date, {format: 'dd/mm/yyyy',i18n: frDate});
+  M.Datepicker.init(date, {format: 'dd/mm/yyyy',i18n: frDate, autoClose: true});
   var heure = document.querySelectorAll('.timepicker');
   M.Timepicker.init(heure, timepickerOptions);
 });

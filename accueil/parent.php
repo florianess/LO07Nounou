@@ -35,7 +35,7 @@
   </nav>
 </div>
 <?php
-  echo '<div id="recherche">';
+  echo '<div class="container" id="recherche">';
   require_once '../modules/recherche.php';
   echo '</div><div id="listegardes">';
   require_once '../modules/listegardes.php';
