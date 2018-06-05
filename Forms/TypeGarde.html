@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Type de garde proposée</title>
+</head>
+<body>
+  <nav class="white">
+    <div class="container nav-wrapper">
+      <a id="logo-container"  href="../accueil/parent.html" class="brand-logo grey-text text-darken-1">NounouFinder</a>
+      <ul class="right hide-on-med-and-down">
+        <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="center">Type de garde souhaitée ?</h1>
+    <br>
+    <br>
+    <form id="form" class="center" method="post" action="#">
+      <label>
+        <input id="ponctuelle" name="garde" type="radio" value="ponctuelle"/>
+        <span>Garde ponctuelle (baby-sitting, …)</span>
+      </label>
+      <br><br>
+      <label>
+        <input id="langueEtrangere" name="garde" type="radio" value="langueEtrangere"/>
+        <span>Garde d’enfant en langues étrangères</span>
+      </label>
+      <br><br>
+      <label>
+        <input id="reguliere" name="garde" type="radio" value="reguliere" onchange=/>
+        <span>Garde d’enfant régulière (sorties d’école, de crèche)</span>
+      </label>
+      <br><br>
+        <br><br>
+      <button class="btn-large waves-effect waves-light pink lighten-2" type="submit">Suivant
+        <i class="material-icons right">send</i>
+      <br><br><hr><br>
+    </form>
+  </div>
+  <script src="../js/materialize.js"></script>
+  <script type="text/javascript" src="../js/dispoInit.js"></script>
+</body>
+</html>
