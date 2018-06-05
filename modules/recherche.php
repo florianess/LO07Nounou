@@ -35,21 +35,23 @@
 
 require_once '../db/connection.php';
 
-if($_GET['date'] != '' && $_GET['debut'] == '' && $_GET['fin'] == '') {
-  $jour = $_GET['date'];
-  $conv = DateTime::createFromFormat('d/m/Y', $jour);
-  $numJ = date("N",$conv->format('U'));
-  if ($numJ == 7) {$numJ = 0;};
-  $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE jour = '$jour' OR jour = '$numJ'";
-} else if($_GET['date'] != '' && $_GET['debut'] != '' && $_GET['fin'] != '') {
-  $jour = $_GET['date'];
-  $conv = DateTime::createFromFormat('d/m/Y', $jour);
-  $numJ = date("N",$conv->format('U'));
-  if ($numJ == 7) {$numJ = 0;};
-  $debut = $_GET['debut'].':00';
-  $fin = $_GET['fin'].':00';
-  if ($fin == '00:00:00') {$fin = '23:59:59';};
-  $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE (jour = '$jour' OR jour = '$numJ') AND debut <= '$debut' AND fin >= '$fin'";
+if (isset($_GET['date'])) {
+  if($_GET['date'] != '' && $_GET['debut'] == '' && $_GET['fin'] == '') {
+    $jour = $_GET['date'];
+    $conv = DateTime::createFromFormat('d/m/Y', $jour);
+    $numJ = date("N",$conv->format('U'));
+    if ($numJ == 7) {$numJ = 0;};
+    $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE jour = '$jour' OR jour = '$numJ'";
+  } else if($_GET['date'] != '' && $_GET['debut'] != '' && $_GET['fin'] != '') {
+    $jour = $_GET['date'];
+    $conv = DateTime::createFromFormat('d/m/Y', $jour);
+    $numJ = date("N",$conv->format('U'));
+    if ($numJ == 7) {$numJ = 0;};
+    $debut = $_GET['debut'].':00';
+    $fin = $_GET['fin'].':00';
+    if ($fin == '00:00:00') {$fin = '23:59:59';};
+    $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE (jour = '$jour' OR jour = '$numJ') AND debut <= '$debut' AND fin >= '$fin'";
+  }
 } else {
   $sql = "SELECT * FROM utilisateur WHERE type_user='nounou'";
 }
