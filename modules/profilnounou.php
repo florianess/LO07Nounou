@@ -50,7 +50,11 @@ echo "</div>";
 
  ?>
   </body>
+<<<<<<< HEAD
  <footer class=" white page-footer">
+=======
+ <footer class=" page-footer">
+>>>>>>> 401c3c1a043428bbafb0aec8b7dffff2db2d8b80
    <div class="container white">
      <div class="row">
        <div class="col l6 s12">
@@ -66,7 +70,11 @@ echo "</div>";
        </div>
      </div>
    </div>
+<<<<<<< HEAD
    <div class="  grey lighten-2 foooter-copyright">
+=======
+   <div class="  footer-copyright">
+>>>>>>> 401c3c1a043428bbafb0aec8b7dffff2db2d8b80
      <div class="container">
      © 2018 Copyright nounoufinder.com
      <a class="white-text right" href="../index.html">Accueil</a>
