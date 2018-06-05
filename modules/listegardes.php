@@ -4,10 +4,11 @@
 <div class='section'>
 <h3>Liste des gardes proposées</h3>
 <p><?php
+echo "</br>";
 
 require_once '../db/gardesParent.php';
 
-echo '<h5><b>' .$gardesParent->num_rows. '</b>'; ?> garde(s) proposée(s)</h5> </p>
+echo '<h5><b>' .$gardesParent->num_rows. '</b>'; ?> Garde(s) proposée(s) :</h5> </p>
 <br/>
 
 <?php if ($gardesParent->num_rows > 0){ ?>
@@ -15,10 +16,10 @@ echo '<h5><b>' .$gardesParent->num_rows. '</b>'; ?> garde(s) proposée(s)</h5> <
   <table>
   <thead>
     <tr>
-        <th>debut</th>
+        <th>Début</th>
         <th>Fin</th>
 
-          <th>Tarif</th>
+          <th>Rémunération (€)</th>
           <th>Statut</th><!-- "reservee" ou "evaluee"!-->
 
 
@@ -45,6 +46,10 @@ echo '<h5><b>' .$gardesParent->num_rows. '</b>'; ?> garde(s) proposée(s)</h5> <
     }
   echo "</tbody></table>";
 }
+echo "</br>";
+echo "</br>";
+echo "</br>";
+echo "</br>";
 echo "</div>";
 echo "</div>";
 ?>

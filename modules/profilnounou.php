@@ -13,12 +13,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-  <title>Compte Parent</title>
+  <title>Profil Nounou</title>
 </head>
-<body class="profil nounou">
+<body class="administration" id="profil">
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
-      <a id="logo-container" class="brand-logo grey-text text-darken-1">NounouFinder</a>
+      <a id="logo-container" href="../accueil/parent.php" class="brand-logo grey-text text-darken-1">NounouFinder</a>
       <ul class="right hide-on-med-and-down">
         <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
       </ul>
@@ -49,7 +49,8 @@ echo "<br/><h3> Profil Nounou </h3><br/>";
 echo "</div>";
 
  ?>
- <footer class="white page-footer">
+  </body>
+ <footer class=" white page-footer">
    <div class="container white">
      <div class="row">
        <div class="col l6 s12">
@@ -65,7 +66,7 @@ echo "</div>";
        </div>
      </div>
    </div>
-   <div class=" grey lighten-1 footer-copyright">
+   <div class="  grey lighten-2 foooter-copyright">
      <div class="container">
      © 2018 Copyright nounoufinder.com
      <a class="white-text right" href="../index.html">Accueil</a>
@@ -75,9 +76,9 @@ echo "</div>";
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
    <script type="text/javascript" src="../js/initParent.js"></script>
- </body>
+
  </html>
- </html>
+
  <?php } else {
    echo "Accèes refusé";
  } ?>
