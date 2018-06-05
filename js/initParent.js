@@ -39,7 +39,8 @@ const frDate = {
 
 const timepickerOptions = {
   twelveHour: false,
-  defaultTime: '12:00'
+  defaultTime: '12:00',
+  autoClose: true
 }
 
 document.addEventListener('DOMContentLoaded', function() {
