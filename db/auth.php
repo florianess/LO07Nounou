@@ -18,7 +18,7 @@ if ($result->num_rows == 1) {
         header('Location: ..\accueil\nounou.php');
         break;
       case 'parent':
-        header('Location: ..\accueil\parent.html');
+        header('Location: ..\accueil\parent.php');
         break;
       case 'await':
         header('Location: ..\?status=await');

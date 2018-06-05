@@ -1,4 +1,7 @@
-
+<?php
+  session_start();
+  if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'parent') {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
   <title>Compte Parent</title>
 </head>
 <body class="parent">
-  <nav class="white">
+  <nav class="white nav-extended">
     <div class="container nav-wrapper">
       <a id="logo-container" class="brand-logo grey-text text-darken-1">NounouFinder</a>
       <ul class="right hide-on-med-and-down">
@@ -23,34 +26,19 @@
 
     <div class="pink lighten-4 nav-content">
       <ul id="tabs" class="tabs tabs-transparent">
-        <li class="tab"><a class="grey-text text-darken-1 active" href="#accueil">Accueil</a></li>
+        <li class="tab"><a class="grey-text text-darken-1 active" href="#recherche">Recherche</a></li>
         <li class="tab"><a class="grey-text text-darken-1 " href="#">Mes demandes de gardes</a></li>
         <li class="tab"><a class="grey-text text-darken-1 " href="#">Mes gardes à évaluer</a></li>
 
       </ul>
     </div>
   </nav>
-
-
-
-</br>
-</br>
-</br>
-</br>
-<div id="accueil">
-<a  class="waves-effect waves-light btn-large pink" href="../Forms/TypeGarde.html">Faire une demande de garde</a>
-</br></br>
 </div>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<?php
+  echo '<div id="recherche">';
+  require_once '../modules/recherche.php';
+  echo '</div>';
+?>
 </div>
 <footer class="white page-footer">
   <div class="container white">
@@ -77,7 +65,10 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <script type="text/javascript" src="../js/Form.js"></script>
+  <script type="text/javascript" src="../js/initParent.js"></script>
 </body>
 </html>
 </html>
+<?php } else {
+  echo "Accèes refusé";
+} ?>
