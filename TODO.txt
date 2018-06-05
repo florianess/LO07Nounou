@@ -137,7 +137,6 @@ INSERT INTO `evaluation` (`evalutation_id`, `garde_id`, `nounou_email`, `descrip
 --
 -- Structure de la table `garde`
 --
-
 DROP TABLE IF EXISTS `garde`;
 CREATE TABLE IF NOT EXISTS `garde` (
   `garde_id` int(11) NOT NULL,
@@ -146,12 +145,12 @@ CREATE TABLE IF NOT EXISTS `garde` (
   `nounou_email` varchar(125) NOT NULL,
   `email_parent` varchar(125) NOT NULL,
   `tarif` float NOT NULL,
+  `status` text NOT NULL,
   PRIMARY KEY (`garde_id`),
   UNIQUE KEY `garde_id_UNIQUE` (`garde_id`),
   KEY `garde_nounou_email_idx` (`nounou_email`),
-  KEY `email_parent` (`email_parent`)
+  KEY `garde_email_parent` (`email_parent`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 --
 -- Déchargement des données de la table `garde`
