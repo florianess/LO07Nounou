@@ -23,9 +23,11 @@ margin-left:  37%;
 
 background-color: #E8F8F5 ;
 }
-.parent {
-
-background-color:#FFF0F5;
+.parents{
+background-color: pink;
+}
+#profil{
+  color: blue;
 }
 
 .categorieadmin {
