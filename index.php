@@ -14,7 +14,7 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
       <ul class="right hide-on-med-and-down">
-        <li><button data-target="login" class="btn modal-trigger">Connexion</button></li>
+        <li><button data-target="login" class="btn modal-trigger pink lighten-1">Connexion</button></li>
       </ul>
     </div>
   </nav>
@@ -56,7 +56,7 @@
         <label for="password">Mot de passe</label>
         <br>
         <br>
-        <button class="btn waves-effect waves-light" type="submit">Se connecter</button>
+        <button class="btn waves-effect waves-light pink lighten-1" type="submit">Se connecter</button>
       </form>
     </div>
   </div>
@@ -64,12 +64,12 @@
     <div class="section no-pad-bot">
       <div class="container">
 <br/><br/>
-        <h1 class="header teal-text text-lighten-2" id="nounoufinder">Nounou Finder</h1>
+        <h1 class="header" id="nounoufinder">NounouFinder</h1>
         <div class="row center">
           <h5 class="header col s12 light darkblue-text" id="description"><b>Le site web idéal pour parents et nounous</b></h5>
         </div>
         <div class="Bouton">
-          <button data-target="signin" class="btn-large modal-trigger" id="btnInscription">S'inscrire</button>
+          <button data-target="signin" class="btn-large modal-trigger pink" id="btnInscription">S'inscrire</button>
         </div>
         <br><br>
 

@@ -25,7 +25,7 @@
       <label for="fin">Fin</label>
     </div>
     <div class="input-field col s3">
-      <button class="btn waves-effect waves-light left" type="submit"><i class="material-icons">search</i></button>
+      <button class="btn waves-effect waves-light left pink lighten-1" type="submit"><i class="material-icons">search</i></button>
     </div>
   </div>
 </form>

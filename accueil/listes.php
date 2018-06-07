@@ -24,7 +24,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
     <a id="logo-container" href="../accueil/admin.php" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
     <a class="brand-logo center  grey-text text-darken-1">Listes</a>
     <ul class="right">
-      <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light teal lighten-1">Déconnexion</a></li>
+      <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light pink lighten-1">Déconnexion</a></li>
     </ul>
   </div>
   <div class="container nav-content">

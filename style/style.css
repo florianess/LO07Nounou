@@ -1,6 +1,8 @@
 #nounoufinder{
   margin-left: 560px;
-font-size: 70;}
+font-size: 70;
+color:#6C1D38;
+}
 
 #description{
   margin-left: 255px;
@@ -23,9 +25,7 @@ margin-left:  37%;
 
 background-color: #E8F8F5 ;
 }
-.parents{
-background-color: pink;
-}
+
 #profil{
   background-color: pink;
 }
@@ -46,7 +46,7 @@ text-decoration: underline;
 }
 
 .nombreInscrits{
-  color: #CB4335  ;
+  color: #CB4335;
 }
 
 #table{
