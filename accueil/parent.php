@@ -28,7 +28,7 @@
       <ul id="tabs" class="tabs tabs-transparent">
         <li class="tab"><a class="grey-text text-darken-1 active" href="#recherche">Recherche</a></li>
         <li class="tab"><a class="grey-text text-darken-1 " href="#listegardes">Mes demandes de gardes</a></li>
-        <li class="tab"><a class="grey-text text-darken-1 " href="#">Mes gardes à évaluer</a></li>
+        <li class="tab"><a class="grey-text text-darken-1 " href="#gardeseval">Mes gardes à évaluer</a></li>
 
       </ul>
     </div>
@@ -39,6 +39,9 @@
   require_once '../modules/recherche.php';
   echo '</div><div id="listegardes">';
   require_once '../modules/listegardes.php';
+  echo '</div><div id="gardeseval">';
+  require_once '../modules/listegardesEval.php';
+  echo "</div>";
 ?>
 </div>
 
