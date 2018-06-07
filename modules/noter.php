@@ -14,7 +14,7 @@ $text = <<<END
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Appréciation</title>
 </head>
-<body class="parent">
+<body class="pink lighten-5">
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
       <a id="logo-container" href="../accueil/parent.php"class="brand-logo grey-text text-darken-1">NounouFinder</a>

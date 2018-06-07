@@ -115,7 +115,7 @@ function formEnfants($i) {
 
 <div class='row'>
   <div class='col s12 center'>
-    <button class='btn-large waves-effect waves-light' type='submit'>Soumettre
+    <button class='btn-large waves-effect pink waves-light' type='submit'>Soumettre
       <i class='material-icons right'>send</i>
     </button>
   </div>
