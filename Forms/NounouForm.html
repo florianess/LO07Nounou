@@ -28,27 +28,23 @@
     </br>
     <form class="col s12" enctype="multipart/form-data" method="post" action="../db/nounouCreate.php">
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="email" type="email" class="validate" name="email">
           <label for="email">Email</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="password" type="password" class="validate" name="password">
           <label for="password">Mot de passe</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="nom" type="text" class="validate" name ="nom">
           <label for="nom">Nom</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="prenom" type="text" class="validate" name ="prenom">
           <label for="prenom">Prénom</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="file-field input-field col s6">
+        <div class="file-field input-field col s12 m6">
           <div class=" pink lighten-1 btn">
             <span>Votre photo de profil</span>
             <input type="file" name="photo">
@@ -57,23 +53,19 @@
             <input class="file-path validate" type="text" name="filepath">
           </div>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="portable" type="tel" class="validate" name ="portable">
           <label for="portable">Portable</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="age" type="number" class="validate" name ="age">
           <label for="age">Age</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input id="ville" type="text" class="validate" name ="ville">
           <label for="ville">Ville</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <select multiple name ="langues[]" class="select">
             <option value="" disabled selected>Choix des langues</option>
             <option value="1">Anglais</option>
@@ -87,7 +79,7 @@
           </select>
           <label>Langues parlées</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <select name = "experience" class="select">
             <option value="" disabled selected>Expérience</option>
             <option value="debutant">Débutant.e</option>
@@ -96,15 +88,10 @@
           </select>
           <label>Niveau d'expérience</label>
         </div>
-      </div>
-
-      <div class="row">
         <div class="input-field col s12">
         <textarea name="presentation" placeholder="Présentez vous..." class="materialize-textarea" data-length="1200"></textarea>
           <label for="presentation">Présentation</label>
         </div>
-      </div>
-      <div class="row">
         <div class="col s12 center">
           <button class="btn-large waves-effect waves-light pink" type="submit">Soumettre
             <i class="material-icons right">send</i>
