@@ -24,6 +24,15 @@ if($res->num_rows == 0) {
   <title>Nounou Planning</title>
 </head>
 <body class="administration">
+  <nav class="white">
+    <div class="container nav-wrapper">
+      <a id="logo-container" class="brand-logo grey-text text-darken-1" href="../">NounouFinder</a>
+      <ul class="right hide-on-med-and-down">
+        <li>  <a href="../modules/dossier.php?email=<?php echo $_SESSION['user']['email'] ?>" class="btn waves-effect waves-light  pink lighten-1">Mon profil</a></li>
+        <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class='container'>
     <h1 class='center'>Ton agenda</h1>
     <br><br><hr><br>

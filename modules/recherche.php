@@ -79,6 +79,7 @@ if($res) {
       </div>
       <div class="card-action">
         <a href="#">Réserver</a>
+        <a href="../modules/profilnounou.php?email=<?php echo $row['email'] ?>" class="right">Profil</a>
       </div>
     </div>
   </div>

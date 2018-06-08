@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+  switch ($_SESSION['user']['type_user']) {
+    case 'admin':
+      header('Location: accueil\admin.php');
+      break;
+    case 'nounou':
+      header('Location: accueil\nounou.php');
+      break;
+    case 'parent':
+      header('Location: accueil\parent.php');
+      break;
+  }
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +29,7 @@
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
+      <a id="logo-container" href="" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
       <ul class="right hide-on-med-and-down">
         <li><button data-target="login" class="btn modal-trigger pink lighten-1">Connexion</button></li>
       </ul>

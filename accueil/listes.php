@@ -21,7 +21,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 ?>
 <nav class="white nav-extended">
   <div class="container nav-wrapper">
-    <a id="logo-container" href="../accueil/admin.php" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
+    <a id="logo-container" href="../" class="brand-logo  grey-text text-darken-1">NounouFinder</a>
     <a class="brand-logo center  grey-text text-darken-1">Listes</a>
     <ul class="right">
       <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light pink lighten-1">Déconnexion</a></li>

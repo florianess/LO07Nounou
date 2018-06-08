@@ -18,7 +18,7 @@
 <body class="administration">
   <nav class="white">
     <div class="container nav-wrapper">
-      <a id="logo-container" class="brand-logo grey-text text-darken-1">NounouFinder</a>
+      <a id="logo-container" class="brand-logo grey-text text-darken-1" href="../">NounouFinder</a>
       <a class="brand-logo center  grey-text text-darken-1">Administration</a>
       <ul class="right hide-on-med-and-down">
         <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light pink lighten-1 ">Déconnexion</a></li>

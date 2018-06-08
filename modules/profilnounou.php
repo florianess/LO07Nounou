@@ -49,7 +49,7 @@ echo "<br/><h3> Profil Nounou </h3><br/>";
 echo "</div>";
 
  ?>
-  </body>
+
  <footer class=" white page-footer">
    <div class="container white">
      <div class="row">
@@ -76,7 +76,7 @@ echo "</div>";
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
    <script type="text/javascript" src="../js/initParent.js"></script>
-
+  </body>
  </html>
 
  <?php } else {
