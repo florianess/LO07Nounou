@@ -28,29 +28,51 @@
       <button class="btn waves-effect waves-light left pink lighten-1" type="submit"><i class="material-icons">search</i></button>
     </div>
   </div>
+  <div class="row center">
+    <div class="input-field col s3">
+      <select multiple name ="enfants[]"> 
+        <?php
+          require_once '../db/connection.php';
+          session_start();
+          $sqlE = "SELECT * FROM enfant WHERE email_parent = '". $_SESSION['user']['email']."'";
+          $resE = $conn->query($sqlE);
+          while($enf = $resE->fetch_row()){
+            echo "<option value=$enf[0]>$enf[2]</option>";
+          }
+        ?>
+      </select>
+      <label>Enfants</label>
+    </div>
+    <div class="input-field col s3">
+      <select name="type">
+        <option value="occ">Occasionnelle</option>
+        <option value="reg">Régulière</option>
+      </select>
+      <label for="debut">Type de garde</label>
+    </div>
+    </div>
+  </div>
 </form>
 <hr>
       <div class="row">
 <?php
 
-require_once '../db/connection.php';
-
 if (isset($_GET['date'])) {
-  if($_GET['date'] != '' && $_GET['debut'] == '' && $_GET['fin'] == '') {
-    $jour = $_GET['date'];
-    $conv = DateTime::createFromFormat('d/m/Y', $jour);
-    $numJ = date("N",$conv->format('U'));
-    if ($numJ == 7) {$numJ = 0;};
-    $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE jour = '$jour' OR jour = '$numJ'";
-  } else if($_GET['date'] != '' && $_GET['debut'] != '' && $_GET['fin'] != '') {
-    $jour = $_GET['date'];
-    $conv = DateTime::createFromFormat('d/m/Y', $jour);
-    $numJ = date("N",$conv->format('U'));
-    if ($numJ == 7) {$numJ = 0;};
+  $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE";
+  $jour = $_GET['date'];
+  $conv = DateTime::createFromFormat('d/m/Y', $jour);
+  $numJ = date("N",$conv->format('U'));
+  if ($numJ == 7) {$numJ = 0;};
+  if($_GET['date'] != '' && $_GET['debut'] != '' && $_GET['fin'] != '') {
     $debut = $_GET['debut'].':00';
     $fin = $_GET['fin'].':00';
     if ($fin == '00:00:00') {$fin = '23:59:59';};
-    $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE (jour = '$jour' OR jour = '$numJ') AND debut <= '$debut' AND fin >= '$fin'";
+    $sql .=" debut <= '$debut' AND fin >= '$fin'";
+  }
+  if ($_GET['type'] == 'reg') {
+    $sql.=" jour = '$numJ'";
+  } else {
+    $sql.=" jour = '$jour'";
   }
 } else {
   $sql = "SELECT * FROM utilisateur WHERE type_user='nounou'";

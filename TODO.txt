@@ -10,8 +10,6 @@ TO DO
 
  * Mettre photo des nounous
 
- * Mettre bouton profil nounou dans le dashboard nounou et dans les etiquettes parents
-
  *Redirection auto si deja connecté sur index.php
 
 --------------------------------------------------------------------------
@@ -21,6 +19,8 @@ DOING
   * Dashboard Admin
 
   * Dashboard Nounou
+
+  * Mettre bouton profil nounou dans le dashboard nounou et dans les etiquettes parents
 --------------------------------------------------------------------------
 
 DONE
