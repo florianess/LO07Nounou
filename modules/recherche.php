@@ -1,3 +1,4 @@
+<div>
 <form method="get" action="">
   <div class="row center">
     <div class="input-field col s3">
@@ -54,7 +55,7 @@
   </div>
 </form>
 <hr>
-      <div class="row">
+<div class="row">
 <?php
 
 if (isset($_GET['date'])) {
@@ -110,4 +111,5 @@ if($res) {
   }
 }
 ?>
+</div>
 </div>
