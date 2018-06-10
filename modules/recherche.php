@@ -71,16 +71,19 @@ if (isset($_GET['date'])) {
     $sql .=" debut <= '$debut' AND fin >= '$fin'";
   }
   if ($_GET['type'] == 'reg') {
-    $sql.=" jour = '$numJ'";
+    $sql.=" AND jour = '$numJ'";
+    $tjour = $numJ;
   } else {
-    $sql.=" jour = '$jour'";
+    $sql.=" AND (jour = '$jour' OR jour = '$numJ')";
+    $tjour =$jour;
   }
+  $resa = array('enfants' => $_GET['enfants'], 'debut' => $_GET['debut'], 'fin' => $_GET['fin'], 'jour' => $tjour, 'email_parent' => $_SESSION['user']['email']);
+  $_SESSION['resa']=$resa;
 } else {
   $sql = "SELECT * FROM utilisateur WHERE type_user='nounou'";
 }
 $res = $conn->query($sql);
 if($res) {
-
   while ($row = $res->fetch_assoc()) {
     $email = $row['email'];
     $sql2 = "SELECT * FROM utilisateur_has_langue ul INNER JOIN langue l ON ul.langue_id = l.langue_id WHERE utilisateur_email = '$email'";
@@ -101,7 +104,7 @@ if($res) {
         <p>Langues: <?php echo $langues?></p>
       </div>
       <div class="card-action">
-        <a href="#">Réserver</a>
+        <a href="../modules/reservation.php?email=<?php echo $row['email'] ?>">Réserver</a>
         <a href="../modules/profilnounou.php?email=<?php echo $row['email'] ?>" class="right">Profil</a>
       </div>
     </div>
