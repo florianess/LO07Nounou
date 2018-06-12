@@ -67,7 +67,7 @@ if($res->num_rows == 0) {
   <div class=" grey lighten-3 footer-copyright">
     <div class="container">
     © 2018 Copyright nounoufinder.com
-    <a class="grey-text text-darken-1 right" href="../index.html">Accueil</a>
+    <a class="grey-text text-darken-1 right" href="../index.php">Accueil</a>
     </div>
   </div>
 </footer>
