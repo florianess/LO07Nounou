@@ -29,10 +29,14 @@ $row = $nounou->fetch_row();
 $sql2 = "SELECT garde_id, debut, fin, email_parent, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
 $garde = $conn->query($sql2);
 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row[4] ).'" width="200"/>';
-echo "<h5> Prénom : $row[1]</h5>";
-echo "<h5> Nom : $row[0]</5>";
-echo "<h5> E-mail : ".$row[3]."</h5>";
-echo "<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>";
+echo "<h6> Prénom :<i> $row[1]</i></h6>";
+echo "<h6> Nom : <i>$row[0]</i></h6>";
+echo "<h6> Age : <i>$row[6]</i></h6>";
+echo "<h6> E-mail :<i> $row[3]</i></h6>";
+echo "<h6> Téléphone :<i> $row[5]</i></h6>";
+echo "<h6> Expérience :<i> $row[7]</i></h6>";
+echo "<h6> Présentation personnelle : <i> $row[8]</i></h6><br/>";
+echo "<h6> Nombre de gardes : <i>".$garde->num_rows ."</i></h6><br/>";
 
 
 ?>
@@ -69,6 +73,10 @@ echo "<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>";
 
 }
 
+    echo "</table>";
+    echo "</div>";
+    echo "<br/> <br/>";
+    echo "<br/> <br/>";
 
 
 
@@ -76,3 +84,32 @@ echo "<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>";
 
 
    ?>
+   <footer class="whpage-footer">
+             <div class="container">
+               <div class="row">
+                 <div class="col l6 s12">
+                   <h5 class="black-text">Contactez nous</h5>
+                   <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
+
+
+                 </div>
+                 <div class="col l4 offset-l2 s12">
+                   <h5 class="black-text">Services</h5>
+                   <ul>
+                     <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+                     <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+             <div class=" grey lighten-3 footer-copyright">
+               <div class="container">
+               © 2018 Copyright NounouFinder.com
+               <a class="grey-text text-darken-1 right" href="../index.php">Accueil</a>
+               </div>
+             </div>
+           </footer>
+         </body>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+        </html>
