@@ -39,15 +39,15 @@ $row = $nounou->fetch_assoc();
 echo "<br/><h3> Profil Nounou </h3><br/>";
   echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['photo'] ).'"/>';
 
-  echo "<h5> Nom : <i>".$row['nom']."</i></h5>";
-  echo "<h5> Prénom : <i>".$row['prenom']."</i></h5>";
-  echo "<h5> Ville : <i>".$row['ville']."</i></h5>";
+  echo "<h6> Nom : <i>".$row['nom']."</i></h6>";
+  echo "<h6> Prénom : <i>".$row['prenom']."</i></h6>";
+  echo "<h6> Ville : <i>".$row['ville']."</i></h6>";
 
-  echo "<h5> Age: <i>".$row['age']."</i></h5>";
-  echo "<h5> Présentation personnelle: </br></br><i>".$row['presentation']."</i></h5><br/><br/>";
-  echo "<hr/>";
+  echo "<h6> Age : <i>".$row['age']."</i></h6>";
+  echo "<h6> Présentation personnelle : <i>".$row['presentation']."</i></h6><br/><br/>";
+  echo "<hr/><br/>";
 
-  echo "<h5> Liste des évaluations de parents :</h5><br/>";
+  echo "<h6> Evaluations de parents reçues :</h6><br/>";
 
 
 echo"
@@ -81,6 +81,9 @@ echo"
                echo "</tr>";
 
  }
+ echo "</table>";
+ echo "<br/> <br/>";
+ echo "<br/> <br/>";
 
 
  } else {
