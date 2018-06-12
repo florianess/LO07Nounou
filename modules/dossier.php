@@ -22,16 +22,17 @@
   <div class="container">
     <br>
 <?php require_once '../db/connection.php';
-$sql = "SELECT nom,prenom,ville,email,portable,age,experience,presentation FROM utilisateur WHERE email='".$_GET['email']."'";
+$sql = "SELECT nom,prenom,ville,email,photo,portable,age,experience,presentation FROM utilisateur WHERE email='".$_GET['email']."'";
 
 $nounou = $conn->query($sql);
 $row = $nounou->fetch_row();
 $sql2 = "SELECT garde_id, debut, fin, email_parent, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
 $garde = $conn->query($sql2);
-echo("<h5> Prénom : $row[1]</h5>");
-echo("<h5> Nom : $row[0]</5>");
-echo("<h5> E-mail : ".$row[3]."</h5>");
-echo("<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>");
+echo '<img src="data:image/jpeg;base64,'.base64_encode( $row[4] ).'" width="200"/>';
+echo "<h5> Prénom : $row[1]</h5>";
+echo "<h5> Nom : $row[0]</5>";
+echo "<h5> E-mail : ".$row[3]."</h5>";
+echo "<h5> Nombre de gardes : ".$garde->num_rows ."</h5><br/>";
 
 
 ?>

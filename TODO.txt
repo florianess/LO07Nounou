@@ -8,9 +8,11 @@ TO DO
 
  * Auto footer (fonction js)
 
- * Mettre photo des nounous
+ * Clean DB
 
- *Redirection auto si deja connecté sur index.php
+ * ajouter evaluation dans dossier et profil
+
+
 
 --------------------------------------------------------------------------
 
@@ -20,10 +22,15 @@ DOING
 
   * Dashboard Nounou
 
-  * Mettre bouton profil nounou dans le dashboard nounou et dans les etiquettes parents
 --------------------------------------------------------------------------
 
 DONE
+
+* Mettre photo des nounous
+
+ *Redirection auto si deja connecté sur index.php
+
+  * Mettre bouton profil nounou dans le dashboard nounou et dans les etiquettes parents
 
   * Login
 

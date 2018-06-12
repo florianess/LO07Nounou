@@ -38,6 +38,7 @@ $sql0 = "SELECT * FROM utilisateur WHERE email = '".$_GET["email"]."'";
 $nounou= $conn->query($sql0);
 $row = $nounou->fetch_assoc();
 echo "<br/><h3> Profil Nounou </h3><br/>";
+  echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['photo'] ).'"/>';
 
   echo "<h5> Nom : <i>".$row['nom']."</i></h5>";
   echo "<h5> Prénom : <i>".$row['prenom']."</i></h5>";

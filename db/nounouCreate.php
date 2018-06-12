@@ -34,9 +34,21 @@ if(in_array(false, $values)) {
   $test = $conn->query($sql0);
 
   if ($test->num_rows == 0){
+    var_dump($_FILES);
+    $photo = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
     $sql = "INSERT INTO utilisateur
-    (nom, prenom, ville, email, portable,photo, age, experience, presentation, type_user, password)
-    VALUES ('$values[0]','$values[1]','$values[2]','$values[3]','$values[4]','".$_FILES['photo']['tmp_name']."','$values[5]','$values[6]','$values[7]','await','".password_hash($values[8], PASSWORD_DEFAULT)."')";
+    (nom, prenom, ville, email, portable, photo, age, experience, presentation, type_user, password)
+    VALUES ('$values[0]',
+      '$values[1]',
+      '$values[2]',
+      '$values[3]',
+      '$values[4]',
+      '".$photo."',
+      '$values[5]',
+      '$values[6]',
+      '$values[7]',
+      'await',
+      '".password_hash($values[8], PASSWORD_DEFAULT)."')";
     if ($conn->query($sql)) {
       $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$values[3]','";
       foreach ($_POST['langues'] as $value) {
@@ -45,7 +57,7 @@ if(in_array(false, $values)) {
           echo "Error: " . $sql3 . "<br>" . $conn->error . "<br>";
         }
       }
-    header('Location: ../?status=create');
+    //header('Location: ../?status=create');
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
     }
