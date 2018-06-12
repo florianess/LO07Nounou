@@ -1,7 +1,4 @@
-<?php
-  session_start();
-  if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'parent') {
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +12,7 @@
 
   <title>Profil Nounou</title>
 </head>
-<body  id="profil">
+<body  class="pink lighten-5">
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
       <a id="logo-container" href="../accueil/parent.php" class="brand-logo grey-text text-darken-1">NounouFinder</a>
@@ -24,12 +21,14 @@
       </ul>
     </div>
 </nav>
+
+
 <div class="container">
-
-
 
 <?php
 
+  session_start();
+  if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'parent') {
 require_once '../db/connection.php';
 
 
@@ -44,42 +43,77 @@ echo "<br/><h3> Profil Nounou </h3><br/>";
   echo "<h5> Prénom : <i>".$row['prenom']."</i></h5>";
   echo "<h5> Ville : <i>".$row['ville']."</i></h5>";
 
-  echo "<h5> Age: <i>".$row['age']."</i></h5><br/>";
-  echo "<h5> Présentation personnelle: <i>".$row['presentation']."</i></h5>";
+  echo "<h5> Age: <i>".$row['age']."</i></h5>";
+  echo "<h5> Présentation personnelle: </br></br><i>".$row['presentation']."</i></h5><br/><br/>";
+  echo "<hr/>";
 
-echo "</div>";
-
- ?>
-
- <footer class=" white page-footer">
-   <div class="container white">
-     <div class="row">
-       <div class="col l6 s12">
-         <h5 class="black-text">Contactez nous</h5>
-         <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
-       </div>
-       <div class="col l4 offset-l2 s12">
-         <h5 class="black-text">Services</h5>
-         <ul>
-           <li><a class="grey-text text-darken-1" href="forms/NounouForm.html">Inscription en tant que Nounou</a></li>
-           <li><a class="grey-text text-darken-1" href="forms/ParentsForm.html">Inscription en tant que Parent</a></li>
-         </ul>
-       </div>
-     </div>
-   </div>
-   <div class="  grey lighten-2 foooter-copyright">
-     <div class="container">
-     © 2018 Copyright nounoufinder.com
-     <a class="white-text right" href="../index.html">Accueil</a>
-     </div>
-   </div>  </footer>
+  echo "<h5> Liste des évaluations de parents :</h5><br/>";
 
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-   <script type="text/javascript" src="../js/initParent.js"></script>
-  </body>
- </html>
+echo"
+ <table>
 
- <?php } else {
+   <tr>
+       <th>Date de la garde</th>
+       <th>Parent</th>
+       <th>Evaluation du parent</th>
+   </tr>";
+
+
+
+   $sql2 = "SELECT garde_id, debut, fin, email_parent, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
+   $garde = $conn->query($sql2);
+       while ($row2 = $garde->fetch_row()) {
+
+
+         $sql3 = "SELECT description, note FROM evaluation WHERE garde_id='$row2[0]'";
+         $evaluation= $conn->query($sql3);
+         $row3 = $evaluation->fetch_row();
+
+         $sqlparent = "SELECT nom, prenom FROM utilisateur WHERE email='$row2[3]'";
+         $parent= $conn->query($sqlparent);
+         $rowparent = $parent->fetch_row();
+
+           echo "<tr>";
+               echo "<td>"."$row2[1]<b>" ."</td>";
+               echo "<td>$rowparent[0] $rowparent[1]</td>";
+               echo "<td>$row3[0]<br/> Note : $row3[1]/5 </td>";
+               echo "</tr>";
+
+ }
+
+
+ } else {
    echo "Accèes refusé";
  } ?>
+
+</div>
+ <footer class="whpage-footer">
+           <div class="container">
+             <div class="row">
+               <div class="col l6 s12">
+                 <h5 class="black-text">Contactez nous</h5>
+                 <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
+
+
+               </div>
+               <div class="col l4 offset-l2 s12">
+                 <h5 class="black-text">Services</h5>
+                 <ul>
+                   <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+                   <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
+                 </ul>
+               </div>
+             </div>
+           </div>
+           <div class=" grey lighten-3 footer-copyright">
+             <div class="container">
+             © 2018 Copyright NounouFinder.com
+             <a class="grey-text text-darken-1 right" href="../index.html">Accueil</a>
+             </div>
+           </div>
+         </footer>
+       </body>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+          <script type="text/javascript" src="../js/initParent.js"></script>
+      </html>
