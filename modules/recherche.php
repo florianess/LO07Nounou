@@ -31,7 +31,7 @@
   </div>
   <div class="row center">
     <div class="input-field col s3">
-      <select multiple name ="enfants[]"> 
+      <select multiple name ="enfants[]">
         <?php
           require_once '../db/connection.php';
           session_start();
@@ -94,10 +94,10 @@ if($res) {
     };
     ?>
 
-  <div class="col s6 m4 l3">
-    <div class="card">
+  <div class="col s6 m4">
+    <div class="card hoverable">
       <div class="card-content pink-text">
-        <span class="card-title"><i class="material-icons">account_box</i><?php echo $row["prenom"] ?></span>
+        <span class="card-title"><img src="data:image/jpeg;base64,<?php echo base64_encode( $row['photo'] )?>" width="50"/>   <?php echo $row["prenom"] ?></span>
         <p>Ville: <?php echo $row['ville']?></p>
         <p>Expérience: <?php echo $row['experience']?></p>
         <p>Présentation: <?php echo $row['presentation']?></p>

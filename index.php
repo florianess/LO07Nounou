@@ -27,14 +27,16 @@ if (isset($_SESSION['user'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 </head>
 <body>
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
-      <ul class="right hide-on-med-and-down">
-        <li><button data-target="login" class="btn modal-trigger pink lighten-1">Connexion</button></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="navbar-fixed">
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="" class="brand-logo grey-text text-darken-1"> NounouFinder</a>
+        <ul class="right hide-on-med-and-down">
+          <li><button data-target="login" class="btn modal-trigger pink lighten-1">Connexion</button></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
   <div id="await" class="modal">
     <div class="modal-content center">
       <h4>Inscription en Attente</h4>
@@ -80,16 +82,11 @@ if (isset($_SESSION['user'])) {
   <div class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-<br/><br/>
-        <h1 class="header" id="nounoufinder">NounouFinder</h1>
-        <div class="row center">
-          <h5 class="header col s12 light darkblue-text" id="description"><b>Le site web idéal pour parents et nounous</b></h5>
-        </div>
-        <div class="Bouton">
-          <button data-target="signin" class="btn-large modal-trigger pink" id="btnInscription">S'inscrire</button>
-        </div>
-        <br><br>
-
+        <br/><br/>
+        <h1 class="right-align" id="nounoufinder">NounouFinder</h1>
+        <h5 class="darkblue-text right-align">Le site web idéal pour parents et nounous</h5>
+        <br>
+        <button data-target="signin" class="btn-large modal-trigger pink right" id="btnInscription">S'inscrire</button>
       </div>
     </div>
     <div class="parallax"><img src="img/background1.jpg" alt="Unsplashed background img 1"></div>
