@@ -1,34 +1,31 @@
 TO DO
 
- * Mettre en place les diffèrents Dashboard (admin, nounou, parent)
-
- * Sécuriser l'accèes aux pages d'accueil (redirection vers index si non connecté)
-
- * Ajouter le genre dans la BDD
-
  * Auto footer (fonction js)
 
  * Clean DB
-
- * ajouter evaluation dans dossier et profil
-
-
 
 --------------------------------------------------------------------------
 
 DOING
 
-  * Dashboard Admin
-
-  * Dashboard Nounou
 
 --------------------------------------------------------------------------
 
 DONE
 
-* Mettre photo des nounous
+  * Mettre en place les diffèrents Dashboard (admin, nounou, parent)
 
- *Redirection auto si deja connecté sur index.php
+  * Sécuriser l'accèes aux pages d'accueil (redirection vers index si non connecté)
+
+  * Dashboard Admin
+
+  * Dashboard Nounou
+
+  * ajouter evaluation dans dossier et profil
+
+  * Mettre photo des nounous
+
+  * Redirection auto si deja connecté sur index.php
 
   * Mettre bouton profil nounou dans le dashboard nounou et dans les etiquettes parents
 
@@ -54,261 +51,215 @@ compte admin --> admin admin
 --------------------------------------------------------------------------
 SQL 'nounoudb' :
 
--- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 23 mai 2018 à 10:33
--- Version du serveur :  5.7.19
--- Version de PHP :  5.6.31
+-- MySQL Workbench Forward Engineering
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema nounoudb
+-- -----------------------------------------------------
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+-- -----------------------------------------------------
+-- Schema nounoudb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `nounoudb` DEFAULT CHARACTER SET latin1 ;
+USE `nounoudb` ;
 
---
--- Base de données :  `nounoudb`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `dispo`
---
-
-DROP TABLE IF EXISTS `dispo`;
-CREATE TABLE IF NOT EXISTS `dispo` (
-  `dispo_id` int(11) NOT NULL AUTO_INCREMENT,
-  `jour` varchar(45) NOT NULL,
-  `debut` time NOT NULL,
-  `fin` time NOT NULL,
-  `nounou_email` varchar(125) NOT NULL,
-  PRIMARY KEY (`dispo_id`),
-  UNIQUE KEY `dispo_id_UNIQUE` (`dispo_id`),
-  KEY `dispo_nounou_email_idx` (`nounou_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `enfant`
---
-
-DROP TABLE IF EXISTS `enfant`;
-CREATE TABLE IF NOT EXISTS `enfant` (
-  `enfant_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(45) NOT NULL,
-  `prenom` varchar(45) NOT NULL,
-  `age` int(11) NOT NULL,
-  `info` varchar(255) NOT NULL,
-  `email_parent` varchar(125) NOT NULL,
-  PRIMARY KEY (`enfant_id`),
-  UNIQUE KEY `enfant_id_UNIQUE` (`enfant_id`),
-  KEY `email_parent_idx` (`email_parent`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `evaluation`
---
-
-DROP TABLE IF EXISTS `evaluation`;
-CREATE TABLE IF NOT EXISTS `evaluation` (
-  `evalutation_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nounou_email` varchar(125) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `note` int(11) NOT NULL,
-  `parent_email` varchar(125) NOT NULL,
-  PRIMARY KEY (`evalutation_id`),
-  UNIQUE KEY `evalutation_id_UNIQUE` (`evalutation_id`),
-  KEY `nounou_email_idx` (`nounou_email`),
-  KEY `parent_email_idx` (`parent_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
---
--- Déchargement des données de la table `evaluation`
---
-
-INSERT INTO `evaluation` (`evalutation_id`, `garde_id`, `nounou_email`, `description`, `note`, `parent_email`) VALUES
-(1, 2, 'Marie.dupont@gmail.com', 'TRES BONNE GARDE', 10, 'parent@gmail.com'),
-(2, 1, 'parent@gmail.com', 'MOYEN, non ponctuel', 5, 'parent@gmail.com');
-
-
--- --------------------------------------------------------
-
---
--- Structure de la table `garde`
---
-DROP TABLE IF EXISTS `garde`;
-CREATE TABLE IF NOT EXISTS `garde` (
-  `garde_id` int(11) NOT NULL,
-  `debut` datetime NOT NULL,
-  `fin` datetime NOT NULL,
-  `nounou_email` varchar(125) NOT NULL,
-  `email_parent` varchar(125) NOT NULL,
-  `tarif` float NOT NULL,
-  `status` text NOT NULL,
-  PRIMARY KEY (`garde_id`),
-  UNIQUE KEY `garde_id_UNIQUE` (`garde_id`),
-  KEY `garde_nounou_email_idx` (`nounou_email`),
-  KEY `garde_email_parent` (`email_parent`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `garde`
---
-
-INSERT INTO `garde` (`garde_id`, `debut`, `fin`, `nounou_email`, `email_parent`, `tarif`) VALUES
-(1, '2018-05-01 00:00:00', '2018-05-02 14:00:00', 'paul.martin@gmail.com', 'parent@gmail.com', 10),
-(2, '2017-06-01 00:00:00', '2017-06-03 00:00:00', 'Marie.dupont@gmail.com', 'parent@gmail.com', 40);
-
-
--- --------------------------------------------------------
-
---
--- Structure de la table `garde_has_enfant`
---
-
-DROP TABLE IF EXISTS `garde_has_enfant`;
-CREATE TABLE IF NOT EXISTS `garde_has_enfant` (
-  `garde_id` int(11) NOT NULL,
-  `enfant_id` int(11) NOT NULL,
-  PRIMARY KEY (`garde_id`,`enfant_id`),
-  KEY `fk_garde_has_enfant_enfant1_idx` (`enfant_id`),
-  KEY `fk_garde_has_enfant_garde1_idx` (`garde_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `langue`
---
-
-DROP TABLE IF EXISTS `langue`;
-CREATE TABLE IF NOT EXISTS `langue` (
-  `langue_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(45) NOT NULL,
-  PRIMARY KEY (`langue_id`),
-  UNIQUE KEY `langue_id_UNIQUE` (`langue_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `langue`
---
-
-INSERT INTO `langue` (`langue_id`, `nom`) VALUES
-(1, 'anglais'),
-(2, 'espagnol'),
-(3, 'allemand'),
-(4, 'portugais'),
-(5, 'russe'),
-(6, 'chinois');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `utilisateur`
---
-
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `nom` varchar(45) DEFAULT NULL,
-  `prenom` varchar(45) DEFAULT NULL,
-  `ville` varchar(45) DEFAULT NULL,
-  `email` varchar(125) NOT NULL,
-  `portable` int(11) DEFAULT NULL,
-  `photo` varchar(45) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `experience` varchar(45) DEFAULT NULL,
-  `presentation` varchar(145) DEFAULT NULL,
-  `type_user` varchar(45) NOT NULL,
-  `password` varchar(255) NOT NULL,
+-- -----------------------------------------------------
+-- Table `nounoudb`.`utilisateur`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`utilisateur` (
+  `nom` VARCHAR(45) NULL DEFAULT NULL,
+  `prenom` VARCHAR(45) NULL DEFAULT NULL,
+  `ville` VARCHAR(45) NULL DEFAULT NULL,
+  `email` VARCHAR(125) NOT NULL,
+  `portable` INT(11) NULL DEFAULT NULL,
+  `photo` BLOB NULL DEFAULT NULL,
+  `age` INT(11) NULL DEFAULT NULL,
+  `experience` VARCHAR(45) NULL DEFAULT NULL,
+  `presentation` VARCHAR(145) NULL DEFAULT NULL,
+  `type_user` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`email`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `utilisateur`
---
-INSERT INTO `utilisateur` (`nom`, `prenom`, `ville`, `email`, `portable`, `photo`, `age`, `experience`, `presentation`, `type_user`, `password`) VALUES
-(NULL, NULL, NULL, 'admin', NULL, NULL, NULL, NULL, NULL, 'admin', '$2y$10$wVK682RRldlDdcu1ylKJeuii35h.Na2SlztqQ5saHSCfZgdUAClaa')
-('Dupont', 'Marie', 'ORSAY', 'Marie.dupont@gmail.com', 659878178, '', 18, 'experimente', 'Je suis aussi une super nounou', 'nounou', '$2y$10$XP.0T38.R2tEQpUIlInKs.dGSFKz6JCPgX0w6vxGzPHcGLxbWBHqi'),
-('martin', 'paul', 'ORSAY', 'paul.martin@gmail.com', 659878193, '', 25, 'occasionnel', 'Je suis une super nounou', 'nounou', '$2y$10$pxtj6wo.UVCvzjefEMsKnOMuxRSwB2yj6kl3dkUs6YMXd69BbTgH6'),
-('Henry', 'Jean', 'TROYES', 'parent@gmail.com', 767564534, '', NULL, NULL, '        RAS', 'parent', '$2y$10$jPUg247r0cmsxUADVgZgUuN/7oLBSy10SvqG515zaZlWks.YlOBZO');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `utilisateur_has_langue`
---
-
-DROP TABLE IF EXISTS `utilisateur_has_langue`;
-CREATE TABLE IF NOT EXISTS `utilisateur_has_langue` (
-  `utilisateur_email` varchar(125) NOT NULL,
-  `langue_id` int(11) NOT NULL,
-  PRIMARY KEY (`utilisateur_email`,`langue_id`),
-  KEY `fk_utilisateur_has_langue_langue1_idx` (`langue_id`),
-  KEY `fk_utilisateur_has_langue_utilisateur1_idx` (`utilisateur_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `dispo`
---
-ALTER TABLE `dispo`
-  ADD CONSTRAINT `dispo_nounou_email` FOREIGN KEY (`nounou_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `enfant`
---
-ALTER TABLE `enfant`
-  ADD CONSTRAINT `email_parent` FOREIGN KEY (`email_parent`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `evaluation`
---
-ALTER TABLE `evaluation`
-  ADD CONSTRAINT `nounou_email` FOREIGN KEY (`nounou_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `parent_email` FOREIGN KEY (`parent_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  ADD CONSTRAINT `garde_id` FOREIGN KEY (`garde_id`) REFERENCES `garde` (`garde_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
---
--- Contraintes pour la table `garde`
---
-ALTER TABLE `garde`
-  ADD CONSTRAINT `garde_nounou_email` FOREIGN KEY (`nounou_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-  ADD CONSTRAINT `garde_email_parent` FOREIGN KEY (`email_parent`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- -----------------------------------------------------
+-- Table `nounoudb`.`dispo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`dispo` (
+  `dispo_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `jour` VARCHAR(45) NOT NULL,
+  `debut` TIME NOT NULL,
+  `fin` TIME NOT NULL,
+  `nounou_email` VARCHAR(125) NOT NULL,
+  PRIMARY KEY (`dispo_id`),
+  UNIQUE INDEX `dispo_id_UNIQUE` (`dispo_id` ASC),
+  INDEX `dispo_nounou_email_idx` (`nounou_email` ASC),
+  CONSTRAINT `dispo_nounou_email`
+    FOREIGN KEY (`nounou_email`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
 
---
--- Contraintes pour la table `garde_has_enfant`
---
-ALTER TABLE `garde_has_enfant`
-  ADD CONSTRAINT `fk_garde_has_enfant_enfant1` FOREIGN KEY (`enfant_id`) REFERENCES `enfant` (`enfant_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_garde_has_enfant_garde1` FOREIGN KEY (`garde_id`) REFERENCES `garde` (`garde_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
---
--- Contraintes pour la table `utilisateur_has_langue`
---
-ALTER TABLE `utilisateur_has_langue`
-  ADD CONSTRAINT `fk_utilisateur_has_langue_langue1` FOREIGN KEY (`langue_id`) REFERENCES `langue` (`langue_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_utilisateur_has_langue_utilisateur1` FOREIGN KEY (`utilisateur_email`) REFERENCES `utilisateur` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
+-- -----------------------------------------------------
+-- Table `nounoudb`.`enfant`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`enfant` (
+  `enfant_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(45) NOT NULL,
+  `prenom` VARCHAR(45) NOT NULL,
+  `age` INT(11) NOT NULL,
+  `info` VARCHAR(255) NOT NULL,
+  `email_parent` VARCHAR(125) NOT NULL,
+  PRIMARY KEY (`enfant_id`),
+  UNIQUE INDEX `enfant_id_UNIQUE` (`enfant_id` ASC),
+  INDEX `email_parent_idx` (`email_parent` ASC),
+  CONSTRAINT `email_parent`
+    FOREIGN KEY (`email_parent`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- -----------------------------------------------------
+-- Table `nounoudb`.`garde`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`garde` (
+  `garde_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `debut` DATETIME NOT NULL,
+  `fin` DATETIME NOT NULL,
+  `nounou_email` VARCHAR(125) NOT NULL,
+  `email_parent` VARCHAR(125) NOT NULL,
+  `tarif` FLOAT NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`garde_id`),
+  UNIQUE INDEX `garde_id_UNIQUE` (`garde_id` ASC),
+  INDEX `garde_nounou_email_idx` (`nounou_email` ASC),
+  INDEX `garde_email_parent` USING BTREE (`email_parent` ASC),
+  CONSTRAINT `garde_email_parent`
+    FOREIGN KEY (`email_parent`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `garde_nounou_email`
+    FOREIGN KEY (`nounou_email`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `nounoudb`.`evaluation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`evaluation` (
+  `evalutation_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `garde_id` INT(100) NOT NULL,
+  `nounou_email` VARCHAR(125) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  `note` INT(11) NOT NULL,
+  `parent_email` VARCHAR(125) NOT NULL,
+  PRIMARY KEY (`evalutation_id`),
+  UNIQUE INDEX `evalutation_id_UNIQUE` (`evalutation_id` ASC),
+  INDEX `nounou_email_idx` (`nounou_email` ASC),
+  INDEX `parent_email_idx` (`parent_email` ASC),
+  INDEX `garde_id` (`garde_id` ASC),
+  CONSTRAINT `garde_id`
+    FOREIGN KEY (`garde_id`)
+    REFERENCES `nounoudb`.`garde` (`garde_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `nounou_email`
+    FOREIGN KEY (`nounou_email`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `parent_email`
+    FOREIGN KEY (`parent_email`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `nounoudb`.`garde_has_enfant`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`garde_has_enfant` (
+  `garde_id` INT(11) NOT NULL,
+  `enfant_id` INT(11) NOT NULL,
+  PRIMARY KEY (`garde_id`, `enfant_id`),
+  INDEX `fk_garde_has_enfant_enfant1_idx` (`enfant_id` ASC),
+  INDEX `fk_garde_has_enfant_garde1_idx` (`garde_id` ASC),
+  CONSTRAINT `fk_garde_has_enfant_enfant1`
+    FOREIGN KEY (`enfant_id`)
+    REFERENCES `nounoudb`.`enfant` (`enfant_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_garde_has_enfant_garde1`
+    FOREIGN KEY (`garde_id`)
+    REFERENCES `nounoudb`.`garde` (`garde_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `nounoudb`.`langue`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`langue` (
+  `langue_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`langue_id`),
+  UNIQUE INDEX `langue_id_UNIQUE` (`langue_id` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `nounoudb`.`utilisateur_has_langue`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nounoudb`.`utilisateur_has_langue` (
+  `utilisateur_email` VARCHAR(125) NOT NULL,
+  `langue_id` INT(11) NOT NULL,
+  PRIMARY KEY (`utilisateur_email`, `langue_id`),
+  INDEX `fk_utilisateur_has_langue_langue1_idx` (`langue_id` ASC),
+  INDEX `fk_utilisateur_has_langue_utilisateur1_idx` (`utilisateur_email` ASC),
+  CONSTRAINT `fk_utilisateur_has_langue_langue1`
+    FOREIGN KEY (`langue_id`)
+    REFERENCES `nounoudb`.`langue` (`langue_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_utilisateur_has_langue_utilisateur1`
+    FOREIGN KEY (`utilisateur_email`)
+    REFERENCES `nounoudb`.`utilisateur` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
