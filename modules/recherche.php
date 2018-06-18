@@ -4,7 +4,7 @@
     <div class="input-field col s3">
         <input id="date"
         <?php if (isset($_GET['date']) && $_GET['date'] !== "") {
-          echo "placeholder=".$_GET['date'];
+          echo "value=".$_GET['date'];
         }?>
         type="text" class="datepicker" name="date">
         <label for="date">Date</label>
@@ -12,7 +12,7 @@
     <div class="input-field col s3">
       <input id="debut"
       <?php if (isset($_GET['debut']) && $_GET['debut'] !== "") {
-        echo "placeholder=". $_GET['debut'];
+        echo "value=". $_GET['debut'];
       }?>
       type="text" class="timepicker" name="debut">
       <label for="debut">Debut</label>
@@ -20,7 +20,7 @@
     <div class="input-field col s3">
       <input id="fin"
       <?php if (isset($_GET['fin']) && $_GET['fin'] !== "") {
-        echo "placeholder=". $_GET['fin'];
+        echo "value=". $_GET['fin'];
       }?>
       type="text" class="timepicker" name="fin">
       <label for="fin">Fin</label>
