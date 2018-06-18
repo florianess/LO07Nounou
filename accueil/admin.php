@@ -1,4 +1,5 @@
 <?php
+  //Permet de vérifier si l'utilisateur est autorisé à accéder à la page
   session_start();
   if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 ?>

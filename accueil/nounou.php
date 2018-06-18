@@ -1,11 +1,13 @@
 <?php
 require_once '../db/connection.php';
 
+//Permet de vérifier si l'utilisateur est autorisé à accéder à la page
 session_start();
 
 $sqlDispo = "SELECT * FROM dispo WHERE nounou_email = '".$_SESSION['user']['email']."'";
 
 $res = $conn->query($sqlDispo);
+//Si la nounou n'a pas de disponibilité enregistrée, alors elle est redirigé vers la page dispo
 if($res->num_rows == 0) {
   header('Location: ..\forms\dispo.html');
 } else {
@@ -38,6 +40,7 @@ if($res->num_rows == 0) {
     <br><br><hr><br>
     <div id='calendar'></div>
   </div>
+  <!--- Importer les librairies javacript nécessaires-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>

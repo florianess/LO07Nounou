@@ -1,4 +1,5 @@
 <?php
+//Permet de vérifier si l'utilisateur est autorisé à accéder à la page
   session_start();
   if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'parent') {
 ?>
@@ -35,6 +36,7 @@
   </nav>
 </div>
 <?php
+//Affiche le module correspondant à chaque div
   echo '<div class="container" id="recherche">';
   require_once '../modules/recherche.php';
   echo '</div><div id="listegardes">';

@@ -13,6 +13,7 @@
 
 <?php
 
+//Permet de vérifier si l'utilisateur est autorisé à accéder à la page
 session_start();
 ob_start();
 
@@ -39,6 +40,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'admin') {
 <div class="container">
 
 <?php
+  //Affiche le module correspondant à chaque div
   echo '<div id="candidats">';
   require_once '../modules/candidats.php';
   echo '</div><div id="nounous">';

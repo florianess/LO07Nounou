@@ -4,6 +4,7 @@ require_once 'connection.php';
 
 $regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù])*$/";
 
+//Filtres pour les valeurs envoyées par l'utilisateur
 $filters = array(
   "nom" => array("filter"=>FILTER_VALIDATE_REGEXP,
                  "options"=>array("regexp"=> $regText)),
@@ -23,12 +24,15 @@ $filters = array(
   "password" => FILTER_DEFAULT
 );
 
+
+//filtrer les valeurs
 $myinputs = filter_input_array(INPUT_POST, $filters);
 $values = array_values($myinputs);
 
 if(in_array(false, $values)) {
   header('Location: ../forms/NounouForm.html?error');
 } else {
+  //verifie si l'email n'est pas deja utilisé
   $sql0 = "SELECT * FROM utilisateur WHERE email = '".$_POST["email"]."'";
 
   $test = $conn->query($sql0);
@@ -48,8 +52,9 @@ if(in_array(false, $values)) {
       '$values[6]',
       '$values[7]',
       'await',
-      '".password_hash($values[8], PASSWORD_DEFAULT)."')";
+      '".password_hash($values[8], PASSWORD_DEFAULT)."')"; //hash le password
     if ($conn->query($sql)) {
+      //ajoute les langues lié à l'utilisateur
       $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$values[3]','";
       foreach ($_POST['langues'] as $value) {
         $sql3 = $debutSql . $value . "')";

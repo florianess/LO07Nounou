@@ -10,11 +10,13 @@ if ($_SESSION['user']) {
   $email = $_SESSION['user']['email'];
 }
 
+//Query des dispos d'une nounou
 $sql = "SELECT jour, debut, fin FROM dispo WHERE nounou_email = '$email'";
 $res = $conn->query($sql);
 $events = array();
 
 if ($res) {
+  //ajout chaque dispo dans le format Event (Fullcalendar.js)
   while ($row = $res->fetch_assoc()) {
     $e = array();
     if (strlen($row['jour']) == 1) {
@@ -30,10 +32,8 @@ if ($res) {
     array_push($events,$e);
   }
 }
-//garde de prenom a ville
-//info: info
-//email_parent
-//portable
+
+//récupère les gardes de la nounou plus les infos adéquats
 $sql2 = "SELECT garde.garde_id,debut,fin,enfant.prenom,parent.ville,parent.portable,parent.email,enfant.info FROM `garde`
 INNER JOIN garde_has_enfant gn ON garde.garde_id = gn.garde_id
 INNER JOIN enfant ON gn.enfant_id = enfant.enfant_id
@@ -42,6 +42,7 @@ WHERE nounou_email = '$email'";
 $res2 = $conn->query($sql2);
 if ($res2) {
   while ($row = $res2->fetch_assoc()) {
+    //Ajout les gardes dans la forme Event
     $e = array();
     $e['id'] = $row['garde_id'];
     $e['title'] = 'Garde de ' . $row['prenom'] . ' a '. $row['ville'];
@@ -54,5 +55,6 @@ if ($res2) {
     array_push($events,$e);
   }
 }
+//return le tableau d'events sous forme de JSON pour être interprêter pas Fullcalendar
 echo json_encode($events);
  ?>

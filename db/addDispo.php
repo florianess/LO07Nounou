@@ -3,10 +3,9 @@ ob_start();
 require_once '../db/connection.php';
 session_start();
 $email = $_SESSION['user']['email'];
-var_dump($_POST['jours']);
 
 if (compare($_POST['debut'],$_POST['fin'])) {
-  if (isset($_POST['type']) && $_POST['type'] == 'same') {
+  if (isset($_POST['type']) && $_POST['type'] == 'same') { //rajoute des dispos avec des horaires identiques
     $debut = $_POST['debut'][0];
     $fin = $_POST['fin'][0];
     switch ($_POST['dispo']) {
@@ -20,15 +19,15 @@ if (compare($_POST['debut'],$_POST['fin'])) {
         $jours = $_POST['jours'];
         break;
     }
-    insertFix($jours,$debut,$fin,$email);
+    insertFix($jours,$debut,$fin,$email); //insert les dispos
   } else {
-    insert($_POST['jours'],$_POST['debut'],$_POST['fin'],$email);
+    insert($_POST['jours'],$_POST['debut'],$_POST['fin'],$email); //insert les dispos
   }
 } else {
-  //header('Location: ..\forms\dispo.html?error');
+  header('Location: ..\forms\dispo.html?error'); //redirige si il y a une erreur
 }
 
-
+//permet de vérifier que le debut commence avant la fin
 function compare($debut,$fin) {
   for ($i=0; $i < count($debut); $i++) {
     if ($debut[$i] >= $fin[$i]) {
@@ -38,6 +37,7 @@ function compare($debut,$fin) {
   return TRUE;
 }
 
+//Insert les dispos
 function insert($jours,$debut,$fin,$email)
 {
   global $conn;
@@ -55,6 +55,7 @@ function insert($jours,$debut,$fin,$email)
   }
 }
 
+//insert les dispos fix (meme horaire de début et fin chaques jours)
 function insertFix($jours,$debut,$fin,$email)
 {
   global $conn;
