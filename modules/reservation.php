@@ -27,9 +27,9 @@ if($conn->query($sql)) {
     foreach ($_SESSION['resa']['enfants'] as $value) {
         $sql3 .= "('$id[0]','$value')";
     }
-    if($conn->query($sql3)) {
+  
         header('Location: ../');
-    }
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
 }

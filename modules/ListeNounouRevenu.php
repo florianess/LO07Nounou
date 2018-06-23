@@ -25,6 +25,7 @@ require_once '../db/connection.php';
         <th>Age</th>
         <th>Experience</th>
         <th>Type de nounou</th>
+        <th>Dossier complet</th>
         <th>Revenu (€)</th>
 
     </tr>
@@ -55,19 +56,20 @@ ORDER BY revenu DESC";
     }else {
       echo "<td> Non bloquée</td>";
     }
+
+    echo "<td class='center'>
+
+    <a style='cursor:pointer;' href='..\modules\dossier.php?email=$rowNounouRevenu[3]'><i class='small material-icons blue-text'>link</i></a>
+
+    </td>" ;
       echo "<td>".$rowNounouRevenu[8]."</td>";
 
     echo "</tr>";
-    }
-
-
-
-
+  }
 
   // certaines nounou n'ont pas de revenus
   $sqlNounou= "SELECT nom, prenom,ville, email, portable,age,experience, type_user FROM utilisateur WHERE type_user='block' OR type_user='nounou'";
   $nounou=$conn->query($sqlNounou);
-  $nounouRevenu= $conn->query($sqlNounouRevenu);
   while ( $rowNounou = $nounou->fetch_row())
  {    $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience, u.type_user, SUM(g.tarif) revenu, g.status
    FROM garde g
@@ -97,6 +99,9 @@ ORDER BY revenu DESC";
        }else {
          echo "<td> Non bloquée</td>";
        }
+       echo "<td class='center'>
+         <a style='cursor:pointer;' href='..\modules\dossier.php?email=<?php echo $rowNounou[3] ?>'><i class='small material-icons blue-text'>link</i></a>
+       </td>";
          echo "<td>0</td>";
 
     echo "</tr>";

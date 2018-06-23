@@ -38,8 +38,9 @@ echo "<h6> Expérience :<i> $row[7]</i></h6>";
 echo "<h6> Présentation personnelle : <i> $row[8]</i></h6><br/>";
 echo "<h6> Nombre de gardes : <i>".$garde->num_rows ."</i></h6><br/>";
 
-
+if($garde->num_rows >0){
 ?>
+
 
 
 <table id='table'>
@@ -78,7 +79,7 @@ echo "<h6> Nombre de gardes : <i>".$garde->num_rows ."</i></h6><br/>";
     echo "<br/> <br/>";
     echo "<br/> <br/>";
 
-
+}
 
 
 
