@@ -4,6 +4,7 @@ require_once 'connection.php';
 
 $regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù])*$/";
 
+
 //Filtres pour les valeurs envoyées par l'utilisateur
 $filters = array(
   "nom" => array("filter"=>FILTER_VALIDATE_REGEXP,
@@ -19,8 +20,6 @@ $filters = array(
                 "options"=>array("min_range"=>16,"max_range"=>60)),
   "experience" => array("filter"=>FILTER_VALIDATE_REGEXP,
                     "options"=>array("regexp"=> $regText)),
-  "presentation" => array("filter"=>FILTER_VALIDATE_REGEXP,
-                   "options"=>array("regexp"=> $regText)),
   "password" => FILTER_DEFAULT
 );
 
@@ -38,7 +37,6 @@ if(in_array(false, $values)) {
   $test = $conn->query($sql0);
 
   if ($test->num_rows == 0){
-    var_dump($_FILES);
     $photo = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
     $sql = "INSERT INTO utilisateur
     (nom, prenom, ville, email, portable, photo, age, experience, presentation, type_user, password)
@@ -62,7 +60,7 @@ if(in_array(false, $values)) {
           echo "Error: " . $sql3 . "<br>" . $conn->error . "<br>";
         }
       }
-    //header('Location: ../?status=create');
+    header('Location: ../?status=create');
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
     }

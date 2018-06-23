@@ -1,5 +1,4 @@
 <?php
-var_dump($_GET);
 $nounou_email=$_GET['nounouemail'];
 $garde_id=$_GET['gardeID'];
 
@@ -14,7 +13,7 @@ $text = <<<END
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Appréciation</title>
 </head>
-<body class="pink lighten-5">
+<body>
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
       <a id="logo-container" href="../accueil/parent.php"class="brand-logo grey-text text-darken-1">NounouFinder</a>

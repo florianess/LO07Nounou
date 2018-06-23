@@ -58,7 +58,7 @@
 <div class="row">
 <?php
 
-if (isset($_GET['date'])) {
+if (isset($_GET['date'])) { //occasionnelle
   $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE";
   $jour = $_GET['date'];
   $conv = DateTime::createFromFormat('d/m/Y', $jour);
@@ -79,7 +79,7 @@ if (isset($_GET['date'])) {
   }
   $resa = array('enfants' => $_GET['enfants'], 'debut' => $_GET['debut'], 'fin' => $_GET['fin'], 'jour' => $tjour, 'email_parent' => $_SESSION['user']['email']);
   $_SESSION['resa']=$resa;
-} else {
+} else { //réguliere
   $sql = "SELECT * FROM utilisateur WHERE type_user='nounou'";
 }
 $res = $conn->query($sql);

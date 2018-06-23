@@ -33,9 +33,10 @@ require_once '../db/connection.php';
 
   <?php
 
-  $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience,u.type_user, SUM(g.tarif) revenu
+  $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience,u.type_user, SUM(g.tarif) revenu,g.status
 FROM garde g
 INNER JOIN utilisateur u ON g.nounou_email = u.email
+      WHERE g.status='evaluee'
 GROUP BY g.nounou_email
 ORDER BY revenu DESC";
 
@@ -68,9 +69,10 @@ ORDER BY revenu DESC";
   $nounou=$conn->query($sqlNounou);
   $nounouRevenu= $conn->query($sqlNounouRevenu);
   while ( $rowNounou = $nounou->fetch_row())
- {    $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience, u.type_user, SUM(g.tarif) revenu
+ {    $sqlNounouRevenu= "SELECT u.nom, u.prenom,u.ville, g.nounou_email, u.portable,u.age,u.experience, u.type_user, SUM(g.tarif) revenu, g.status
    FROM garde g
    INNER JOIN utilisateur u ON g.nounou_email = u.email
+      WHERE g.status='evaluee'
    GROUP BY g.nounou_email
    ORDER BY revenu DESC";
    $nounouRevenu= $conn->query($sqlNounouRevenu);

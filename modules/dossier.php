@@ -26,7 +26,7 @@ $sql = "SELECT nom,prenom,ville,email,photo,portable,age,experience,presentation
 
 $nounou = $conn->query($sql);
 $row = $nounou->fetch_row();
-$sql2 = "SELECT garde_id, debut, fin, email_parent, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
+$sql2 = "SELECT garde_id, debut, fin, email_parent, tarif, status FROM garde WHERE  nounou_email='".$_GET['email']."' AND status='evaluee' ";
 $garde = $conn->query($sql2);
 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row[4] ).'" width="200"/>';
 echo "<h6> Prénom :<i> $row[1]</i></h6>";
