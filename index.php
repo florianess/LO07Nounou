@@ -70,7 +70,7 @@ if (isset($_SESSION['user'])) {
       <h4>Connexion</h4>
       <form class="" action="db/auth.php" method="post">
         <input id="email" type="text" name="email">
-        <label for="email">Email</label>
+        <label for="email">Identifiant</label>
         <input id="password" type="password" name="password">
         <label for="password">Mot de passe</label>
         <br>

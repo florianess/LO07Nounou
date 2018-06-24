@@ -85,6 +85,7 @@ if($garde->num_rows >0){
 
 
    ?>
+ </div>
    <footer class="whpage-footer">
              <div class="container">
                <div class="row">

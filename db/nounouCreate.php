@@ -2,7 +2,7 @@
 
 require_once 'connection.php';
 
-$regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù])*$/";
+$regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù]|-)*$/";
 
 
 //Filtres pour les valeurs envoyées par l'utilisateur
@@ -48,9 +48,9 @@ if(in_array(false, $values)) {
       '".$photo."',
       '$values[5]',
       '$values[6]',
-      '$values[7]',
+      '".$_POST['presentation']."',
       'await',
-      '".password_hash($values[8], PASSWORD_DEFAULT)."')"; //hash le password
+      '".password_hash($values[7], PASSWORD_DEFAULT)."')"; //hash le password
     if ($conn->query($sql)) {
       //ajoute les langues lié à l'utilisateur
       $debutSql = "INSERT INTO utilisateur_has_langue (utilisateur_email, langue_id) VALUES ('$values[3]','";

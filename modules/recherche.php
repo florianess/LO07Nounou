@@ -94,7 +94,7 @@ if($res) {
     };
     ?>
 
-  <div class="col s6 m4">
+  <div class="col s12 ">
     <div class="card hoverable">
       <div class="card-content pink-text">
         <span class="card-title"><img src="data:image/jpeg;base64,<?php echo base64_encode( $row['photo'] )?>" width="50"/>   <?php echo $row["prenom"] ?></span>

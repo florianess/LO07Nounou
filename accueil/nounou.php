@@ -30,7 +30,7 @@ if($res->num_rows == 0) {
     <div class="container nav-wrapper">
       <a id="logo-container" class="brand-logo grey-text text-darken-1" href="../">NounouFinder</a>
       <ul class="right hide-on-med-and-down">
-        <li>  <a href="../modules/dossier.php?email=<?php echo $_SESSION['user']['email'] ?>" class="btn waves-effect waves-light  pink lighten-1">Mon profil</a></li>
+        <li>  <a href="../modules/profilnounou.php?email=<?php echo $_SESSION['user']['email'] ?>" class="btn waves-effect waves-light  pink lighten-1">Mon profil</a></li>
         <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
       </ul>
     </div>

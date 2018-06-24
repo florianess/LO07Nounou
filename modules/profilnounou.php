@@ -12,10 +12,10 @@
 
   <title>Profil Nounou</title>
 </head>
-<body  class="pink lighten-5">
+<body >
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
-      <a id="logo-container" href="../accueil/parent.php" class="brand-logo grey-text text-darken-1">NounouFinder</a>
+      <a id="logo-container" href="../index.php" class="brand-logo grey-text text-darken-1">NounouFinder</a>
       <ul class="right hide-on-med-and-down">
         <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
       </ul>
@@ -28,7 +28,7 @@
 <?php
 
   session_start();
-  if (isset($_SESSION['user']) && $_SESSION['user']['type_user'] == 'parent') {
+  if (isset($_SESSION['user']) ) {
 require_once '../db/connection.php';
 
 
@@ -47,8 +47,12 @@ echo "<br/><h3> Profil Nounou </h3><br/>";
   echo "<h6> Présentation personnelle : <i>".$row['presentation']."</i></h6><br/><br/>";
   echo "<hr/><br/>";
 
-  echo "<h6> Evaluations de parents reçues :</h6><br/>";
 
+  $sql2 = "SELECT garde_id, debut, fin, email_parent, tarif, status FROM garde WHERE  nounou_email='".$_GET['email']."' AND status='evaluee'";
+  $garde = $conn->query($sql2);
+  if($garde->num_rows >0){
+
+    echo "<h6> Evaluations de parents reçues :</h6><br/>";
 
 echo"
  <table>
@@ -61,8 +65,7 @@ echo"
 
 
 
-   $sql2 = "SELECT garde_id, debut, fin, email_parent, tarif FROM garde WHERE  nounou_email='".$_GET['email']."'";
-   $garde = $conn->query($sql2);
+
        while ($row2 = $garde->fetch_row()) {
 
 
@@ -84,7 +87,7 @@ echo"
  echo "</table>";
  echo "<br/> <br/>";
  echo "<br/> <br/>";
-
+}
 
  } else {
    echo "Accèes refusé";
