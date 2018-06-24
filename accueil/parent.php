@@ -23,7 +23,13 @@
         <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
       </ul>
     </div>
-
+    <div id="create" class="modal">
+      <div class="modal-content center">
+        <h4>Garde Résevée</h4>
+        <p>Votre réservation de nounou a bien été enregistrée</p>
+        <a class="modal-close waves-effect waves-green btn">OK</a>
+      </div>
+    </div>
     <div class="pink lighten-4 nav-content">
       <ul id="tabs" class="tabs tabs-transparent">
         <li class="tab"><a class="grey-text text-darken-1 active" href="#recherche">Recherche</a></li>
@@ -74,6 +80,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script type="text/javascript" src="../js/initParent.js"></script>
+  <script src="js/init.js"></script>
 </body>
 </html>
 
