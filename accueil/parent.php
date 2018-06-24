@@ -11,8 +11,6 @@
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
   <title>Compte Parent</title>
 </head>
 <body class="white">
@@ -23,23 +21,22 @@
         <li>  <a href="../db/deconnexion.php" class="btn waves-effect waves-light  pink lighten-1">Déconnexion</a></li>
       </ul>
     </div>
-    <div id="create" class="modal">
-      <div class="modal-content center">
-        <h4>Garde Résevée</h4>
-        <p>Votre réservation de nounou a bien été enregistrée</p>
-        <a class="modal-close waves-effect waves-green btn">OK</a>
-      </div>
-    </div>
     <div class="pink lighten-4 nav-content">
       <ul id="tabs" class="tabs tabs-transparent">
         <li class="tab"><a class="grey-text text-darken-1 active" href="#recherche">Recherche</a></li>
         <li class="tab"><a class="grey-text text-darken-1 " href="#listegardes">Mes demandes de gardes</a></li>
         <li class="tab"><a class="grey-text text-darken-1 " href="#gardeseval">Mes gardes à évaluer</a></li>
-
       </ul>
     </div>
   </nav>
-</div>
+  <div id="res" class="modal">
+    <div class="modal-content center">
+      <h4>Garde réservée</h4>
+      <p>Votre réservation de nounou a bien été enregistrée</p>
+      <p>Un e-mail récapitulatif va vous être envoyer</p>
+      <a class="modal-close waves-effect waves-green btn">OK</a>
+    </div>
+  </div>
 <?php
   echo '<div class="container" id="recherche">';
   require_once '../modules/recherche.php';

@@ -1,9 +1,9 @@
 <?php
 
-require_once '../db/connection.php';
+require_once 'connection.php';
 session_start();
-$debut = $_SESSION['resa']['debut'];
-$fin = $_SESSION['resa']['fin'];
+$debut = $_SESSION['resa']['debut'] . ':00';
+$fin = $_SESSION['resa']['fin'] . ':00';
 $nounou_email = $_GET['email'];
 $email_parent = $_SESSION['resa']['email_parent'];
 $jour = $_SESSION['resa']['jour'];
@@ -11,12 +11,14 @@ $duree = $fin - $debut;
 if (strlen($_SESSION['resa']['jour'])>1){ //resa occa
     $tarif = $duree * (7 + 4*(count($_SESSION['resa']['enfants'])-1));
     $date = DateTime::createFromFormat('d/m/Y', $jour);
-    $jdebut = $date->format('Y-m-d') . ' ' . $debut . ':00';
-    $jfin = $date->format('Y-m-d') . ' ' . $fin . ':00';
+    $jdebut = $date->format('Y-m-d') . ' ' . $debut;
+    $jfin = $date->format('Y-m-d') . ' ' . $fin;
     $sql = "INSERT INTO garde (debut,fin,nounou_email,email_parent,tarif,status) VALUES ('$jdebut','$jfin','$nounou_email','$email_parent','$tarif','reservee')";
 } else {
     $tarif = $duree * (10 + 5*(count($_SESSION['resa']['enfants'])-1));
-    $sql = "INSERT INTO garde (debut,fin,jour,nounou_email,email_parent,tarif,status) VALUES ('$debut','$fin','$jour','$nounou_email','$email_parent','$tarif','reservee')";
+    $jdebut = $jour . ' ' . $debut;
+    $jfin = $jour . ' ' . $fin;
+    $sql = "INSERT INTO garde (debut,fin,nounou_email,email_parent,tarif,status) VALUES ('$jdebut','$jfin','$nounou_email','$email_parent','$tarif','reservee')";
 }
 
 if($conn->query($sql)) {
@@ -28,7 +30,7 @@ if($conn->query($sql)) {
         $sql3 .= "('$id[0]','$value')";
     }
 
-      header('Location: ../accueil/parent.php?status=create');
+      header('Location: ../accueil/parent.php?res');
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error . "<br>";

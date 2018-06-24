@@ -49,8 +49,16 @@ if ($res2) {
     $e['info'] = 'Info: ' .$row['info'];
     $e['email'] = $row['email'];
     $e['portable'] = '0'.$row['portable'];
-    $e['start'] = $row['debut'];
-    $e['end'] = $row['fin'];
+    $debut = explode(" ",$row['debut']);
+    if(strlen($debut[0])==1){
+      $e['dow']=[intval($debut[0])];
+      $e['start'] = $debut[1];
+      $end = explode(" ",$row['fin']);
+      $e['end'] = $end[1];
+    } else {
+      $e['start'] = $row['debut'];
+      $e['end'] = $row['fin'];
+    }
     $e['backgroundColor'] = 'red';
     array_push($events,$e);
   }

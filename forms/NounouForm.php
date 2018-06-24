@@ -66,7 +66,11 @@
           <label for="ville">Ville</label>
         </div>
         <div class="input-field col s12 m6">
-          <?php require_once 'langues.php'?>
+          <select multiple name ='langues[]' class='select'>
+            <option value='' disabled selected>Choix des langues</option>
+            <?php require_once 'langues.php'?>
+          </select>
+          <label>Langues parlées</label>
         </div>
         <div class="input-field col s12 m6">
           <select name = "experience" class="select">

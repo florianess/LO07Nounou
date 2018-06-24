@@ -49,4 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Datepicker.init(date, {format: 'dd/mm/yyyy',i18n: frDate, autoClose: true});
   var heure = document.querySelectorAll('.timepicker');
   M.Timepicker.init(heure, timepickerOptions);
+  var request = window.location.search.match(/[a-z]+/g);
+  if (request && request[0] === 'res') {
+    M.Modal.getInstance(document.getElementById('res')).open();
+  }
 });
