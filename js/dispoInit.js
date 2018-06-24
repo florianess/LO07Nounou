@@ -162,9 +162,7 @@ function ponct() {
   step1 = htmlObject;
   M.AutoInit();
 }
-function test(e) {
-  console.log();;
-}
+
 function some() {
   if (step1) {
     step1.remove();

@@ -99,7 +99,7 @@ if (isset($_SESSION['user'])) {
       <br/>
       <div class="row">
         <div class="col s12 m6">
-          <a href="forms/NounouForm.html" class="btn-large waves-effect waves-light teal lighten-1"><b>Je suis nounou </b></a>
+          <a href="forms/NounouForm.php" class="btn-large waves-effect waves-light teal lighten-1"><b>Je suis nounou </b></a>
         </div>
         <div class="col s12 m6">
           <a href="forms/ParentsForm.html" class="btn-large waves-effect waves-light teal lighten-1"><b>Je suis parent </b></a>

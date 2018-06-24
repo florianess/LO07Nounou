@@ -66,18 +66,7 @@
           <label for="ville">Ville</label>
         </div>
         <div class="input-field col s12 m6">
-          <select multiple name ="langues[]" class="select">
-            <option value="" disabled selected>Choix des langues</option>
-            <option value="1">Anglais</option>
-            <option value="2">Espagnol</option>
-            <option value="3">Allemand</option>
-            <option value="4">Portugais</option>
-            <option value="5">Chinois</option>
-            <option value="6">Italien</option>
-            <option value="7">Japonais</option>
-            <option value="8">Arabe</option>
-          </select>
-          <label>Langues parlées</label>
+          <?php require_once 'langues.php'?>
         </div>
         <div class="input-field col s12 m6">
           <select name = "experience" class="select">
@@ -100,35 +89,30 @@
       </div>
     </form>
   </div>
-  <br/>      <br/>
-  <br/>  <br/>
-
-  <hr/>
+  <br><br><br><br><hr>
   <footer class="whpage-footer">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="black-text">Contactez nous</h5>
-                  <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
-
-
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="black-text">Services</h5>
-                  <ul>
-                    <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
-                    <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class=" grey lighten-3 footer-copyright">
-              <div class="container">
-              © 2018 Copyright NounouFinder.com
-              <a class="grey-text text-darken-1 right" href="../index.html">Accueil</a>
-              </div>
-            </div>
-          </footer>
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="black-text">Contactez nous</h5>
+          <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="black-text">Services</h5>
+          <ul>
+            <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+            <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class=" grey lighten-3 footer-copyright">
+      <div class="container">
+      © 2018 Copyright NounouFinder.com
+      <a class="grey-text text-darken-1 right" href="../index.html">Accueil</a>
+      </div>
+    </div>
+  </footer>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
