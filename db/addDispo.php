@@ -5,23 +5,23 @@ session_start();
 $email = $_SESSION['user']['email'];
 
 if (compare($_POST['debut'],$_POST['fin'])) {
+  switch ($_POST['dispo']) {
+    case 'work':
+      $jours = [1,2,3,4,5];
+      break;
+    case 'all':
+      $jours = [1,2,3,4,5,6,0];
+      break;
+    case 'ponct':
+      $jours = $_POST['jours'];
+      break;
+  }
   if (isset($_POST['type']) && $_POST['type'] == 'same') { //rajoute des dispos avec des horaires identiques
     $debut = $_POST['debut'][0];
     $fin = $_POST['fin'][0];
-    switch ($_POST['dispo']) {
-      case 'work':
-        $jours = [1,2,3,4,5];
-        break;
-      case 'all':
-        $jours = [1,2,3,4,5,6,0];
-        break;
-      case 'ponct':
-        $jours = $_POST['jours'];
-        break;
-    }
     insertFix($jours,$debut,$fin,$email); //insert les dispos
   } else {
-    insert($_POST['jours'],$_POST['debut'],$_POST['fin'],$email); //insert les dispos
+    insert($jours,$_POST['debut'],$_POST['fin'],$email); //insert les dispos
   }
 } else {
   header('Location: ..\forms\dispo.html?error'); //redirige si il y a une erreur
