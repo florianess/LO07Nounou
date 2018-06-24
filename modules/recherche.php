@@ -57,8 +57,9 @@
 <hr>
 <div class="row">
 <?php
-
+$occas=false;
 if (isset($_GET['date'])) { //occasionnelle
+  $occas=true;
   $sql = "SELECT * FROM dispo INNER JOIN utilisateur u ON dispo.nounou_email = u.email WHERE";
   $jour = $_GET['date'];
   $conv = DateTime::createFromFormat('d/m/Y', $jour);
@@ -92,6 +93,20 @@ if($res) {
     for ($i=0; $i < count($res2); $i++) {
       $langues .= $res2[$i][3] . ' ';
     };
+
+// si la garde est occasionnelle, la nounou peut avoir une garde déja sur sa dispo
+// on cherche si la nounou n'a pas deja une garde a cette date
+if ($occas){
+  $jour = $_GET['date'];
+  $conv = DateTime::createFromFormat('d/m/Y', $jour);
+  $jour=$conv->format('Y-m-d');
+  $jourdebut=$jour.' '.$_GET['debut'].':00';
+$jourfin =$jour.' '.$_GET['fin'].':00';
+$sql4="SELECT debut, fin, nounou_email FROM garde WHERE debut >='$jourdebut' AND debut <='$jourfin' AND nounou_email='$email'" ;
+$res4 = $conn->query($sql4);
+
+if($res4->num_rows==0){
+
     ?>
 
   <div class="col s12 ">
@@ -111,6 +126,28 @@ if($res) {
   </div>
 
     <?php
+  }
+
+}else {
+?>
+<div class="col s12 ">
+  <div class="card hoverable">
+    <div class="card-content pink-text">
+      <span class="card-title"><img src="data:image/jpeg;base64,<?php echo base64_encode( $row['photo'] )?>" width="50"/>   <?php echo $row["prenom"] ?></span>
+      <p>Ville: <?php echo $row['ville']?></p>
+      <p>Expérience: <?php echo $row['experience']?></p>
+      <p>Présentation: <?php echo $row['presentation']?></p>
+      <p>Langues: <?php echo $langues?></p>
+    </div>
+    <div class="card-action">
+      <a href="../modules/reservation.php?email=<?php echo $row['email'] ?>">Réserver</a>
+      <a href="../modules/profilnounou.php?email=<?php echo $row['email'] ?>" class="right">Profil</a>
+    </div>
+  </div>
+</div>
+
+<?php
+}
   }
 }
 ?>
