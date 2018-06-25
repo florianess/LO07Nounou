@@ -35,8 +35,8 @@ echo '<h5><b>' .$gardesTerminee->num_rows. '</b>'; ?> Garde(s) à évaluer :</h5
       $sql = "SELECT nom, prenom  FROM utilisateur WHERE email = '$row[4]'";
       $nounou = $conn->query($sql);
       $row2= $nounou->fetch_row();
-      echo "<td>$row2[1] $row2[0]</td>";
 
+      echo "<td><a href='../modules/profilnounou.php?email=$row[4] '>  $row2[1] $row2[0] </a> </td>";
         echo "<td><a href='../modules/noter.php?prenom=$row2[1]&nom=$row2[0]&nounouemail=$row[4]&gardeID=$row[5]'>Noter</a></td>";
     echo "</tr>";
     }

@@ -35,6 +35,41 @@ echo "<h6> Age : <i>$row[6]</i></h6>";
 echo "<h6> E-mail :<i> $row[3]</i></h6>";
 echo "<h6> Téléphone :<i> $row[5]</i></h6>";
 echo "<h6> Expérience :<i> $row[7]</i></h6>";
+echo "<h6> Langues maîtrisées :";
+echo" <i>Français";
+$sql = "SELECT * FROM utilisateur_has_langue WHERE utilisateur_email='".$row[3]."'";
+$res = $conn->query($sql);
+while ($langue=$res->fetch_assoc() ) {
+  echo", ";
+switch ($langue["langue_id"]) {
+  case '1':
+  echo "Anglais";
+    break;
+  case '2':
+  echo "Espagnol";
+  break;
+   case '3':
+  echo "Allemand";
+  break;
+  case '4':
+  echo "Portugais";
+    break;
+    case '5':
+    echo "Chinois";
+      break;
+      case '6':
+  echo "Italien";
+    break;
+    case '7':
+  echo "Japonais";
+      break;
+      case '8':
+      echo "Arabe";
+        break;
+}
+}
+echo " </i></h6>";
+
 echo "<h6> Présentation personnelle : <i> $row[8]</i></h6><br/>";
 echo "<h6> Nombre de gardes : <i>".$garde->num_rows ."</i></h6><br/>";
 
@@ -98,7 +133,7 @@ if($garde->num_rows >0){
                  <div class="col l4 offset-l2 s12">
                    <h5 class="black-text">Services</h5>
                    <ul>
-                     <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+                     <li><a class="grey-text text-darken-1" href="../forms/NounouForm.php">Inscription en tant que Nounou</a></li>
                      <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
                    </ul>
                  </div>

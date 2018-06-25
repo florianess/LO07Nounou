@@ -159,7 +159,7 @@ if (isset($_SESSION['user'])) {
       <div class="col l4 offset-l2 s12">
         <h5 class="black-text">Services</h5>
         <ul>
-          <li><a class="grey-text text-darken-1" href="forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+          <li><a class="grey-text text-darken-1" href="forms/NounouForm.php">Inscription en tant que Nounou</a></li>
           <li><a class="grey-text text-darken-1" href="forms/ParentsForm.html">Inscription en tant que Parent</a></li>
         </ul>
       </div>
@@ -168,7 +168,7 @@ if (isset($_SESSION['user'])) {
   <div class=" grey lighten-3 footer-copyright">
   <div class="container">
   © 2018 Copyright nounoufinder.com
-  <a class="grey-text text-darken-1 right" href="../index.html">Accueil</a>
+  <a class="grey-text text-darken-1 right" href="../index.php">Accueil</a>
 </div>
 </div>
 </footer>
