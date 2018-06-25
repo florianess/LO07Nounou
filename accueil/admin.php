@@ -30,7 +30,8 @@
   <div class="container">
     <br>
     </br>
-    </br>  </br>
+  </br>  </br><hr/></br>
+  </br>
 
     <div class="row center">
 
@@ -42,16 +43,18 @@
 
 
 
+
         <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
         <br/>    <br/>
-       <a href="listes.php" class="btn-large  waves-effect waves-light pink lighten-3 ">Listes de Nounous</a>
-
+       <a href="listes.php" class="btn-large  waves-effect waves-light pink lighten-3 ">Listes de Nounous</a></br>
+       </br>
+<hr/>
     </div>
   </div>
 </div>
 
 
-</br></br></br></br>
+
 </br>
 </br>
 </br>
@@ -60,6 +63,7 @@
 </br>
 </br>
 </br>
+
 
 <footer class="whpage-footer">
           <div class="container">
