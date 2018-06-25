@@ -66,8 +66,7 @@
 <?php
 if (isset($_GET['date'])) {
   $sql = "SELECT * FROM dispo 
-          INNER JOIN utilisateur u ON dispo.nounou_email = u.email
-          LEFT JOIN garde g ON dispo.nounou_email = g.nounou_email";
+          INNER JOIN utilisateur u ON dispo.nounou_email = u.email";
   if (isset($_GET['langue'])) {
     $sql .= " INNER JOIN utilisateur_has_langue ul on u.email = ul.utilisateur_email";
   }
@@ -83,13 +82,10 @@ if (isset($_GET['date'])) {
     $sql .=" dispo.debut <= '$debut' AND dispo.fin >= '$fin'";
   }
   if ($_GET['type'] == 'reg') {
-    $sql.=" AND dispo.jour = '$numJ' AND g.debut >= '$numJ $fin' AND g.fin <= '$numJ $debut'";
+    $sql.=" AND dispo.jour = '$numJ'";
     $tjour = $numJ;
   } else {
-    $dateUS = $conv->format('Y-m-d');
-    $sql.=" AND (dispo.jour = '$jour' OR dispo.jour = '$numJ')
-            AND ((g.debut >= '$numJ $fin' AND g.fin <= '$numJ $debut')
-                OR (g.debut >= '$dateUS $fin' AND g.fin <= '$dateUS $debut'))";
+    $sql.=" AND (dispo.jour = '$jour' OR dispo.jour = '$numJ')";
     $tjour =$jour;
   }
   if (isset($_GET['langue'])) {
@@ -110,7 +106,15 @@ if($res) {
     for ($i=0; $i < count($res2); $i++) {
       $langues .= $res2[$i][3] . ' ';
     };
-    ?>
+    if (isset($_GET['date'])){
+      $dateUS = $conv->format('Y-m-d');
+      $sql3 = "SELECT * FROM garde WHERE nounou_email = '$email' 
+              AND (((debut BETWEEN '$numJ $debut' AND '$numJ $fin') AND (fin BETWEEN '$numJ $debut' AND '$numJ $fin'))
+                OR ((debut BETWEEN '$dateUS $debut' AND '$dateUS $fin') AND (fin BETWEEN '$dateUS $debut' AND '$dateUS $fin')))";
+      $res3 = $conn->query($sql3);
+    }
+    if (!isset($_GET['date']) || $res3->num_rows == 0){
+      ?>
 
   <div class="col s6 m4">
     <div class="card hoverable">
@@ -129,6 +133,7 @@ if($res) {
   </div>
 
     <?php
+    }
   }
 }
 ?>
