@@ -44,7 +44,7 @@ echo("<div id='nbInscrits'>");
   echo'<br/>';
 
 
-  echo("<h4 class ='nombreInscrits' >Le nombre de Nounous :</h4>");
+  echo("<h4 class ='nombreInscrits' ><b>Le nombre de Nounous :</b></h4>");
   $nbNounousTotale =$nounousInscrites->num_rows + $nounousBloquées->num_rows;
   echo '<ul>';
   echo '<li>';
@@ -61,7 +61,7 @@ echo("<div id='nbInscrits'>");
   echo '</li>';
   echo '</ul>';
   echo '<br/>';
-  echo "<h4 class ='nombreInscrits'>Le nombre de Familles :</h4>";
+  echo "<h4 class ='nombreInscrits'><b>Le nombre de Familles :</b></h4>";
   echo '<ul>';
   echo '<li>';
   echo "<h5><b>$parentsInscrits->num_rows</b> Parent(s) inscrit(s)</h5>";

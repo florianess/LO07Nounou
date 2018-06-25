@@ -26,28 +26,35 @@
       </ul>
     </div>
   </nav>
+
   <div class="container">
-    <br><br>
-    <div class="row">
-      <div class="col l6 s12 categorieadmin" >
+    <br>
+    </br>
+  </br>  </br><hr/></br>
+  </br>
+
+    <div class="row center">
+
         <h5 class="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
-        <br/>
+      <br/>    <br/>
+       <a href="../modules/stats.php" class="btn-large waves-effect waves-light pink lighten-3 ">Statistiques du site</a>
 
-        <ul class="listefonction">
-          <li><a class="grey-text text-darken-1" href="../modules/stats.php">Statistiques du site</a></li>
-          <br/>
-        </ul>
+          <br/>    <br/>    <br/>    <br/>    <br/> <br/> <br/>
 
 
 
-      </div>
-      <div class="col l6 s12 categorieadmin" >
+
         <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
-        <br/>
-        <a  class="grey-text text-darken-1 listefonction" href="listes.php">Listes de Nounous</a>
+        <br/>    <br/>
+       <a href="listes.php" class="btn-large  waves-effect waves-light pink lighten-3 ">Listes de Nounous</a></br>
+       </br>
+<hr/>
     </div>
   </div>
 </div>
+
+
+
 </br>
 </br>
 </br>
@@ -56,8 +63,7 @@
 </br>
 </br>
 </br>
-</br>
-</br>
+
 
 <footer class="whpage-footer">
           <div class="container">
@@ -71,7 +77,7 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="black-text">Services</h5>
                 <ul>
-                  <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+                  <li><a class="grey-text text-darken-1" href="../forms/NounouForm.php">Inscription en tant que Nounou</a></li>
                   <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
                 </ul>
               </div>

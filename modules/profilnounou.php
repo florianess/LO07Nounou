@@ -12,7 +12,7 @@
 
   <title>Profil Nounou</title>
 </head>
-<body >
+<body class="purple lighten-5">
   <nav class="white nav-extended">
     <div class="container nav-wrapper">
       <a id="logo-container" href="../index.php" class="brand-logo grey-text text-darken-1">NounouFinder</a>
@@ -44,6 +44,45 @@ echo "<br/><h3> Profil Nounou </h3><br/>";
   echo "<h6> Ville : <i>".$row['ville']."</i></h6>";
 
   echo "<h6> Age : <i>".$row['age']."</i></h6>";
+  echo "<h6> Langues maîtrisées :";
+  echo" <i>Français";
+  $sql = "SELECT * FROM utilisateur_has_langue WHERE utilisateur_email='".$_GET["email"]."'";
+  $res = $conn->query($sql);
+  while ($langue=$res->fetch_assoc() ) {
+    echo", ";
+  switch ($langue["langue_id"]) {
+    case '1':
+    echo "Anglais";
+      break;
+    case '2':
+    echo "Espagnol";
+    break;
+     case '3':
+    echo "Allemand";
+    break;
+    case '4':
+    echo "Portugais";
+      break;
+      case '5':
+      echo "Chinois";
+        break;
+        case '6':
+    echo "Italien";
+      break;
+      case '7':
+    echo "Japonais";
+        break;
+        case '8':
+        echo "Arabe";
+          break;
+  }
+  }
+  echo " </i></h6>";
+
+
+
+  while ($row = $res->fetch_row()) {
+
   echo "<h6> Présentation personnelle : <i>".$row['presentation']."</i></h6><br/><br/>";
   echo "<hr/><br/>";
 
@@ -89,7 +128,7 @@ echo"
  echo "<br/> <br/>";
 }
 
- } else {
+}} else {
    echo "Accèes refusé";
  } ?>
 
@@ -106,7 +145,7 @@ echo"
                <div class="col l4 offset-l2 s12">
                  <h5 class="black-text">Services</h5>
                  <ul>
-                   <li><a class="grey-text text-darken-1" href="../forms/NounouForm.html">Inscription en tant que Nounou</a></li>
+                   <li><a class="grey-text text-darken-1" href="../forms/NounouForm.php">Inscription en tant que Nounou</a></li>
                    <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
                  </ul>
                </div>
