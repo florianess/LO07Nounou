@@ -66,7 +66,8 @@
 <?php
 if (isset($_GET['date'])) {
   $sql = "SELECT * FROM dispo 
-          INNER JOIN utilisateur u ON dispo.nounou_email = u.email";
+          INNER JOIN utilisateur u ON dispo.nounou_email = u.email
+          LEFT JOIN garde g ON dispo.nounou_email = g.nounou_email";
   if (isset($_GET['langue'])) {
     $sql .= " INNER JOIN utilisateur_has_langue ul on u.email = ul.utilisateur_email";
   }
@@ -79,13 +80,16 @@ if (isset($_GET['date'])) {
     $debut = $_GET['debut'].':00';
     $fin = $_GET['fin'].':00';
     if ($fin == '00:00:00') {$fin = '23:59:59';};
-    $sql .=" debut <= '$debut' AND fin >= '$fin'";
+    $sql .=" dispo.debut <= '$debut' AND dispo.fin >= '$fin'";
   }
   if ($_GET['type'] == 'reg') {
-    $sql.=" AND jour = '$numJ'";
+    $sql.=" AND dispo.jour = '$numJ' AND g.debut >= '$numJ $fin' AND g.fin <= '$numJ $debut'";
     $tjour = $numJ;
   } else {
-    $sql.=" AND (jour = '$jour' OR jour = '$numJ')";
+    $dateUS = $conv->format('Y-m-d');
+    $sql.=" AND (dispo.jour = '$jour' OR dispo.jour = '$numJ')
+            AND ((g.debut >= '$numJ $fin' AND g.fin <= '$numJ $debut')
+                OR (g.debut >= '$dateUS $fin' AND g.fin <= '$dateUS $debut'))";
     $tjour =$jour;
   }
   if (isset($_GET['langue'])) {
