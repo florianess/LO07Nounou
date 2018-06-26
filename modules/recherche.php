@@ -65,7 +65,7 @@
 <div class="row">
 <?php
 if (isset($_GET['date'])) {
-  $sql = "SELECT * FROM dispo 
+  $sql = "SELECT * FROM dispo
           INNER JOIN utilisateur u ON dispo.nounou_email = u.email";
   if (isset($_GET['langue'])) {
     $sql .= " INNER JOIN utilisateur_has_langue ul on u.email = ul.utilisateur_email";
@@ -108,7 +108,7 @@ if($res) {
     };
     if (isset($_GET['date'])){
       $dateUS = $conv->format('Y-m-d');
-      $sql3 = "SELECT * FROM garde WHERE nounou_email = '$email' 
+      $sql3 = "SELECT * FROM garde WHERE nounou_email = '$email'
               AND (((debut BETWEEN '$numJ $debut' AND '$numJ $fin') AND (fin BETWEEN '$numJ $debut' AND '$numJ $fin'))
                 OR ((debut BETWEEN '$dateUS $debut' AND '$dateUS $fin') AND (fin BETWEEN '$dateUS $debut' AND '$dateUS $fin')))";
       $res3 = $conn->query($sql3);
@@ -116,7 +116,7 @@ if($res) {
     if (!isset($_GET['date']) || $res3->num_rows == 0){
       ?>
 
-  <div class="col s6 m4">
+  <div class="col s12">
     <div class="card hoverable">
       <div class="card-content pink-text">
         <span class="card-title"><img src="data:image/jpeg;base64,<?php echo base64_encode( $row['photo'] )?>" width="50"/>   <?php echo $row["prenom"] ?></span>
