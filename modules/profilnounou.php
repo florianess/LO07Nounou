@@ -80,9 +80,6 @@ echo "<br/><h3> Profil Nounou </h3><br/>";
   echo " </i></h6>";
 
 
-
-  while ($row = $res->fetch_row()) {
-
   echo "<h6> Présentation personnelle : <i>".$row['presentation']."</i></h6><br/><br/>";
   echo "<hr/><br/>";
 
@@ -128,7 +125,7 @@ echo"
  echo "<br/> <br/>";
 }
 
-}} else {
+} else {
    echo "Accèes refusé";
  } ?>
 
