@@ -116,8 +116,8 @@ if($res) {
     if (!isset($_GET['date']) || $res3->num_rows == 0){
       ?>
 
-  <div class="col s12">
-    <div class="card hoverable">
+  <div class="col s12 m4">
+    <div class="card small hoverable">
       <div class="card-content pink-text">
         <span class="card-title"><img src="data:image/jpeg;base64,<?php echo base64_encode( $row['photo'] )?>" width="50"/>   <?php echo $row["prenom"] ?></span>
         <p>Ville: <?php echo $row['ville']?></p>
