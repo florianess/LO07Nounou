@@ -79,13 +79,13 @@ if (isset($_GET['date'])) {
     $debut = $_GET['debut'].':00';
     $fin = $_GET['fin'].':00';
     if ($fin == '00:00:00') {$fin = '23:59:59';};
-    $sql .=" debut <= '$debut' AND fin >= '$fin'";
+    $sql .=" dispo.debut <= '$debut' AND dispo.fin >= '$fin'";
   }
   if ($_GET['type'] == 'reg') {
-    $sql.=" AND jour = '$numJ'";
+    $sql.=" AND dispo.jour = '$numJ'";
     $tjour = $numJ;
   } else {
-    $sql.=" AND (jour = '$jour' OR jour = '$numJ')";
+    $sql.=" AND (dispo.jour = '$jour' OR dispo.jour = '$numJ')";
     $tjour =$jour;
   }
   if (isset($_GET['langue'])) {
@@ -106,7 +106,15 @@ if($res) {
     for ($i=0; $i < count($res2); $i++) {
       $langues .= $res2[$i][3] . ' ';
     };
-    ?>
+    if (isset($_GET['date'])){
+      $dateUS = $conv->format('Y-m-d');
+      $sql3 = "SELECT * FROM garde WHERE nounou_email = '$email' 
+              AND (((debut BETWEEN '$numJ $debut' AND '$numJ $fin') AND (fin BETWEEN '$numJ $debut' AND '$numJ $fin'))
+                OR ((debut BETWEEN '$dateUS $debut' AND '$dateUS $fin') AND (fin BETWEEN '$dateUS $debut' AND '$dateUS $fin')))";
+      $res3 = $conn->query($sql3);
+    }
+    if (!isset($_GET['date']) || $res3->num_rows == 0){
+      ?>
 
   <div class="col s6 m4">
     <div class="card hoverable">
@@ -125,6 +133,7 @@ if($res) {
   </div>
 
     <?php
+    }
   }
 }
 ?>
