@@ -28,12 +28,13 @@
   </nav>
   <div class="container main">
     <div class="row center">
-      <br><br>
+      <br><br>  <br><br>  <br><br><hr><br><br>
       <h5 class="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
       <a href="../modules/stats.php" class="btn-large waves-effect waves-light pink lighten-3">Statistiques du site</a>
-      <br><br><hr><br>
+      <br><br>  <br><br>  <br><br>
       <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
       <a href="listes.php" class="btn-large  waves-effect waves-light pink lighten-3">Listes de Nounous</a>
+        <br><br><hr>
     </div>
   </div>
   <footer class="footer">
