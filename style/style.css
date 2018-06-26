@@ -1,24 +1,30 @@
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 }
 
-main {
-  flex: 1 0 auto;
+html {
+  height: 100%;
+}
+
+.footer {
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 #nounoufinder{
-font-size: 70;
-color:#6C1D38;
+  font-size: 70;
+  color:#6C1D38;
 }
 
 #description{
-    margin-left: 32.5%;
+  margin-left: 32.5%;
 }
- .Bouton{
-   padding-left: 90%;
- }
+
+.Bouton{
+  padding-left: 90%;
+}
 
 #blablacar{
   margin-left: 233px;
@@ -26,13 +32,11 @@ color:#6C1D38;
 }
 
 #accueil{
-margin-left:  37%;
-
+  margin-left: 37%;
 }
 
 .administration {
-
-background-color: #E8F8F5 ;
+  background-color: #E8F8F5 ;
 }
 
 #profil{
@@ -40,22 +44,18 @@ background-color: #E8F8F5 ;
 }
 
 .categorieadmin {
-
   text-align: center;
 }
 
 .categorie{
   color: black;
   font-size: 30px;
-
 }
+
 .listefonction {
 font-size: 20px;
 text-decoration: underline;
 }
-
-
-
 
 .fc-view-container {
   background-color: white;

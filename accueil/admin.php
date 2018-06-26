@@ -26,70 +26,39 @@
       </ul>
     </div>
   </nav>
-
-  <div class="container">
-    <br>
-    </br>
-  </br>  </br><hr/></br>
-  </br>
-
+  <div class="container main">
     <div class="row center">
-
-        <h5 class="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
-      <br/>    <br/>
-       <a href="../modules/stats.php" class="btn-large waves-effect waves-light pink lighten-3 ">Statistiques du site</a>
-
-          <br/>    <br/>    <br/>    <br/>    <br/> <br/> <br/>
-
-
-
-
-        <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
-        <br/>    <br/>
-       <a href="listes.php" class="btn-large  waves-effect waves-light pink lighten-3 ">Listes de Nounous</a></br>
-       </br>
-<hr/>
+      <br><br>
+      <h5 class="categorie"><b>INFORMATIONS STRATEGIQUES</b></h5>
+      <a href="../modules/stats.php" class="btn-large waves-effect waves-light pink lighten-3">Statistiques du site</a>
+      <br><br><hr><br>
+      <h5 class="categorie" ><b>RECRUTEMENT DES NOUNOUS</b></h5>
+      <a href="listes.php" class="btn-large  waves-effect waves-light pink lighten-3">Listes de Nounous</a>
     </div>
   </div>
-</div>
-
-
-
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-
-
-<footer class="whpage-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="black-text">Contactez nous</h5>
-                <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
-
-
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="black-text">Services</h5>
-                <ul>
-                  <li><a class="grey-text text-darken-1" href="../forms/NounouForm.php">Inscription en tant que Nounou</a></li>
-                  <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class=" grey lighten-3 footer-copyright">
-            <div class="container">
-            © 2018 Copyright NounouFinder.com
-            <a class="grey-text text-darken-1 right" href="../index.php">Accueil</a>
-            </div>
-          </div>
-        </footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="black-text">Contactez nous</h5>
+          <p class="grey-text text-darken-1">contact@NounouFinder.com</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="black-text">Services</h5>
+          <ul>
+            <li><a class="grey-text text-darken-1" href="../forms/NounouForm.php">Inscription en tant que Nounou</a></li>
+            <li><a class="grey-text text-darken-1" href="../forms/ParentsForm.html">Inscription en tant que Parent</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="grey lighten-3 footer-copyright">
+      <div class="container">
+      © 2018 Copyright NounouFinder.com
+      <a class="grey-text text-darken-1 right" href="../index.php">Accueil</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
 <?php } else {
