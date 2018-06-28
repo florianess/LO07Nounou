@@ -30,9 +30,8 @@ if($conn->query($sql)) {
         $sql3 .= "('$id[0]','$value'),";
     }
     $sql3 = substr($sql3, 0, -1);
-    var_dump($sql3);
     $conn->query($sql3);
-    //header('Location: ../accueil/parent.php?res');
+    header('Location: ../accueil/parent.php?res');
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
