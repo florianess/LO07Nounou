@@ -2,7 +2,7 @@
 
 require_once 'connection.php';
 
-$regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù]|-)*$/";
+$regText = "/^([a-zA-Z]|\s|[àäéèêëëïîôöù-])*$/";
 
 
 //Filtres pour les valeurs envoyées par l'utilisateur
@@ -23,7 +23,6 @@ $filters = array(
   "password" => FILTER_DEFAULT
 );
 
-
 //filtrer les valeurs
 $myinputs = filter_input_array(INPUT_POST, $filters);
 $values = array_values($myinputs);
@@ -37,6 +36,7 @@ if(in_array(false, $values)) {
   $test = $conn->query($sql0);
 
   if ($test->num_rows == 0){
+    $presentation = str_replace ("'","''",$_POST['presentation']);
     $photo = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
     $sql = "INSERT INTO utilisateur
     (nom, prenom, ville, email, portable, photo, age, experience, presentation, type_user, password)
@@ -48,7 +48,7 @@ if(in_array(false, $values)) {
       '".$photo."',
       '$values[5]',
       '$values[6]',
-      '".$_POST['presentation']."',
+      '$presentation',
       'await',
       '".password_hash($values[7], PASSWORD_DEFAULT)."')"; //hash le password
     if ($conn->query($sql)) {
