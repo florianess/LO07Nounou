@@ -27,10 +27,12 @@ if($conn->query($sql)) {
     $id = $res->fetch_row();
     $sql3 = "INSERT INTO garde_has_enfant (garde_id,enfant_id) VALUES ";
     foreach ($_SESSION['resa']['enfants'] as $value) {
-        $sql3 .= "('$id[0]','$value')";
+        $sql3 .= "('$id[0]','$value'),";
     }
-
-      header('Location: ../accueil/parent.php?res');
+    $sql3 = substr($sql3, 0, -1);
+    var_dump($sql3);
+    $conn->query($sql3);
+    //header('Location: ../accueil/parent.php?res');
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
